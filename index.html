@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Access Class - Home</title>
+    <link rel="stylesheet" href="utility.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        color: #000000;
+        background-color: var(--basic-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--basic-color) 0%,
+          #e5e7eb 50%,
+          var(--basic-color) 100%
+        );
+        /* padding: 4rem 0 6rem 0; */
+        background-color: var(--basic-color);
+        text-align: center;
+        /* position: relative; */
+        overflow: hidden;
+        height: 474px;
+        background-image: url(/backpic.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* opacity: 0.2; */
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(220, 38, 38, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(30, 58, 138, 0.05) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 45px;
+        /* padding: 0 2rem; */
+        position: absolute;
+        /*  z-index: 1; */
+        width: 100vw;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #000000;
+        /* margin-bottom: 1.5rem; */
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--p-color);
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        line-height: 1.7;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff0000 0%, #1100ff 100%);
+        color: var(--basic-color);
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+      }
+
+      .vp-b {
+        background: linear-gradient(135deg, rgb(194, 32, 32) 0%, red 100%);
+      }
+
+      .ee-b {
+        background: linear-gradient(135deg, blue 0%, rgb(36, 69, 179) 100%);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+      }
+
+      .h-b {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 37px;
+        /* top: 34px; */
+        margin-top: 53px;
+      }
+      /* Footer */
+      .footer {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        color: var(--basic-color);
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer p {
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .welcome-sec h1 {
+          padding: 8px;
+          font-size: 2rem;
+        }
+
+        .h-b {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 17px;
+          /* top: 34px; */
+          margin-top: 0;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-container,
+        .updates-container {
+          padding: 0 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .welcome-sec h1 {
+          padding: 12px;
+          font-size: 16px;
+          font-size: 10px;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      .herop {
+        position: absolute;
+        height: 474px;
+        position: absolute;
+        width: 99vw;
+        background-color: var(--basic-color);
+        opacity: 0.45;
+      }
+      .backpic {
+        width: 100vw;
+      }
+
+      .hero-container > h3 {
+        display: flex;
+        justify-content: start;
+        font-size: 1.5rem;
+        margin-left: 90px;
+        font-weight: 800;
+        padding: 0px 0px 0px 10px;
+        color: #0202c8;
+      }
+
+      .welcome-sec {
+        width: 75vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .welcome-sec h1,
+      .programh h1,
+      .th-para h1 {
+        font-size: 2.5rem;
+        margin-top: 50px;
+      }
+
+      .welcome-sec p:nth-child(1),
+      .programh p:nth-child(1),
+      .th-para p:nth-child(1) {
+        color: var(--p-color);
+        max-width: 1018px;
+        margin-top: 24px;
+      }
+
+      .programh p:nth-child(1),
+      .th-para p:nth-child(1) {
+        padding: 10px;
+        margin-bottom: 65px;
+      }
+
+      .th-para p:nth-child(1) {
+        margin-top: 0px;
+      }
+
+      .wel-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 60px 0px;
+      }
+
+      .wcard {
+        margin: 10px auto;
+        max-height: 400px;
+        width: 260px;
+        border-radius: 7px;
+        padding: 8px;
+        background-color: var(--card-color);
+        box-shadow: -1px -1px 9px rgb(164, 164, 164);
+      }
+
+      .wcard-img {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .wcard-img img {
+        width: 240px;
+        border-radius: 7px;
+      }
+
+      .wcard h2:first-child {
+        color: var(--font-color);
+        font-size: 1.3rem;
+      }
+
+      .wcard p {
+        color: var(--p-color);
+        margin: 10px;
+        font-size: 0.8rem;
+      }
+
+      .wcard button {
+        color: #1e3a8a;
+        padding: 8px 23px;
+        background-color: transparent;
+        border: 2px solid #1b49d2;
+        border-radius: 5px;
+        margin: 9px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .hp {
+        margin: 45px 0px;
+      }
+      .hp h1 {
+        margin-top: 50px;
+        font-size: 2.5rem;
+      }
+
+      .hp p {
+        color: var(--p-color);
+      }
+
+      .nav button {
+        color: #1e3a8a;
+        padding: 12px 23px;
+        background-color: transparent;
+        border: 2px solid #1b49d2;
+        border-radius: 5px;
+      }
+
+      .e-card {
+        background: var(--card-color);
+        border-radius: 16px;
+        box-shadow: 0 0px 40px rgb(0 0 0 / 25%);
+        padding: 24px;
+        width: 320px;
+        max-width: 90vw;
+        position: relative;
+        overflow: hidden;
+        margin: 8px auto;
+      }
+
+      .e-card:hover {
+        box-shadow: 0px 0px 15px #878484;
+        transition: all 0.5s ease;
+      }
+
+      .e-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+
+      @media (max-width: 668px) {
+        .nav {
+          flex-direction: column;
+        }
+        .nav button {
+          margin-top: 45px;
+        }
+      }
+
+      .events-cards {
+        padding-top: 45px;
+        width: 75vw;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .e-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .e-category {
+        background: #ce85e4;
+        color: #2e1861;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+
+
+      .e-category2 {
+                background: #ff8b8b;
+        color: #711515;
+      }
+
+      .e-category3 {
+                background: #8b93ff;
+        color: #151a71;
+      }
+
+      .e-date {
+        color: #6b7280;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .e-title {
+        font-size: 20px;
+        font-weight: 700;
+        /* color: var(--font-color); */
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .e-description {
+        color: var(--p-color);
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .e-details {
+        margin-bottom: 24px;
+      }
+
+      .e-detail-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        color: #6b7280;
+        font-size: 14px;
+      }
+
+      .detail-icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+      }
+
+      .time-icon {
+        background: #a0a6f4;
+        color: #1406d9;
+      }
+
+      .location-icon {
+        background: #fce7f3;
+        color: #be185d;
+      }
+
+      .e-stay-tuned-btn {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .e-stay-tuned-btn:hover {
+        background: #4f46e5;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      }
+
+      .stay-tuned-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Subtle animations */
+      .e-card {
+        animation: slideIn 0.5s ease-out;
+      }
+
+      @media (max-width: 840px) {
+        .events-cards {
+          width: 90vw;
+        }
+        .wel-cards {
+          width: 90vw;
+        }
+      }
+      @media (max-width: 669px) {
+        .events-cards {
+          width: 85vw;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .title {
+        animation: fadeIn 0.7s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Program highlights section */
+      .pic-hl {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: auto;
+        width: 90vw;
+        max-width: 1200px;
+        border-radius: 15px;
+        background-color: var(--card-color);
+        padding: 20px;
+        gap: 30px;
+      }
+
+      .pic-hl .pic {
+        flex: 1 1 45%;
+        max-width: 550px;
+        padding: 10px;
+      }
+
+      .pic-hl .pic img {
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .pic-hl .hl {
+        flex: 1 1 45%;
+        padding: 10px;
+        background-color: var(--card-color);
+        border-radius: 15px;
+      }
+
+      .hl h2 {
+        margin-bottom: 20px;
+        color: var(--heading-color);
+      }
+
+      .hl-point {
+        display: flex;
+        align-items: center;
+        margin: 15px 0 5px;
+      }
+
+      .hl-point img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
+
+      .hl-point h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .hl-para {
+        color: var(--p-color);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      /* ========== Responsive ========== */
+
+      @media (max-width: 1024px) {
+        .pic-hl {
+          flex-direction: column;
+          width: 85vw;
+          padding: 20px;
+        }
+
+        .pic-hl .pic,
+        .pic-hl .hl {
+          width: 100%;
+          flex: 1 1 100%;
+          padding: 0;
+        }
+
+        .pic-hl .pic img {
+          max-height: 400px;
+        }
+
+        .hl h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .pic-hl {
+          width: 95vw;
+          padding: 15px;
+        }
+
+        .pic-hl .pic img {
+          max-height: 300px;
+        }
+
+        .hl-point {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .hl-point img {
+          width: 22px;
+          height: 22px;
+        }
+
+        .hl-point h3 {
+          font-size: 1rem;
+        }
+
+        .hl-para {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Testominal Section */
+
+      .testimonials-container {
+        width: 90vw;
+        margin: 45px auto;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .quote-icon {
+        font-size: 32px;
+        color: #6366f1;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .testimonial-text {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #374151;
+        margin-bottom: 30px;
+      }
+
+      .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .profile-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #6b7280;
+        flex-shrink: 0;
+      }
+
+      .profile-info {
+        flex: 1;
+      }
+
+      .profile-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: #6366f1;
+        margin-bottom: 4px;
+      }
+
+      .profile-title {
+        font-size: 14px;
+        color: #6b7280;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .testimonial-card {
+          padding: 25px;
+        }
+
+        .testimonial-text {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .testimonial-card {
+          padding: 20px;
+        }
+
+        .profile-image {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+
+        .profile-name {
+          font-size: 16px;
+        }
+      }
+
+      /* Newone section */
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .gallery-header h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .gallery-header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .tabs {
+        display: flex;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      .tab {
+        padding: 15px 0;
+        margin-right: 40px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: #666;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .tab.active {
+        color: #7c4dff;
+        border-bottom-color: #7c4dff;
+        font-weight: 600;
+      }
+
+      .tab:hover {
+        color: #7c4dff;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        aspect-ratio: 16/10;
+        background: #f0f0f0;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gallery-item .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.4)
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .gallery-item .overlay h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .gallery-item .overlay p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .view-all {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .view-all a {
+        color: #7c4dff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+      }
+
+      .view-all a:hover {
+        color: #5e35b1;
+      }
+
+      .view-all a::after {
+        content: "→";
+        font-size: 1.2rem;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .gallery-container {
+          padding: 20px;
+        }
+
+        .gallery-header h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-header p {
+          font-size: 1rem;
+        }
+
+        .tabs {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .tab {
+          margin-right: 20px;
+          font-size: 1rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-container {
+          padding: 15px;
+        }
+
+        .gallery-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .tab {
+          margin-right: 15px;
+          font-size: 0.9rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        margin-top: 50px;
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .header p {
+        color: rgb(0, 0, 0);
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        display: inline-block;
+        max-width: 1245px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 280px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+      .card-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.2),
+          rgba(168, 85, 247, 0.2)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover .card-image::before {
+        opacity: 1;
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .card-title {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .card-description {
+        color: #666;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .view-more-btn {
+        background: none;
+        border: 2px solid #6366f1;
+        color: #6366f1;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .view-more-btn:hover {
+        background-color: #6366f1;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Specific background images for each card */
+      .speaking-activities {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23e0e7ff"/><circle cx="100" cy="100" r="30" fill="%236366f1" opacity="0.3"/><circle cx="300" cy="180" r="25" fill="%23a855f7" opacity="0.3"/><rect x="50" y="200" width="300" height="4" fill="%236366f1" opacity="0.2"/><text x="200" y="140" text-anchor="middle" fill="%234f46e5" font-family="Arial" font-size="16" font-weight="bold">Speaking Activities</text></svg>');
+      }
+
+      .writing-workshops {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fef3c7"/><rect x="80" y="60" width="240" height="160" fill="%23f59e0b" opacity="0.3" rx="8"/><rect x="100" y="80" width="200" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="100" width="180" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="120" width="160" height="4" fill="%23f59e0b" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%23d97706" font-family="Arial" font-size="16" font-weight="bold">Writing Workshops</text></svg>');
+      }
+
+      .interactive-games {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23dcfce7"/><circle cx="150" cy="80" r="20" fill="%2322c55e" opacity="0.4"/><circle cx="250" cy="120" r="25" fill="%2322c55e" opacity="0.4"/><circle cx="200" cy="180" r="18" fill="%2322c55e" opacity="0.4"/><polygon points="200,60 220,100 180,100" fill="%2316a34a" opacity="0.3"/><text x="200" y="140" text-anchor="middle" fill="%2315803d" font-family="Arial" font-size="16" font-weight="bold">Interactive Games</text></svg>');
+      }
+
+      .cultural-activities {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fce7f3"/><rect x="100" y="80" width="200" height="120" fill="%23ec4899" opacity="0.3" rx="10"/><circle cx="150" cy="120" r="8" fill="%23ec4899" opacity="0.6"/><circle cx="250" cy="160" r="10" fill="%23ec4899" opacity="0.6"/><rect x="180" y="100" width="40" height="80" fill="%23ec4899" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23be185d" font-family="Arial" font-size="16" font-weight="bold">Cultural Activities</text></svg>');
+      }
+
+      .enhancement-activities {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fff7ed"/><rect x="120" y="80" width="160" height="120" fill="%23f97316" opacity="0.3" rx="12"/><circle cx="160" cy="120" r="15" fill="%23f97316" opacity="0.5"/><circle cx="240" cy="160" r="12" fill="%23f97316" opacity="0.5"/><rect x="180" y="100" width="40" height="60" fill="%23f97316" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23c2410c" font-family="Arial" font-size="16" font-weight="bold">Enhancement Activities</text></svg>');
+      }
+
+      .creative-work {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23f3e8ff"/><rect x="100" y="60" width="200" height="160" fill="%23a855f7" opacity="0.3" rx="15"/><circle cx="150" cy="100" r="12" fill="%23a855f7" opacity="0.6"/><circle cx="250" cy="140" r="15" fill="%23a855f7" opacity="0.6"/><rect x="180" y="180" width="40" height="20" fill="%23a855f7" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%237c3aed" font-family="Arial" font-size="16" font-weight="bold">Creative Work</text></svg>');
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .header h1 {
+          font-size: 2em;
+        }
+
+        .header p {
+          font-size: 1em;
+          padding: 12px 20px;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+      }
+
+      /* Achievement Section CSS */
+      .achievements-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .section-header {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+
+      .section-title {
+        font-size: 2.5em;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .section-subtitle {
+        font-size: 1.1em;
+        color: #666;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+      }
+
+      .achievement-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .achievement-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .achievement-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        font-size: 24px;
+        transition: all 0.3s ease;
+      }
+
+      .achievement-card:hover .achievement-icon {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      }
+
+      .achievement-number {
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .achievement-card:hover .achievement-number {
+        color: #6366f1;
+      }
+
+      .achievement-title {
+        font-size: 1.1em;
+        color: #666;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      /* Icons using CSS */
+      .trophy-icon::before {
+        content: "🏆";
+      }
+
+      .globe-icon::before {
+        content: "🌍";
+      }
+
+      .team-icon::before {
+        content: "👥";
+      }
+
+      .book-icon::before {
+        content: "📚";
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2em;
+        }
+
+        .section-subtitle {
+          font-size: 1em;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .achievement-card {
+          padding: 30px 20px;
+        }
+
+        .achievement-number {
+          font-size: 2.5em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 1.8em;
+        }
+
+        .achievement-card {
+          padding: 25px 15px;
+        }
+
+        .achievement-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+
+        .achievement-number {
+          font-size: 2.2em;
+        }
+      }
+
+      /* Animation on scroll */
+      .achievement-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .achievement-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .achievement-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .achievement-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .achievement-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="logo.jpg" alt="logo" />
+        </a>
+
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="activity.html">Activities</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="herop"></div>
+      <div class="hero-container">
+        <h1>English Access Microscholarship Program</h1>
+        <!-- <h3>Group-01</h3> -->
+        <p>
+          A community of talented students shaping the future through
+          creativity, knowledge, and skill. We are a passionate and driven team,
+          learning, growing , and succeeding together.
+        </p>
+        <div class="h-b">
+          <a href="activity.html" class="cta-button ee-b">Explore Activities</a>
+          <a href="activity.html" class="cta-button vp-b">View Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section>
+      <div class="header">
+        <h1>Welcome to Our English Access Program</h1>
+        <p>
+          The English Access Scholarship Program is a life-changing journey for
+          students. This incredible opportunity empowers learners from
+          underserved communities by improving English language skills,
+          developing leadership abilities, and building cultural awareness.
+          Through engaging classroom activities and meaningful events, students
+          grow in confidence and gain valuable skills that support both academic
+          success and personal growth.
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="card">
+          <div class="card-image speaking-activities"></div>
+          <div class="card-content">
+            <h2 class="card-title">Speak with Impact</h2>
+            <p class="card-description">
+              From lively debates to storytelling sessions and presentations,
+              students sharpen their communication skills and learn to express
+              themselves with confidence.
+            </p>
+            <button class="view-more-btn" onclick="showMore('speaking')">
+              View More
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image writing-workshops"></div>
+          <div class="card-content">
+            <h2 class="card-title">Write to Inspire</h2>
+            <p class="card-description">
+              Creative writing, academic essays, and journal-style reflections
+              help students discover the power of words and the art of effective
+              writing.
+            </p>
+            <button class="view-more-btn" onclick="showMore('writing')">
+              View More
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image interactive-games"></div>
+          <div class="card-content">
+            <h2 class="card-title">Read, Reflect, Grow</h2>
+            <p class="card-description">
+              With a range of fiction and nonfiction texts, reading becomes a
+              habit that strengthens vocabulary, comprehension, and imagination.
+            </p>
+            <button class="view-more-btn" onclick="showMore('games')">
+              View More
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image cultural-activities"></div>
+          <div class="card-content">
+            <h2 class="card-title">Listen and Learn</h2>
+            <p class="card-description">
+              Through songs, videos, and real-life conversations, students
+              improve their listeninq and pronunciation in a natural and
+              engaging way.
+            </p>
+            <button class="view-more-btn" onclick="showMore('cultural')">
+              View More
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image enhancement-activities"></div>
+          <div class="card-content">
+            <h2 class="card-title">Celebrate cultures</h2>
+            <p class="card-description">
+              Students dive into the richness of global traditions—especially
+              American and Pakistani—throuah festivals. food fairs, and cultural
+              exchange events.
+            </p>
+            <button class="view-more-btn" onclick="showMore('enhancement')">
+              View More
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image creative-work"></div>
+          <div class="card-content">
+            <h2 class="card-title">Learn Through Play</h2>
+            <p class="card-description">
+              Interactive games and educational challenges turn lessons into fun
+              experiences that boost focus, teamwork, and critical thinking.
+            </p>
+            <button class="view-more-btn" onclick="showMore('creative')">
+              View More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section>
+      <div class="achievements-section">
+        <div class="section-header">
+          <h1 class="section-title">Our Class Achievements</h1>
+          <p class="section-subtitle">
+            We are proud of what we've achieved together:
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon trophy-icon"></div>
+            <div class="achievement-number">12</div>
+            <div class="achievement-title">
+              Inter-class Competitions<br />Won
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon globe-icon"></div>
+            <div class="achievement-number">8</div>
+            <div class="achievement-title">
+              International Days<br />Celebrated
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon team-icon"></div>
+            <div class="achievement-number">15</div>
+            <div class="achievement-title">
+              Collaborative Projects<br />Completed
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon book-icon"></div>
+            <div class="achievement-number">6</div>
+            <div class="achievement-title">Headway Books<br />Completed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section>
+      <div class="gallery-container">
+        <div class="gallery-header">
+          <h1>Gallery Highlights</h1>
+          <p>
+            A visual journey through our most exciting moments — from fun
+            classroom activities to major celebrations — capturing the spirit of
+            learning, growth, and the strong bond within the Access family.
+          </p>
+        </div>
+
+        <div class="tabs">
+          <div class="tab active" onclick="showTab('class-activities')">
+            Class Activities
+          </div>
+          <div class="tab" onclick="showTab('event-activities')">
+            Event Activities
+          </div>
+        </div>
+
+        <div id="class-activities" class="tab-content active">
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=250&fit=crop"
+                alt="Group Discussion"
+              />
+              <div class="overlay">
+                <h3>Group Discussion</h3>
+                <p>Interactive learning sessions</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1581726690015-c9861fa5057f?w=400&h=250&fit=crop"
+                alt="Classroom Learning"
+              />
+              <div class="overlay">
+                <h3>Classroom Learning</h3>
+                <p>Focused study environment</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop"
+                alt="Collaborative Work"
+              />
+              <div class="overlay">
+                <h3>Collaborative Work</h3>
+                <p>Students working together</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop"
+                alt="Group Project"
+              />
+              <div class="overlay">
+                <h3>Group Project</h3>
+                <p>Collaborative poster creation</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=250&fit=crop"
+                alt="Presentation"
+              />
+              <div class="overlay">
+                <h3>Student Presentations</h3>
+                <p>Sharing knowledge with peers</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=250&fit=crop"
+                alt="Reading Session"
+              />
+              <div class="overlay">
+                <h3>Reading Session</h3>
+                <p>Literature and comprehension</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=250&fit=crop"
+                alt="Study Group"
+              />
+              <div class="overlay">
+                <h3>Study Groups</h3>
+                <p>Peer learning activities</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop"
+                alt="Workshop"
+              />
+              <div class="overlay">
+                <h3>Workshop Session</h3>
+                <p>Hands-on learning experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="event-activities" class="tab-content">
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=250&fit=crop"
+                alt="Women's Day Celebration"
+              />
+              <div class="overlay">
+                <h3>Women's Day Celebration</h3>
+                <p>March 8, 2025</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop"
+                alt="Sports Day"
+              />
+              <div class="overlay">
+                <h3>Sports Day</h3>
+                <p>Annual athletic competition</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=250&fit=crop"
+                alt="Cultural Festival"
+              />
+              <div class="overlay">
+                <h3>Cultural Festival</h3>
+                <p>Celebrating diversity</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=250&fit=crop"
+                alt="Science Fair"
+              />
+              <div class="overlay">
+                <h3>Science Fair</h3>
+                <p>Innovation and discovery</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop"
+                alt="International Day"
+              />
+              <div class="overlay">
+                <h3>International Day</h3>
+                <p>Global cultures celebration</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop"
+                alt="Art Exhibition"
+              />
+              <div class="overlay">
+                <h3>Art Exhibition</h3>
+                <p>Student creativity showcase</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=250&fit=crop"
+                alt="Graduation Day"
+              />
+              <div class="overlay">
+                <h3>Graduation Day</h3>
+                <p>Celebrating achievements</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=250&fit=crop"
+                alt="Awards Ceremony"
+              />
+              <div class="overlay">
+                <h3>Awards Ceremony</h3>
+                <p>Recognizing excellence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="view-all">
+          <a href="#" onclick="viewAllActivities()"
+            >View All Class & Event Activities</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- Upcoming Events -->
+
+    <section class="events">
+      <div class="nav">
+        <div class="hp">
+          <h1>Upcoming Events</h1>
+          <p>Stay updated with our latest activities and events.</p>
+        </div>
+        <!-- <button>View All Events</button> -->
+      </div>
+      <div class="events-cards">
+        <!-- First Card -->
+        <div class="e-card">
+          <div class="e-header">
+            <span class="e-category e-category1">Cultural Celebration</span>
+            <span class="e-date">July 04, 2025</span>
+          </div>
+
+          <h2 class="e-title">American Independence
+Day</h2>
+
+          <p class="e-description">
+            Celebrating American Independence Day with
+flag-themed decorations, speech
+competition, skit and quiz
+          </p>
+
+          <div class="e-details">
+            <div class="e-detail-item">
+              <span class="detail-icon time-icon">🕐</span>
+              <span>3:15 PM - 5:15 PM</span>
+            </div>
+            <div class="e-detail-item">
+              <span class="detail-icon location-icon">📍</span>
+              <span>Main Hall, UE Multan</span>
+            </div>
+          </div>
+
+          <button class="e-stay-tuned-btn">Stay Tuned</button>
+        </div>
+
+        <!-- Second Card -->
+        <div class="e-card">
+          <div class="e-header">
+            <span class="e-category e-category2">Educational Visit</span>
+            <span class="e-date">July 04, 2025</span>
+          </div>
+
+          <h2 class="e-title">Visit to Lincoln Corner</h2>
+
+          <p class="e-description">
+           Students will explore Lincoln Corner to
+engage in educational sessions, improve
+English language skills, and experience
+American learning resources.
+          </p>
+
+          <div class="e-details">
+            <div class="e-detail-item">
+              <span class="detail-icon time-icon">🕐</span>
+              <span>1:15 PM - 5:15 PM</span>
+            </div>
+            <div class="e-detail-item">
+              <span class="detail-icon location-icon">📍</span>
+              <span>BZU, Multan</span>
+            </div>
+          </div>
+
+          <button class="e-stay-tuned-btn">Stay Tuned</button>
+        </div>
+
+        <!-- Third Card -->
+        <div class="e-card">
+          <div class="e-header">
+            <span class="e-category e-category3">Leadership Activity</span>
+            <span class="e-date">July 04, 2025</span>
+          </div>
+
+          <h2 class="e-title">Summer Summit</h2>
+
+          <p class="e-description">
+           A four-days leadership and creativity summit
+in Islamabad where Access students join
+workshops, cultural exchanges, and
+collaborative projects.
+          </p>
+
+          <div class="e-details">
+            <div class="e-detail-item">
+              <span class="detail-icon time-icon">🕐</span>
+              <span>10 July — 13 July</span>
+            </div>
+            <div class="e-detail-item">
+              <span class="detail-icon location-icon">📍</span>
+              <span>Islamabad</span>
+            </div>
+          </div>
+          <button class="e-stay-tuned-btn">Stay Tuned</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programm Highlights -->
+    <section class="programh">
+      <center><h1>Program Highlights</h1></center>
+      <center>
+        <p>
+          The English Access Program isn't just about learning a language — it's about discovering potential and building a
+path to success. Here's what makes the experience truly special:
+        </p>
+      </center>
+      <div class="pic-hl">
+        <div class="pic">
+          <img loading="lazy" src="/assets/image/picofhl.jpeg" alt="class room picture" />
+        </div>
+        <div class="hl">
+          <h2>Comprehensive Skill Development</h2>
+          <div class="h1-point-1">
+            <div class="hl-point">
+              <img loading="lazy" src="/assets/image/translation.svg" alt="svg of language" />
+              <h3>Language Proficiency</h3>
+            </div>
+            <p class="hl-para">
+             Language is taught through real-world topics and practical
+use, helping students speak, read, write, and understand with
+confidence.
+            </p>
+          </div>
+          <div class="h1-point-2">
+            <div class="hl-point">
+              <img loading="lazy" src="/assets/image/world.svg" alt="svg of language" />
+              <h3>Cultural Awareness</h3>
+            </div>
+            <p class="hl-para">
+              By exploring international cultures and participating in global
+discussions, students gain respect for diversity and become
+world-ready citizens.
+            </p>
+          </div>
+          <div class="h1-point-3">
+            <div class="hl-point">
+              <img loading="lazy" src="/assets/image/leadership.svg" alt="svg of language" />
+              <h3>Leadership Development</h3>
+            </div>
+            <p class="hl-para">
+              Whether it's hosting events, leading group activities, or
+speaking on stage, students develop the courage and skills
+to lead.
+            </p>
+          </div>
+          <div class="h1-point-4">
+            <div class="hl-point">
+              <img loading="lazy" src="/assets/image/academic.svg" alt="svg of language" />
+              <h3>Academic Advancement</h3>
+            </div>
+            <p class="hl-para">
+             Access supports students not only in learning English but
+also in becoming better learners, thinkers, and
+changemakers in their communities.
+            </p>
+          </div>
+          <h3></h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testominals section -->
+
+    <section>
+      <div class="th-para">
+        <center><h1>Student Testimonials</h1></center>
+        <center>
+          <p>
+            Hear from our students about their experiences in the Access Program
+          </p>
+        </center>
+      </div>
+
+      <div class="testimonials-container">
+        <div class="testimonials-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Before Access, I had limited confidence in speaking English, but
+              now I can express myself clearly and confidently. The program
+              didn't just help me improve my language skills – it also taught me
+              teamwork, leadership, and digital skills. Access gave me a new
+              vision for my future, and I feel proud to be a part of this global
+              community.
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Abdullah Atta</div>
+                <div class="profile-title">Diploma Student</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Before joining Access, I was a very shy person who avoided
+              speaking in front of others. But the friendly environment, fun
+              learning activities, and supportive teachers helped me come out of
+              my shell. I especially enjoyed the writing and speaking games, and
+              now I can give presentations without fear! Access taught me that
+              learning English is not just about grammar – it's about opening
+              doors to new opportunities. I'm so thankful to be part of this
+              journey!
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Hassan Rafy</div>
+                <div class="profile-title">1st Year</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Access is not just a language program – it's a full experience! I
+              improved my English skills, learned how to work in teams, and
+              explored American culture in a fun and respectful way. The visit
+              to the Lincoln Corner was so informative, and the Summer Summit in
+              Islamabad gave us unforgettable memories. We even celebrated
+              global events like Independence Day together. This program gave me
+              confidence, skills, and amazing friends. I'll always be proud to
+              say: I'm an Access student!
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Ahmed Hassan</div>
+                <div class="profile-title">9th Class</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              The Access program transformed my perspective on learning and
+              communication. Through interactive sessions and cultural exchange
+              activities, I not only enhanced my English proficiency but also
+              developed critical thinking skills. The program's emphasis on
+              leadership development and community service helped me become more
+              confident in expressing my ideas and taking initiative in group
+              projects.
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Fatima Khan</div>
+                <div class="profile-title">Certificate Student</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              What makes Access special is its holistic approach to education.
+              Beyond language learning, we explored American culture,
+              participated in debates, and engaged in community service
+              projects. The program taught me the importance of cultural
+              sensitivity and global citizenship. The mentorship from teachers
+              and the friendships I made will last a lifetime.
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Muhammad Ali</div>
+                <div class="profile-title">2nd Year</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Access opened doors I never knew existed. The program's focus on
+              practical English skills, combined with leadership training and
+              cultural awareness, prepared me for real-world challenges. The
+              collaborative learning environment and diverse activities made
+              every session engaging and meaningful. I gained not just language
+              skills, but lifelong friendships and a global perspective that
+              continues to benefit me today.
+            </p>
+            <div class="profile-section">
+              <div class="profile-image">
+                <!-- Profile photo placeholder -->
+                👤
+              </div>
+              <div class="profile-info">
+                <div class="profile-name">Ayesha Malik</div>
+                <div class="profile-title">Graduate Student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mfooter">
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Access Group-1 Section -->
+          <div class="footer-section">
+            <h3>Access Group-1</h3>
+            <p>
+              Empowering students through English language learning and cultural
+              exchange.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" title="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="YouTube">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="demo.html">Home</a></li>
+              <li><a href="#">Activities</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Achievement</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Section -->
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Learning Material</a></li>
+              <li><a href="#">Event Calendar</a></li>
+              <li><a href="#">Photo Gallery</a></li>
+              <li><a href="#">Student Handbook</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+              <div class="address">
+                123 Education Street, Learning City, 10001
+              </div>
+              <div class="phone">+1 (555) 123-4567</div>
+              <div class="email">info@accessprogram.edu</div>
+              <div class="hours">Mon-Fri: 3:15 PM - 5:15 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            © A project by Group-1 from English Access Microscholarship Program
+            UE Multan. All rights reserved
+          </div>
+          <div class="footer-bottom-right">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

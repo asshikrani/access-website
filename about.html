@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="utility.css">
+    <style>
+
+        
+
+        .hero-container-main {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #ffffff 100%);
+            /* This gradient will be replaced by your banner image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay-patriotic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 58, 138, 0.8) 0%,
+                rgba(220, 38, 38, 0.6) 40%,
+                rgba(255, 255, 255, 0.3) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+            text-align: center;
+            animation: heroFadeInUp 1.2s ease-out;
+        }
+
+        .hero-title-primary {
+            font-family: 'Georgia', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            position: relative;
+        }
+
+        .hero-title-primary::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #ffffff, #1e3a8a);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle-descriptive {
+            font-family: 'Arial', sans-serif;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #f8fafc;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+            font-weight: 400;
+            opacity: 0;
+            animation: heroTextSlideIn 1.5s ease-out 0.3s forwards;
+        }
+
+        .hero-button-group-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: heroButtonsAppear 1.8s ease-out 0.6s forwards;
+        }
+
+        .hero-btn-primary-mission {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn-primary-mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hero-btn-primary-mission:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn-primary-mission:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .hero-btn-secondary-developers {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-btn-secondary-developers:hover {
+            background-color: #ffffff;
+            color: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-decorative-stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-star-element {
+            position: absolute;
+            color: #ffffff;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: heroStarTwinkle 3s ease-in-out infinite;
+        }
+
+        .hero-star-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .hero-star-element:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .hero-star-element:nth-child(3) {
+            bottom: 25%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .hero-star-element:nth-child(4) {
+            bottom: 35%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .hero-star-element:nth-child(5) {
+            top: 15%;
+            left: 70%;
+            animation-delay: 0.5s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content-wrapper {
+                padding: 0 1rem;
+            }
+
+            .hero-button-group-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-btn-primary-mission,
+            .hero-btn-secondary-developers {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .hero-title-primary {
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle-descriptive {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-container-main {
+                min-height: 70vh;
+            }
+
+            .hero-btn-primary-mission,
+            .hero-btn-secondary-developers {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes heroFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroTextSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes heroButtonsAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroStarTwinkle {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Parallax effect for background */
+        @media (min-width: 1024px) {
+            .hero-container-main {
+                background-attachment: fixed;
+            }
+        }
+
+
+        /* Developers Cards */
+
+        .container {
+            max-width: 1200px;
+            margin: 45px auto;
+                padding: 0px 13px;
+            position: relative;
+            z-index: 1; /* Ensures content is above body background */
+        }
+
+        /*
+         * Section Header Styling
+         * Centers text, sets colors, font sizes, and adds text shadow for readability.
+         */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #313131;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: rgb(15, 15, 15);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /*
+         * Cards Grid Layout
+         * Uses CSS Grid for a responsive layout of profile cards.
+         * Cards will automatically fit based on minmax width.
+         */
+        .cards-grid {
+            display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(383px, 1fr));
+            gap: 30px; /* Space between grid items */
+            margin-top: 40px;
+        }
+
+        /*
+         * Profile Card Base Styling
+         * Sets background, border-radius, padding, shadow, and transition for hover effects.
+         * Hides overflow for the background gradient.
+         */
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden; /* Important for card-background */
+            border: 3px solid rgba(220, 38, 38, 0.1); /* Subtle border */
+        }
+
+        /*
+         * Profile Card Hover Effects
+         * Lifts the card and enhances shadow on hover.
+         */
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /*
+         * Card Background Element
+         * Creates a dynamic gradient background for the top part of the card.
+         */
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 140px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #1e3a8a 100%);
+            background-size: 200% 200%; /* Larger background for animation */
+            animation: cardGradient 8s ease infinite; /* Gradient animation */
+        }
+
+        /*
+         * Card Background Pattern
+         * Adds a subtle SVG pattern to the card background.
+         */
+        .card-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20.5V18H18v2.5h-2.5V23H18v2.5h2V23h2.5v-2.5H20zm0-7V11H18v2.5h-2.5V16H18v2.5h2V16h2.5v-2.5H20zm0 14V25H18v2.5h-2.5V30H18v2.5h2V30h2.5v-2.5H20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /*
+         * Keyframe Animation for Card Background Gradient
+         * Shifts the background gradient horizontally for a dynamic effect within the card.
+         */
+        @keyframes cardGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /*
+         * Profile Header Styling
+         * Centers content and positions elements within the card.
+         */
+        .profile-header {
+            display: flex;
+            margin-top: 13px;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1; /* Ensures header content is above card-background */
+        }
+
+        /*
+         * Profile Picture Styling
+         * Creates a circular profile picture with initials, gradient background,
+         * border, and shadow. Uses negative margin to overlap the card background.
+         */
+
+         .profile-picture {
+             width: 165px;
+             height: 165px;
+             border-radius: 50%;
+             background: linear-gradient(135deg, #1e3a8a, #dc2626);
+             display: flex;
+             align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.8rem;
+            font-weight: bold;
+            flex-shrink: 0; /* Prevents shrinking on smaller screens */
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            margin-top: -60px; /* Overlaps card background */
+            position: relative;
+            z-index: 2; /* Ensures picture is above everything else in the header */
+            font-size: 2.2rem;
+            margin-top: 2px;
+        }
+
+        /*
+         * Profile Information Styling
+         * Centers text for name and profession.
+         */
+        .profile-info {
+                text-align: center;
+    padding-top: 23px;
+    margin-top: 80px;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+
+        /*
+         * Profile Profession Badge Styling
+         * Creates a styled badge for the profession with gradient and shadow.
+         */
+        .profile-profession {
+            background: linear-gradient(135deg, #1e3a8a, #dc2626);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block; /* Allows padding and border-radius */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /*
+         * Profile Description Styling
+         * Sets text color, line height, and margin for the description paragraph.
+         */
+        .profile-description {
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /*
+         * Skills Section Styling
+         * Adds margin to separate from other sections.
+         */
+        .skills-section {
+            margin-bottom: 25px;
+        }
+
+        .skills-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        /*
+         * Skills List Styling
+         * Removes default list styling and adds custom bullet points.
+         */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .skills-list li::before {
+            content: '★'; /* Custom star bullet point */
+            position: absolute;
+            left: 0;
+            color: #dc2626; /* Red color for star */
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /*
+         * Social Links Styling
+         * Uses flexbox to arrange social links horizontally with spacing.
+         */
+        .social-links {
+            display: flex;
+            gap: 15px; /* Space between links */
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        /*
+         * Individual Social Link Styling
+         * Creates circular buttons with transitions and shadows.
+         */
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /*
+         * Social Link Hover Effects
+         * Lifts the link and enhances shadow on hover.
+         */
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /*
+         * Specific Social Link Colors
+         * Sets distinct background colors for LinkedIn, GitHub, and Email.
+         */
+        .social-link.linkedin {
+            background: #0077b5;
+            color: white;
+        }
+
+        .social-link.github {
+            background: #333;
+            color: white;
+        }
+
+        .social-link.email {
+            background: #dc2626;
+            color: white;
+        }
+
+        /*
+         * Social Link SVG Icon Sizing
+         */
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /*
+         * Responsive Design Media Queries
+         * Adjusts layout and sizing for different screen widths.
+         */
+        @media (max-width: 768px) {
+            body {
+                padding: 0px 0px; /* Reduced padding for smaller screens */
+            }
+
+            .section-header h2 {
+                font-size: 2rem; /* Smaller heading */
+            }
+
+            .section-header p {
+                font-size: 1rem; /* Smaller paragraph text */
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr; /* Single column layout on small screens */
+                gap: 20px;
+            }
+
+            .profile-card {
+                padding: 25px; /* Reduced card padding */
+            }
+
+            .profile-picture { /* Adjusted negative margin */
+
+                width: 165px;
+        height: 165px;
+        font-size: 2.2rem;
+        margin-top: 2px;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-link svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-picture {
+                width: 165px;
+        height: 165px;
+        font-size: 2.2rem;
+        margin-top: 2px;
+            }
+
+            .profile-name {
+                font-size: 1.3rem;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-link {
+                width: 42px;
+                height: 42px;
+            }
+
+            .social-link svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Mission and Vision Section */
+
+         /* Main Section Container */
+        .unique-mission-vision-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 4rem 1.4rem; /* Equivalent to py-16 px-4 */
+        }
+
+        /* Section Header */
+        .unique-section-header {
+            text-align: center;
+            margin-bottom: 3rem; /* Equivalent to mb-12 */
+            max-width: 48rem; /* Equivalent to max-w-3xl (approx) */
+            width: 100%;
+        }
+
+        .unique-main-heading {
+            font-size: 2.25rem; /* Equivalent to text-4xl */
+            line-height: 1.25; /* Equivalent to leading-tight */
+            font-weight: 700; /* Equivalent to font-bold */
+            color: #1f2937; /* Equivalent to text-gray-800 */
+            margin-bottom: 1rem; /* Equivalent to mb-4 */
+        }
+
+        .unique-sub-description {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            font-weight: 500; /* Equivalent to font-medium */
+            color: #4b5563; /* Equivalent to text-gray-600 */
+        }
+
+        /* Cards Container */
+        .unique-cards-container {
+            display: flex;
+            flex-direction: column; /* Equivalent to flex-col */
+            gap: 2rem; /* Equivalent to space-y-8 */
+            max-width: 80rem; /* Equivalent to max-w-6xl */
+            width: 100%;
+        }
+
+        /* Card Base Styles (Mission and Vision) */
+        .unique-mission-card,
+        .unique-vision-card {
+            background-color: #ffffff; /* Equivalent to bg-white */
+            border-radius: 1.5rem; /* Equivalent to rounded-3xl */
+            padding: 2rem; /* Equivalent to p-8 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%; /* Equivalent to w-full */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025); /* Custom shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Equivalent to transition-all duration-300 */
+        }
+
+        .unique-mission-card:hover,
+        .unique-vision-card:hover {
+            transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-2xl */
+        }
+
+        /* Icon Wrapper */
+        .unique-icon-wrapper {
+            background-color: #ede9fe; /* Equivalent to bg-purple-100 */
+            padding: 0.75rem; /* Equivalent to p-3 */
+            border-radius: 9999px; /* Equivalent to rounded-full */
+            margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+        }
+
+        /* Icon SVG */
+        .unique-mission-icon,
+        .unique-vision-icon {
+            width: 2rem; /* Equivalent to w-8 */
+            height: 2rem; /* Equivalent to h-8 */
+            color: #7c3aed; /* Equivalent to text-purple-600 */
+            stroke: currentColor;
+            fill: none;
+        }
+
+        /* Card Title */
+        .unique-card-title {
+            font-size: 1.5rem; /* Equivalent to text-2xl */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #1f2937; /* Equivalent to text-gray-800 */
+            margin-bottom: 1rem; /* Equivalent to mb-4 */
+        }
+
+        /* Card Description */
+        .unique-card-description {
+            color: #374151; /* Equivalent to text-gray-700 */
+            margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+            line-height: 1.625; /* Equivalent to leading-relaxed */
+        }
+
+        /* List Items */
+        .unique-mission-list,
+        .unique-vision-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Equivalent to space-y-3 */
+        }
+
+        .unique-mission-list li,
+        .unique-vision-list li {
+            display: flex;
+            align-items: center;
+            color: #374151; /* Equivalent to text-gray-700 */
+        }
+
+        /* Checkmark Icon */
+        .unique-checkmark-icon {
+            width: 1.25rem; /* Equivalent to w-5 */
+            height: 1.25rem; /* Equivalent to h-5 */
+            color: #22c55e; /* Equivalent to text-green-500 */
+            margin-right: 0.5rem; /* Equivalent to mr-2 */
+            flex-shrink: 0; /* Equivalent to flex-shrink-0 */
+            stroke: currentColor;
+            fill: none;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) { /* Equivalent to md breakpoint */
+            .unique-mission-vision-section {
+                padding: 4rem 2rem; /* Equivalent to md:px-8 */
+            }
+
+            .unique-cards-container {
+                flex-direction: row; /* Equivalent to md:flex-row */
+                gap: 2rem; /* Equivalent to md:space-x-8 */
+            }
+
+            .unique-mission-card,
+            .unique-vision-card {
+                width: 50%; /* Equivalent to md:w-1/2 */
+            }
+        }
+
+        @media (min-width: 1024px) { /* Equivalent to lg breakpoint */
+            .unique-mission-vision-section {
+                padding: 4rem 4rem; /* Equivalent to lg:px-16 */
+            }
+        }
+
+        @media (min-width: 640px) { /* Equivalent to sm breakpoint */
+            .unique-main-heading {
+                font-size: 3rem; /* Equivalent to sm:text-5xl */
+            }
+            .unique-sub-description {
+                font-size: 1.25rem; /* Equivalent to sm:text-xl */
+            }
+        }
+
+        /* Access History */
+
+        .history-section-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* Section Header */
+        .history-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 48rem;
+            width: 100%;
+        }
+
+        .history-main-heading {
+            font-size: 2.25rem;
+            line-height: 1.25;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .history-sub-description {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        /* Timeline Items Container */
+        .history-timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 48rem;
+            width: 100%;
+        }
+
+        /* Timeline Card */
+        .history-timeline-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative; /* For the year badge positioning */
+        }
+
+        .history-timeline-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .history-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .history-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .history-year-badge {
+            background-color: #ede9fe;
+            color: #7c3aed;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .history-card-description {
+            color: #374151;
+            line-height: 1.625;
+            margin-bottom: 1rem;
+        }
+
+        .history-achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .history-achievement-list li {
+            display: flex;
+            align-items: flex-start; /* Align icon and text at the top */
+            color: #374151;
+        }
+
+        .history-achievement-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #7c3aed; /* Purple color for the icon */
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 640px) { /* sm breakpoint */
+            .history-main-heading {
+                font-size: 3rem;
+            }
+            .history-sub-description {
+                font-size: 1.25rem;
+            }
+            .history-section-container {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (min-width: 768px) { /* md breakpoint */
+            .history-section-container {
+                padding: 4rem 4rem;
+            }
+            .history-timeline-container {
+                max-width: 60rem; /* Slightly wider for better readability on tablets */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .history-section-container {
+                padding: 4rem 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="logo.jpg" alt="logo" />
+        </a>
+
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="activity.html">Activities</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+      <section class="hero-container-main">
+        <div class="hero-overlay-patriotic"></div>
+        
+        <div class="hero-decorative-stars">
+            <div class="hero-star-element">★</div>
+            <div class="hero-star-element">★</div>
+            <div class="hero-star-element">★</div>
+            <div class="hero-star-element">★</div>
+            <div class="hero-star-element">★</div>
+        </div>
+        
+        <div class="hero-content-wrapper">
+            <h1 class="hero-title-primary">About Access Class</h1>
+            <p class="hero-subtitle-descriptive">
+                Empowering students through language learning, cultural exchange, and creative expression in a supportive and inclusive environment.
+            </p>
+            <div class="hero-button-group-actions">
+                <a href="#mission" class="hero-btn-primary-mission">
+                    <span>Our Mission</span>
+                </a>
+                <a href="#developers" class="hero-btn-secondary-developers">
+                    <span>Meet Our Developers</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer section -->
+
+    <section>
+        <div class="container">
+        <div class="section-header">
+            <h2>Meet Our Team</h2>
+            <p>Our passionate educators and developers dedicated to empowering students through innovative learning experiences.</p>
+        </div>
+
+        <div class="senior-teacher">
+            <div class="profile-card">
+                <div class="card-background"></div>
+                <div class="profile-header">
+                    <div class="profile-picture">SM</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Amna Manzoor</h3>
+                        <span class="profile-profession">Teacher</span>
+                    </div>
+                </div>
+                <p class="profile-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure ipsam debitis eligendi doloremque deserunt ducimus sunt, vitae illum tenetur temporibus dignissimos minima ipsum? Maxime similique eaque distinctio eveniet fugit. Commodi id similique, velit eaque quam placeat ipsum odio repellat perferendis sint! Impedit, praesentium veritatis.
+                </p>
+                <div class="skills-section">
+                    <h4 class="skills-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li>Multilingual Education</li>
+                        <li>Curriculum Development</li>
+                        <li>Cultural Integration</li>
+                        <li>Interactive Teaching</li>
+                        <li>Assessment Design</li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link email">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.82L12 10.09l9.545-6.269h.819c.904 0 1.636.732 1.636 1.636Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Card 1: Amna Mitchell -->
+            <div class="profile-card">
+                <div class="card-background"></div>
+                <div class="profile-header">
+                    <div class="profile-picture">SM</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Allah Yar</h3>
+                        <span class="profile-profession">Lead Language Instructor</span>
+                    </div>
+                </div>
+                <p class="profile-description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure ipsam debitis eligendi doloremque deserunt ducimus sunt, vitae illum tenetur temporibus dignissimos minima ipsum? Maxime similique eaque distinctio eveniet fugit. Commodi id similique, velit eaque quam placeat ipsum odio repellat perferendis sint! Impedit, praesentium veritatis.
+                </p>
+                <div class="skills-section">
+                    <h4 class="skills-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li>Multilingual Education</li>
+                        <li>Curriculum Development</li>
+                        <li>Cultural Integration</li>
+                        <li>Interactive Teaching</li>
+                        <li>Assessment Design</li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link email">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.82L12 10.09l9.545-6.269h.819c.904 0 1.636.732 1.636 1.636Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: David Kim -->
+            <div class="profile-card">
+                <div class="card-background"></div>
+                <div class="profile-header">
+                    <div class="profile-picture">DK</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Allah Yar</h3>
+                        <span class="profile-profession">Creative Arts Director</span>
+                    </div>
+                </div>
+                <p class="profile-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure ipsam debitis eligendi doloremque deserunt ducimus sunt, vitae illum tenetur temporibus dignissimos minima ipsum? Maxime similique eaque distinctio eveniet fugit. Commodi id similique, velit eaque quam placeat ipsum odio repellat perferendis sint! Impedit, praesentium veritatis.
+                </p>
+                <div class="skills-section">
+                    <h4 class="skills-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li>Digital Art</li>
+                        <li>Video Production</li>
+                        <li>Creative Writing</li>
+                        <li>Media Design</li>
+                        <li>Student Mentoring</li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link email">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.82L12 10.09l9.545-6.269h.819c.904 0 1.636.732 1.636 1.636Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Amara Rodriguez -->
+            <div class="profile-card">
+                <div class="card-background"></div>
+                <div class="profile-header">
+                    <div class="profile-picture">AR</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Allah Yar</h3>
+                        <span class="profile-profession">Cultural Exchange Coordinator</span>
+                    </div>
+                </div>
+                <p class="profile-description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure ipsam debitis eligendi doloremque deserunt ducimus sunt, vitae illum tenetur temporibus dignissimos minima ipsum? Maxime similique eaque distinctio eveniet fugit. Commodi id similique, velit eaque quam placeat ipsum odio repellat perferendis sint! Impedit, praesentium veritatis.
+                </p>
+                <div class="skills-section">
+                    <h4 class="skills-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li>Cross-Cultural Communication</li>
+                        <li>Program Management</li>
+                        <li>International Relations</li>
+                        <li>Event Planning</li>
+                        <li>Community Building</li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link email">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.82L12 10.09l9.545-6.269h.819c.904 0 1.636.732 1.636 1.636Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4: Marcus Johnson -->
+            <div class="profile-card">
+                <div class="card-background"></div>
+                <div class="profile-header">
+                    <div class="profile-picture">MJ</div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Allah Yar</h3>
+                        <span class="profile-profession">Technology Integration Specialist</span>
+                    </div>
+                </div>
+                <p class="profile-description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure ipsam debitis eligendi doloremque deserunt ducimus sunt, vitae illum tenetur temporibus dignissimos minima ipsum? Maxime similique eaque distinctio eveniet fugit. Commodi id similique, velit eaque quam placeat ipsum odio repellat perferendis sint! Impedit, praesentium veritatis.
+                </p>
+                <div class="skills-section">
+                    <h4 class="skills-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li>EdTech Development</li>
+                        <li>UI/UX Design</li>
+                        <li>Learning Analytics</li>
+                        <li>Mobile Development</li>
+                        <li>System Integration</li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link email">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.82L12 10.09l9.545-6.269h.819c.904 0 1.636.732 1.636 1.636Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Mission and Vision Section -->
+
+    <section class="unique-mission-vision-section">
+        <!-- Section Header -->
+        <div class="unique-section-header">
+            <h1 class="unique-main-heading">Our Mission & Vision</h1>
+            <p class="unique-sub-description">Guiding principles that drive our educational approach and commitment to student success.</p>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="unique-cards-container">
+
+            <!-- Our Mission Card -->
+            <div class="unique-mission-card">
+                <!-- Icon -->
+                <div class="unique-icon-wrapper">
+                    <svg class="unique-mission-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                    </svg>
+                </div>
+                <!-- Title -->
+                <h2 class="unique-card-title">Our Mission</h2>
+                <!-- Description -->
+                <p class="unique-card-description">Access Class is dedicated to providing high-quality English language education to talented students from underserved communities. We aim to foster linguistic proficiency, cultural understanding, and critical thinking skills that empower students to succeed in an increasingly interconnected world.</p>
+                <!-- List Items -->
+                <ul class="unique-mission-list">
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Provide accessible, high-quality English language education</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Foster cross-cultural understanding and global citizenship</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Develop critical thinking and creative expression skills</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Create pathways to educational and professional opportunities</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Our Vision Card -->
+            <div class="unique-vision-card">
+                <!-- Icon -->
+                <div class="unique-icon-wrapper">
+                    <svg class="unique-vision-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                </div>
+                <!-- Title -->
+                <h2 class="unique-card-title">Our Vision</h2>
+                <!-- Description -->
+                <p class="unique-card-description">We envision a world where all students, regardless of socioeconomic background, have access to transformative educational experiences that prepare them for success in a global society. Our vision is to be a catalyst for positive change through language education and cultural exchange.</p>
+                <!-- List Items -->
+                <ul class="unique-vision-list">
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Bridge educational opportunity gaps in underserved communities</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Create a global network of engaged, multilingual citizens</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Inspire lifelong learning and cross-cultural collaboration</span>
+                    </li>
+                    <li>
+                        <svg class="unique-checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Become a model for innovative language education worldwide</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Access History -->
+
+        <section class="history-section-container">
+        <!-- Section Header -->
+        <div class="history-section-header">
+            <h1 class="history-main-heading">Access History</h1>
+            <p class="history-sub-description">The journey of Access Class from its founding to its current impact on students worldwide.</p>
+        </div>
+
+        <!-- Timeline Items Container -->
+        <div class="history-timeline-container">
+
+            <!-- Program Foundation Card -->
+            <div class="history-timeline-card">
+                <div class="history-card-header">
+                    <h2 class="history-card-title">Program Foundation</h2>
+                    <span class="history-year-badge">2010</span>
+                </div>
+                <p class="history-card-description">Access Class was established with an initial cohort of 30 students and 2 teachers, focusing on providing English language education to talented students from economically disadvantaged backgrounds.</p>
+                <ul class="history-achievement-list">
+                    <li>
+                        <svg class="history-achievement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"></path>
+                        </svg>
+                        <span>Received initial grant funding to support program development</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Program Expansion Card -->
+            <div class="history-timeline-card">
+                <div class="history-card-header">
+                    <h2 class="history-card-title">Program Expansion</h2>
+                    <span class="history-year-badge">2015</span>
+                </div>
+                <p class="history-card-description">The program expanded to serve 150 students across multiple locations, introducing specialized tracks in academic writing, public speaking, and digital media to enhance student skills.</p>
+                <ul class="history-achievement-list">
+                    <li>
+                        <svg class="history-achievement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"></path>
+                        </svg>
+                        <span>Recognized for excellence in educational programming by the International Education Association</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Global Partnerships Card -->
+            <div class="history-timeline-card">
+                <div class="history-card-header">
+                    <h2 class="history-card-title">Global Partnerships</h2>
+                    <span class="history-year-badge">2018</span>
+                </div>
+                <p class="history-card-description">Access Class established partnerships with international educational institutions, creating exchange opportunities and virtual collaboration projects for students to gain global perspectives.</p>
+                <ul class="history-achievement-list">
+                    <li>
+                        <svg class="history-achievement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"></path>
+                        </svg>
+                        <span>Launched the Global Voices initiative connecting students across 10 countries</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Current Impact Card -->
+            <div class="history-timeline-card">
+                <div class="history-card-header">
+                    <h2 class="history-card-title">Current Impact</h2>
+                    <span class="history-year-badge">2025</span>
+                </div>
+                <p class="history-card-description">Today, Access Class serves over 500 students annually, with a network of 2,000+ alumni who have gone on to pursue higher education and impactful careers. Our comprehensive curriculum now includes specialized tracks in creative expression, digital literacy, and leadership development.</p>
+                <ul class="history-achievement-list">
+                    <li>
+                        <svg class="history-achievement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"></path>
+                        </svg>
+                        <span>Recognized as a leader in innovative language education by UNESCO</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+     <footer class="mfooter">
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Access Group-1 Section -->
+          <div class="footer-section">
+            <h3>Access Group-1</h3>
+            <p>
+              Empowering students through English language learning and cultural
+              exchange.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" title="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="YouTube">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="demo.html">Home</a></li>
+              <li><a href="#">Activities</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Achievement</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Section -->
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Learning Material</a></li>
+              <li><a href="#">Event Calendar</a></li>
+              <li><a href="#">Photo Gallery</a></li>
+              <li><a href="#">Student Handbook</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+              <div class="address">
+                123 Education Street, Learning City, 10001
+              </div>
+              <div class="phone">+1 (555) 123-4567</div>
+              <div class="email">info@accessprogram.edu</div>
+              <div class="hours">Mon-Fri: 3:15 PM - 5:15 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            © A project by Group-1 from English Access Microscholarship Program
+            UE Multan. All rights reserved
+          </div>
+          <div class="footer-bottom-right">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+
+        // Add dynamic stars animation
+        function createDynamicStars() {
+            const starsContainer = document.querySelector('.hero-decorative-stars');
+            const numberOfStars = 8;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'hero-star-element';
+                star.innerHTML = '★';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize dynamic stars
+        createDynamicStars();
+
+        // Button interaction effects
+        document.querySelectorAll('.hero-btn-primary-mission, .hero-btn-secondary-developers').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

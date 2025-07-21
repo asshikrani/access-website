@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Our Class Space</title>
+    <link rel="stylesheet" href="utility.css" />
+    <style>
+      .hero-showcase-container {
+        position: relative;
+        height: 93vh;
+        min-height: 600px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-background-overlay {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.2;
+        z-index: 1;
+      }
+
+      .hero-background-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #ff0000 0%, #0004ff 100%);
+        background-size: cover;
+        background-position: center;
+        height: 80vh;
+        background-repeat: no-repeat;
+        z-index: 2;
+      }
+
+      .hero-content-wrapper {
+        position: relative;
+        z-index: 3;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        /* min-height: 100vh; */
+      }
+
+      .hero-text-content {
+        flex: 1;
+        max-width: 600px;
+        color: white;
+      }
+
+      .hero-main-heading {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-description-text {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+        font-weight: 300;
+      }
+
+      .hero-buttons-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-primary-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+      }
+
+      .hero-primary-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .hero-secondary-btn {
+        background: white;
+        border: 2px solid white;
+        color: #6366f1;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .hero-secondary-btn:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .hero-floating-quotes {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        z-index: 4;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .hero-quote-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 1.5rem;
+        color: white;
+        max-width: 280px;
+        text-align: center;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .hero-quote-card:nth-child(2) {
+        animation-delay: -2s;
+      }
+
+      .hero-quote-card:nth-child(3) {
+        animation-delay: -4s;
+      }
+
+      .hero-quote-text {
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+      }
+
+      .hero-quote-author {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        font-weight: 500;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .hero-floating-quotes {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-showcase-container {
+          height: auto;
+          min-height: 61vh;
+          padding: 2rem 0;
+        }
+
+        .hero-background-image {
+          width: 100%;
+        }
+
+        .hero-content-wrapper {
+          min-height: auto;
+          padding: 2rem 1rem;
+        }
+
+        .hero-main-heading {
+          font-size: 2.5rem;
+        }
+
+        .hero-description-text {
+          font-size: 1.1rem;
+        }
+
+        .hero-buttons-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-primary-btn,
+        .hero-secondary-btn {
+          display: block;
+          text-align: center;
+          min-width: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-main-heading {
+          font-size: 2rem;
+        }
+
+        .hero-description-text {
+          font-size: 1rem;
+        }
+
+        .hero-content-wrapper {
+          padding: 1rem;
+        }
+      }
+
+      /* Second Portfoli Card Portion */
+
+      /* Maam portfolio */
+
+      .portfolio-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .portfolio-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .portfolio-title {
+        font-size: clamp(24px, 4vw, 36px);
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .portfolio-subtitle {
+        font-size: clamp(14px, 2.5vw, 18px);
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.4;
+      }
+
+      .portfolio-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 600px;
+        margin: 0 auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .portfolio-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+      }
+
+      .teacher-profile {
+        display: flex;
+        align-items: center;
+        padding: 40px 30px 30px;
+        background: linear-gradient(135deg, #002eff 0%, #ff2424 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .teacher-profile::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: floats 6s ease-in-out infinite;
+      }
+
+      .teacher-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #ddd;
+        margin-right: 30px;
+        flex-shrink: 0;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="%23e9ecef"/><circle cx="60" cy="45" r="20" fill="%23adb5bd"/><path d="M20 100 Q60 80 100 100 V120 H20 Z" fill="%23adb5bd"/></svg>');
+        background-size: cover;
+        background-position: center;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .teacher-info {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+      }
+
+      .teacher-name {
+        font-size: clamp(20px, 3vw, 28px);
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .teacher-role {
+        font-size: clamp(14px, 2vw, 18px);
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .bio-section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+        position: relative;
+        padding-bottom: 8px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 2px;
+      }
+
+      .bio-text {
+        font-size: clamp(14px, 2vw, 16px);
+        line-height: 1.6;
+        color: #555;
+      }
+
+      .skills-section {
+        margin-bottom: 20px;
+      }
+
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .skill-tag {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: clamp(12px, 1.8vw, 14px);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+      }
+
+      .skill-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+      }
+
+      @keyframes floats {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(180deg);
+        }
+      }
+
+      /* Responsive breakpoints */
+      @media (max-width: 768px) {
+        .portfolio-container {
+          padding: 0 10px;
+        }
+
+        .teacher-profile {
+          flex-direction: column;
+          text-align: center;
+          padding: 30px 20px;
+        }
+
+        .teacher-image {
+          margin-right: 0;
+          margin-bottom: 20px;
+          width: 100px;
+          height: 100px;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+
+        .skills-container {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* body {
+                padding: 10px;
+            } */
+
+        .portfolio-header {
+          margin-bottom: 30px;
+        }
+
+        .teacher-profile {
+          padding: 20px 15px;
+        }
+
+        .teacher-image {
+          width: 80px;
+          height: 80px;
+        }
+
+        .card-content {
+          padding: 15px;
+        }
+
+        .skills-container {
+          gap: 8px;
+        }
+
+        .skill-tag {
+          padding: 8px 16px;
+        }
+      }
+
+      .carousel-container {
+        width: 78%;
+        margin: auto;
+        position: relative;
+        background: white;
+        border-radius: 20px;
+        padding: 40px 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-header,
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .carousel-header h1,
+      .gallery-header h1 {
+        color: #333;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .carousel-header p,
+      .gallery-header p {
+        color: #666;
+        font-size: 1.1em;
+      }
+
+      .carousel-wrapper {
+        /* position: relative; */
+        overflow: hidden;
+        border-radius: 15px;
+        background: #f8f9fa;
+
+        padding: 30px;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        gap: 20px;
+      }
+
+      .card {
+        flex: 0 0 auto;
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 350px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.453);
+        border: 2px solid #e3f2fd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden; /* Crucial for containing the image 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            background: linear-gradient(135deg, #2196F3, #1976D2); /* Fallback/background for images 
+        } */
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* Style for initials if no image is provided */
+      .profile-image.initials {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .card-info h3 {
+        color: #333;
+        font-size: 1.4em;
+        margin-bottom: 5px;
+      }
+
+      .card-info p {
+        color: #666;
+        font-size: 0.9em;
+      }
+
+      .card-content {
+        margin-bottom: 25px;
+      }
+
+      .card-content h4 {
+        color: #2196f3;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .card-content p {
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.9em;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .skill-tag {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 500;
+      }
+
+      .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #2196f3;
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+      }
+
+      .nav-button:hover {
+        background: #1976d2;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+      }
+
+      .nav-button:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+
+      .prev-btn {
+        left: -25px;
+      }
+
+      .next-btn {
+        right: -25px;
+      }
+
+      .mobile-nav-buttons {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding: 0 20px;
+      }
+
+      .mobile-nav-btn {
+        background: #2196f3;
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+      }
+
+      .mobile-nav-btn:hover {
+        background: #1976d2;
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+      }
+
+      .mobile-nav-btn:active {
+        transform: scale(0.95);
+      }
+
+      .mobile-nav-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .indicators {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .indicator.active {
+        background: #2196f3;
+        transform: scale(1.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .card {
+          width: 300px; /* Adjust as needed for smaller desktop views */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .carousel-container {
+          padding: 20px 10px;
+        }
+
+        .carousel-header h1 {
+          font-size: 2em;
+        }
+
+        .carousel-wrapper {
+          padding: 20px;
+        }
+
+        .card {
+          width: 280px; /* Adjusted for tablet view */
+          padding: 20px;
+        }
+
+        .profile-image {
+          /* width: 60px;
+                height: 60px; */
+          font-size: 20px;
+          margin-right: 15px;
+        }
+
+        .card-info h3 {
+          font-size: 1.2em;
+        }
+
+        .nav-button {
+          display: none; /* Hide desktop nav buttons on smaller screens */
+        }
+
+        .mobile-nav-buttons {
+          display: flex; /* Show mobile nav buttons */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          width: 250px; /* Adjusted for mobile view */
+          padding: 15px;
+        }
+
+        .carousel-header h1 {
+          font-size: 1.7em;
+        }
+
+        .carousel-wrapper {
+          padding: 15px;
+        }
+
+        .profile-image {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+
+        .card-info h3 {
+          font-size: 1.1em;
+        }
+
+        .skills {
+          gap: 5px;
+        }
+
+        .skill-tag {
+          font-size: 0.7em;
+          padding: 4px 8px;
+        }
+      }
+
+      /* Gallery section */
+
+      .portfolio-gallery-container {
+        max-width: 93vw;
+        margin: 45px auto;
+      }
+
+      .gallery-masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        grid-auto-rows: 200px;
+      }
+
+      .gallery-item-wrapper {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item-wrapper:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item-wrapper.portrait-orientation {
+        grid-row: span 2;
+      }
+
+      .gallery-item-wrapper.landscape-orientation {
+        grid-column: span 2;
+      }
+
+      .gallery-item-wrapper.square-orientation {
+        grid-row: span 1;
+      }
+
+      .gallery-item-wrapper.tall-portrait {
+        grid-row: span 3;
+      }
+
+      .gallery-item-wrapper.wide-landscape {
+        grid-column: span 3;
+      }
+
+      .gallery-item-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.4s ease;
+      }
+
+      .gallery-item-wrapper:hover .gallery-item-image {
+        transform: scale(1.1);
+        filter: brightness(0.7);
+      }
+
+      .gallery-item-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.8),
+          rgba(139, 92, 246, 0.8)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .gallery-item-wrapper:hover .gallery-item-overlay {
+        opacity: 1;
+      }
+
+      .gallery-overlay-title {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        transform: translateY(20px);
+        transition: transform 0.4s ease 0.1s;
+      }
+
+      .gallery-item-wrapper:hover .gallery-overlay-title {
+        transform: translateY(0);
+      }
+
+      .gallery-overlay-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        font-weight: 400;
+        transform: translateY(20px);
+        transition: transform 0.4s ease 0.2s;
+      }
+
+      .gallery-item-wrapper:hover .gallery-overlay-subtitle {
+        transform: translateY(0);
+      }
+
+      .gallery-overlay-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: transform 0.3s ease 0.3s;
+      }
+
+      .gallery-item-wrapper:hover .gallery-overlay-icon {
+        transform: scale(1);
+      }
+
+      .gallery-overlay-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+
+      .vipes-container {
+        display: flex;
+        gap: 25px;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        .gallery-masonry-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .gallery-item-wrapper.wide-landscape {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-masonry-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+
+        .gallery-item-wrapper.landscape-orientation,
+        .gallery-item-wrapper.wide-landscape {
+          grid-column: span 1;
+        }
+
+        .gallery-item-wrapper.tall-portrait {
+          grid-row: span 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .portfolio-gallery-container {
+          padding: 0 1rem;
+        }
+
+        .gallery-masonry-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width : 1030px) {
+        .vipes-container {
+          flex-direction: column;
+        }
+        .vipes-container:nth-child(1) {
+          margin-bottom: 20px;
+        }
+        .vipes-container:nth-child(2) {
+          margin-bottom: 20px;
+        }
+        
+      }
+
+      /* Loading animation */
+      .gallery-item-wrapper {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .gallery-item-wrapper:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .gallery-item-wrapper:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .gallery-item-wrapper:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .gallery-item-wrapper:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .gallery-item-wrapper:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .gallery-item-wrapper:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        padding: 30px 20px 20px;
+        background: linear-gradient(135deg, #ff0000 0%, #0004ff 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px 15px 0 0;
+        margin: -30px -32px 20px -31px;
+      }
+
+      .card-header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 70%
+        );
+        animation: flot 5s ease-in-out infinite;
+      }
+
+      @keyframes flot {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(180deg);
+        }
+      }
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .card-info {
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-info h3 {
+        color: white;
+        font-size: 1.4em;
+        margin-bottom: 5px;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-info p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9em;
+        font-weight: 300;
+      }
+
+      @media (max-width: 768px) {
+        .card-header {
+          flex-direction: column;
+          text-align: center;
+          padding: 20px 15px;
+          margin: -17px -16px 0px -17px;
+        }
+
+        .profile-image {
+          margin-right: 0;
+          margin-bottom: 15px;
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .profile-image {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="logo.jpg" alt="logo" />
+        </a>
+
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="activity.html">Activities</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero-showcase-container">
+      <div class="hero-background-image"></div>
+
+      <div class="hero-content-wrapper">
+        <div class="hero-text-content">
+          <h1 class="hero-main-heading">Student Portfolio Showcase</h1>
+          <p class="hero-description-text">
+            Discover the remarkable achievements and creative projects from our
+            talented Access Class students. From writing and presentations to
+            artwork and group collaborations.
+          </p>
+          <div class="hero-buttons-container">
+            <a href="#" class="hero-primary-btn">Explore Projects</a>
+            <a href="#" class="hero-secondary-btn">Student Portfolio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-floating-quotes">
+        <div class="hero-quote-card">
+          <p class="hero-quote-text">
+            "Thou bots hoes for so you of hark the life of thy noe."
+          </p>
+          <p class="hero-quote-author">- Thou Poet</p>
+        </div>
+        <div class="hero-quote-card">
+          <p class="hero-quote-text">
+            "THOU LINES YOUR NAMES AND COMPOUND WELL YOUR HEART YOUS COI TOLU
+            GOUT MORE BOOK."
+          </p>
+          <p class="hero-quote-author">Sandelle</p>
+        </div>
+        <div class="hero-quote-card">
+          <p class="hero-quote-text">
+            "Thou writly Being. Special heart never again thou flows. Enot that
+            lies. Oner deu swestu call."
+          </p>
+          <p class="hero-quote-author">Saul</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Second Section of Cards -->
+
+    <!-- VIP's Section -->
+    <section class="vipes">
+      <div class="portfolio-container">
+        <div class="portfolio-header">
+          <h1 class="portfolio-title">Featured Group-1 Portfolios</h1>
+          <p class="portfolio-subtitle">
+            Highlighting Group-1 exceptional teacher and student work and
+            achievements from our English Access Scholarship program.
+          </p>
+        </div>
+        <div class="vipes-container">
+          <div class="portfolio-card">
+            <div class="teacher-profile">
+              <div class="teacher-image" id="teacherImage"></div>
+              <div class="teacher-info">
+                <h2 class="teacher-name">M.Farhan Rafi</h2>
+                <p class="teacher-role">Program Manager</p>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="bio-section">
+                <h3 class="section-title">Bio</h3>
+                <p class="bio-text">
+                  Maria excels in creative writing and visual storytelling,
+                  combining literary techniques with artistic expression.
+                </p>
+              </div>
+
+              <div class="skills-section">
+                <h3 class="section-title">Skills & Techniques</h3>
+                <div class="skills-container">
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Card -->
+
+          <div class="portfolio-card">
+            <div class="teacher-profile">
+              <div class="teacher-image" id="teacherImage"></div>
+              <div class="teacher-info">
+                <h2 class="teacher-name">Muhammad Naeem</h2>
+                <p class="teacher-role">Coordinator</p>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="bio-section">
+                <h3 class="section-title">Bio</h3>
+                <p class="bio-text">
+                  Maria excels in creative writing and visual storytelling,
+                  combining literary techniques with artistic expression.
+                </p>
+              </div>
+
+              <div class="skills-section">
+                <h3 class="section-title">Skills & Techniques</h3>
+                <div class="skills-container">
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                  <button class="skill-tag" onclick="highlightSkill(this)">
+                    Creative Writing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Maam Portfolio section -->
+
+    <section>
+      <div class="portfolio-container">
+        <div class="portfolio-card">
+          <div class="teacher-profile">
+            <div class="teacher-image" id="teacherImage"></div>
+            <div class="teacher-info">
+              <h2 class="teacher-name">Amna Manzoor</h2>
+              <p class="teacher-role">Teacher</p>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="bio-section">
+              <h3 class="section-title">Bio</h3>
+              <p class="bio-text">
+               I'm a passionate and dedicated educator with extensive experience across both schools and universities. I have taught at esteemed institutions including Beaconhouse, Bahauddin Zakariya University, The Women University, and currently, The City School. As a mentor in the Access Scholarship Program, I am committed to empowering students through quality education. My journey reflects a deep love for teaching, adaptability to diverse learning environments, and a strong drive for excellence in education.
+              </p>
+            </div>
+
+            <div class="skills-section">
+              <h3 class="section-title">Skills & Techniques</h3>
+              <div class="skills-container">
+                <button class="skill-tag" onclick="highlightSkill(this)">
+                  Creative Writing
+                </button>
+                <button class="skill-tag" onclick="highlightSkill(this)">
+                  Creative Writing
+                </button>
+                <button class="skill-tag" onclick="highlightSkill(this)">
+                  Creative Writing
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Students Port folio -->
+    <section>
+      <div class="carousel-container" id="carousel1">
+        <div class="carousel-header">
+          <h1>Our Team</h1>
+          <p>Meet the talented professionals behind our success</p>
+        </div>
+
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/0000FF/FFFFFF?text=JD"
+                    alt="John Doe Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Ahmed Hassan</h3>
+                  <p>Governor</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A student from Grade 8 and I’m 14 years old. I enjoy sports, reading, and improving my communication skills. I love teamwork and exploring new things to gain more knowledge.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Judo Karate</span>
+                <span class="skill-tag">Presentation skill</span>
+                <span class="skill-tag">Swimming</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FF0000/FFFFFF?text=SM"
+                    alt="Sarah Miller Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Abdullah Attta</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Creative UX designer with a keen eye for detail and
+                  user-centered design approach. Experienced in creating
+                  intuitive interfaces that enhance user experience.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Sketch</span>
+                <span class="skill-tag">Prototyping</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/008000/FFFFFF?text=MJ"
+                    alt="Michael Johnson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Hassan Rafy</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A 15-year-old 1st year student with a passion for learning. I’m always curious about world events, especially those with a historical background. I want to uncover hidden truths from history and help today’s youth learn from them.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Book Reading</span>
+                <span class="skill-tag">Explore History</span>
+                <span class="skill-tag">Research</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="/assets/image/download.jpeg"
+                    alt="Emily Wilson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Muqarab Abbas</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  I’m a 17-year-old student of Grade 11 with a passion for learning new tech and tricks. I love exploring innovative ideas and staying updated with the latest advancements in technology.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">E-commerce</span>
+                <span class="skill-tag">Freelancing</span>
+                <span class="skill-tag">Graphic Designer</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FFA500/FFFFFF?text=DB"
+                    alt="David Brown Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Arslan</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  I’m 18 years old and have completed my FSC. I’m a hardworking student with a strong passion for mechanical phenomena. My dream is to become an aeronautical engineer and turn my interest into a career.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">AI Automation</span>
+                <span class="skill-tag">Problem Solver</span>
+                <span class="skill-tag">Leadership</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/800080/FFFFFF?text=LT"
+                    alt="Lisa Taylor Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>M.Ayan</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  I’m 14 years old and a Grade 9 student. I’m passionate about learning new tech tips and tricks. I enjoy playing cricket and love reading books and stories in my free time.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Cooking</span>
+                <span class="skill-tag">Writing</span>
+                <span class="skill-tag">Time Management</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="nav-button prev-btn" id="prevBtn">❮</button>
+          <button class="nav-button next-btn" id="nextBtn">❯</button>
+        </div>
+
+        <div class="mobile-nav-buttons">
+          <button class="mobile-nav-btn" id="mobilePrevBtn">❮</button>
+          <button class="mobile-nav-btn" id="mobileNextBtn">❯</button>
+        </div>
+
+        <div class="indicators" id="indicators"></div>
+      </div>
+
+      <!-- second portion -->
+      <div class="carousel-container" id="carousel2">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/0000FF/FFFFFF?text=JD"
+                    alt="John Doe Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>M.Alyan</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  I’m 16 years old and a student of 11th class. My dream is to help poor people and make a difference in their lives. I enjoy playing cricket and online games in my free time.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Video Editing</span>
+                <span class="skill-tag">Researcher</span>
+                <span class="skill-tag">Creative Writing</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FF0000/FFFFFF?text=SM"
+                    alt="Sarah Miller Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Ahmad Siddique</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A dedicated 17 year old ICS student from Pakistan with a strong passion for technology, especially in web & app development. I aim to pursue higher studies in Europe through a scholarship and contribute to the global tech community.	
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Full-Stack development</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">VC & API integration</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/008000/FFFFFF?text=MJ"
+                    alt="Michael Johnson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>M.Huzaifa</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  I am a 17-year-old 2nd Year student who loves discovering new ideas and using creativity to do something unique. I always try to do my best and improve myself.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Web Designer</span>
+                <span class="skill-tag">Creative Skill</span>
+                <span class="skill-tag">Leadership</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="/assets/image/download.jpeg"
+                    alt="Emily Wilson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Ahmad Raza</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A 10th grade student and an Access Scholarship participant. I’m a founder and CEO of Youth Awareness Network (YAN), an emerging youth-led organization. I am a writter and have published many booklets. <a href="https://wordsofahmad.netlify">see here</a>
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Researcher</span>
+                <span class="skill-tag">Graphic Designer</span>
+                <span class="skill-tag">Leadership</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FFA500/FFFFFF?text=DB"
+                    alt="David Brown Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Ali Hujjar</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A 15-year-old student of Grade 12. I’m a passionate and creative learner who loves exploring new ideas. I’m hardworking and focused, and I dream of becoming a hacker in the future.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Video Editing</span>
+                <span class="skill-tag">Leadership</span>
+                <span class="skill-tag">Adaptability</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/800080/FFFFFF?text=LT"
+                    alt="Lisa Taylor Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Faizan Illahi</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Data scientist with strong background in machine learning and
+                  statistical analysis. Transforms complex data into actionable
+                  insights for business decisions.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">ML</span>
+                <span class="skill-tag">Statistics</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="nav-button prev-btn" id="prevBtn">❮</button>
+          <button class="nav-button next-btn" id="nextBtn">❯</button>
+        </div>
+
+        <div class="mobile-nav-buttons">
+          <button class="mobile-nav-btn" id="mobilePrevBtn">❮</button>
+          <button class="mobile-nav-btn" id="mobileNextBtn">❯</button>
+        </div>
+
+        <div class="indicators" id="indicators"></div>
+      </div>
+
+      <!-- Third Part -->
+      <div class="carousel-container" id="carousel3">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/0000FF/FFFFFF?text=JD"
+                    alt="John Doe Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Subhan Suleiman</h3>
+                  <p>Student</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  A 15-year-old FSC Pre-Engineering student with a passion for technology and self-growth. I’m deeply interested in computer science and love learning about CS architecture. My dream is to innovate with AI to boost creativity and make a difference.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Artist</span>
+                <span class="skill-tag">Web Developer</span>
+                <span class="skill-tag">CSS</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FF0000/FFFFFF?text=SM"
+                    alt="Sarah Miller Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Sarah Miller</h3>
+                  <p>UX Designer</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Creative UX designer with a keen eye for detail and
+                  user-centered design approach. Experienced in creating
+                  intuitive interfaces that enhance user experience.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Sketch</span>
+                <span class="skill-tag">Prototyping</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/008000/FFFFFF?text=MJ"
+                    alt="Michael Johnson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Michael Johnson</h3>
+                  <p>Backend Developer</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Expert backend developer specializing in scalable server
+                  solutions and database optimization. Proficient in multiple
+                  programming languages and cloud technologies.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MongoDB</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="/assets/image/download.jpeg"
+                    alt="Emily Wilson Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Emily Wilson</h3>
+                  <p>Product Manager</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Strategic product manager with strong analytical skills and
+                  experience in agile methodologies. Focuses on delivering
+                  products that meet user needs and business goals.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Strategy</span>
+                <span class="skill-tag">Analytics</span>
+                <span class="skill-tag">Agile</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/FFA500/FFFFFF?text=DB"
+                    alt="David Brown Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>David Brown</h3>
+                  <p>DevOps Engineer</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Skilled DevOps engineer with expertise in cloud
+                  infrastructure, automation, and continuous integration.
+                  Passionate about optimizing development workflows.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="profile-image">
+                  <img
+                    src="https://via.placeholder.com/80/800080/FFFFFF?text=LT"
+                    alt="Lisa Taylor Profile"
+                  />
+                </div>
+                <div class="card-info">
+                  <h3>Lisa Taylor</h3>
+                  <p>Data Scientist</p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4>Bio</h4>
+                <p>
+                  Data scientist with strong background in machine learning and
+                  statistical analysis. Transforms complex data into actionable
+                  insights for business decisions.
+                </p>
+              </div>
+              <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">ML</span>
+                <span class="skill-tag">Statistics</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="nav-button prev-btn" id="prevBtn">❮</button>
+          <button class="nav-button next-btn" id="nextBtn">❯</button>
+        </div>
+
+        <div class="mobile-nav-buttons">
+          <button class="mobile-nav-btn" id="mobilePrevBtn">❮</button>
+          <button class="mobile-nav-btn" id="mobileNextBtn">❯</button>
+        </div>
+
+        <div class="indicators" id="indicators"></div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+     <section>
+    <div class="gallery-header">
+      <center><h1>Project Gallery</h1></center>
+      <center>
+        <p>
+          Explore our diverse collection of student work showcasing creativity,
+          critical thinking, and collaboration.
+        </p>
+      </center>
+    </div>
+    <div class="portfolio-gallery-container">
+      <div class="gallery-masonry-grid" id="galleryGrid">
+        <!-- Gallery items will be populated by JavaScript -->
+      </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mfooter">
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Access Group-1 Section -->
+          <div class="footer-section">
+            <h3>Access Group-1</h3>
+            <p>
+              Empowering students through English language learning and cultural
+              exchange.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" title="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="YouTube">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="demo.html">Home</a></li>
+              <li><a href="#">Activities</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Achievement</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Section -->
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Learning Material</a></li>
+              <li><a href="#">Event Calendar</a></li>
+              <li><a href="#">Photo Gallery</a></li>
+              <li><a href="#">Student Handbook</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+              <div class="address">
+                123 Education Street, Learning City, 10001
+              </div>
+              <div class="phone">+1 (555) 123-4567</div>
+              <div class="email">info@accessprogram.edu</div>
+              <div class="hours">Mon-Fri: 3:15 PM - 5:15 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            © A project by Group-1 from English Access Microscholarship Program
+            UE Multan. All rights reserved
+          </div>
+          <div class="footer-bottom-right">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Maam portfolio
+
+      // Add interactive functionality
+      function highlightSkill(element) {
+        // Remove active class from all skill tags
+        document.querySelectorAll(".skill-tag").forEach((tag) => {
+          tag.classList.remove("active");
+        });
+
+        // Add active class to clicked element
+        element.classList.add("active");
+
+        // Add some visual feedback
+        element.style.transform = "scale(1.05)";
+        setTimeout(() => {
+          element.style.transform = "";
+        }, 200);
+      }
+
+      // Add scroll animation
+      function animateOnScroll() {
+        const card = document.querySelector(".portfolio-card");
+        const cardRect = card.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (cardRect.top < windowHeight * 0.8) {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }
+      }
+
+      // Initialize animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const card = document.querySelector(".portfolio-card");
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+
+        // Trigger animation after a short delay
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }, 300);
+      });
+
+      // Listen for scroll events
+      window.addEventListener("scroll", animateOnScroll);
+
+      // Add resize listener for responsive adjustments
+      window.addEventListener("resize", function () {
+        // Adjust any dynamic elements if needed
+        const skillTags = document.querySelectorAll(".skill-tag");
+        skillTags.forEach((tag) => {
+          tag.style.transform = "";
+        });
+      });
+
+      // carousel content
+
+      class ResponsiveCarousel {
+        constructor(container) {
+          // Scope elements to the specific carousel container
+          this.container = container;
+          this.track = container.querySelector(".carousel-track");
+          this.prevBtn = container.querySelector(".prev-btn");
+          this.nextBtn = container.querySelector(".next-btn");
+          this.mobilePrevBtn = container.querySelector(
+            ".mobile-nav-btn:first-of-type"
+          );
+          this.mobileNextBtn = container.querySelector(
+            ".mobile-nav-btn:last-of-type"
+          );
+          this.indicatorsContainer = container.querySelector(".indicators");
+          this.cards = this.track.querySelectorAll(".card");
+
+          this.currentIndex = 0;
+          this.cardsPerView = this.getCardsPerView();
+          this.maxIndex = Math.max(0, this.cards.length - this.cardsPerView);
+
+          this.init();
+        }
+
+        getCardsPerView() {
+          const containerWidth = this.track.parentElement.offsetWidth;
+          const firstCard = this.cards[0];
+          if (firstCard) {
+            const cardComputedStyle = window.getComputedStyle(firstCard);
+            // Calculate actual card width including margins and a standard gap (20px)
+            const actualCardWidth =
+              firstCard.offsetWidth +
+              parseFloat(cardComputedStyle.marginRight) +
+              parseFloat(cardComputedStyle.marginLeft) +
+              20;
+            return Math.floor(containerWidth / actualCardWidth) || 1;
+          }
+          return 1; // Default to 1 if no cards
+        }
+
+        init() {
+          this.createIndicators();
+          this.updateCarousel();
+          this.bindEvents();
+          this.handleResize();
+        }
+
+        createIndicators() {
+          this.indicatorsContainer.innerHTML = "";
+          const totalPages = Math.ceil(this.cards.length / this.cardsPerView);
+
+          for (let i = 0; i < totalPages; i++) {
+            const indicator = document.createElement("div");
+            indicator.className = "indicator";
+            indicator.addEventListener("click", () =>
+              this.goToSlide(i * this.cardsPerView)
+            );
+            this.indicatorsContainer.appendChild(indicator);
+          }
+        }
+
+        updateCarousel() {
+          const firstCard = this.cards[0];
+          if (!firstCard) return;
+
+          const cardComputedStyle = window.getComputedStyle(firstCard);
+          const actualCardWidth =
+            firstCard.offsetWidth +
+            parseFloat(cardComputedStyle.marginRight) +
+            parseFloat(cardComputedStyle.marginLeft) +
+            20; // Include gap
+
+          const translateX = -this.currentIndex * actualCardWidth;
+          this.track.style.transform = `translateX(${translateX}px)`;
+
+          this.updateIndicators();
+          this.updateButtons();
+        }
+
+        updateIndicators() {
+          const indicators =
+            this.indicatorsContainer.querySelectorAll(".indicator");
+          const activeIndicatorIndex = Math.floor(
+            this.currentIndex / this.cardsPerView
+          );
+
+          indicators.forEach((indicator, index) => {
+            indicator.classList.toggle(
+              "active",
+              index === activeIndicatorIndex
+            );
+          });
+        }
+
+        updateButtons() {
+          // Desktop buttons use opacity, mobile buttons use disabled
+          const isStart = this.currentIndex === 0;
+          const isEnd = this.currentIndex >= this.maxIndex;
+
+          if (this.prevBtn) this.prevBtn.style.opacity = isStart ? "0.5" : "1";
+          if (this.nextBtn) this.nextBtn.style.opacity = isEnd ? "0.5" : "1";
+
+          if (this.mobilePrevBtn) this.mobilePrevBtn.disabled = isStart;
+          if (this.mobileNextBtn) this.mobileNextBtn.disabled = isEnd;
+        }
+
+        goToSlide(newIndex) {
+          this.currentIndex = newIndex;
+          this.currentIndex = Math.max(
+            0,
+            Math.min(this.currentIndex, this.maxIndex)
+          );
+          this.updateCarousel();
+        }
+
+        nextSlide() {
+          if (this.currentIndex < this.maxIndex) {
+            this.currentIndex++;
+            this.updateCarousel();
+          }
+        }
+
+        prevSlide() {
+          if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateCarousel();
+          }
+        }
+
+        handleResize() {
+          window.addEventListener("resize", () => {
+            this.cardsPerView = this.getCardsPerView();
+            this.maxIndex = Math.max(0, this.cards.length - this.cardsPerView);
+            this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+            this.createIndicators();
+            this.updateCarousel();
+          });
+        }
+
+        bindEvents() {
+          // Button event listeners
+          if (this.prevBtn)
+            this.prevBtn.addEventListener("click", () => this.prevSlide());
+          if (this.nextBtn)
+            this.nextBtn.addEventListener("click", () => this.nextSlide());
+          if (this.mobilePrevBtn)
+            this.mobilePrevBtn.addEventListener("click", () =>
+              this.prevSlide()
+            );
+          if (this.mobileNextBtn)
+            this.mobileNextBtn.addEventListener("click", () =>
+              this.nextSlide()
+            );
+
+          // Drag and Swipe logic
+          let startX = 0;
+          let isDragging = false;
+          let startTime = 0;
+
+          // Mouse events for drag
+          this.track.addEventListener("mousedown", (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            startTime = Date.now();
+            this.track.style.cursor = "grabbing";
+            e.preventDefault();
+          });
+
+          // Mousemove and mouseup on document for robust dragging
+          document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+          });
+
+          document.addEventListener("mouseup", (e) => {
+            if (!isDragging) return;
+            const endX = e.clientX;
+            const diffX = startX - endX;
+            const timeDiff = Date.now() - startTime;
+
+            if (Math.abs(diffX) > 30 && timeDiff < 500) {
+              if (diffX > 0) {
+                this.nextSlide();
+              } else {
+                this.prevSlide();
+              }
+            }
+
+            isDragging = false;
+            this.track.style.cursor = "grab";
+          });
+
+          // Touch events for swipe
+          this.track.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            startTime = Date.now();
+          });
+
+          this.track.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+          });
+
+          this.track.addEventListener("touchend", (e) => {
+            if (!isDragging) return;
+
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            const timeDiff = Date.now() - startTime;
+
+            if (Math.abs(diffX) > 30 && timeDiff < 500) {
+              if (diffX > 0) {
+                this.nextSlide();
+              } else {
+                this.prevSlide();
+              }
+            }
+
+            isDragging = false;
+          });
+
+          // Initial cursor style and hover behavior
+          this.track.style.cursor = "grab";
+          this.track.addEventListener("mouseenter", () => {
+            if (!isDragging) this.track.style.cursor = "grab";
+          });
+
+          // Keyboard navigation
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") this.prevSlide();
+            if (e.key === "ArrowRight") this.nextSlide();
+          });
+        }
+      }
+
+      // Initialize all carousels when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Select all carousel containers and initialize a new instance for each
+        const carouselContainers = document.querySelectorAll(
+          ".carousel-container"
+        );
+        carouselContainers.forEach((container) => {
+          new ResponsiveCarousel(container);
+        });
+      });
+
+      // Gallery Section
+      const galleryItems = [
+        {
+          src: "/assets/image/building.jpg",
+          title: "Expressions of Identity",
+          subtitle: "Mixed Media Artwork",
+          orientation: "portrait",
+        },
+        {
+          src: "/assets/image/download.jpeg",
+          title: "Creative Writing",
+          subtitle: "Poetry & Essays",
+          orientation: "landscape",
+        },
+        
+        {
+          src: "backpic.jpg",
+          title: "Research Projects",
+          subtitle: "Academic Work",
+          orientation: "squae",
+        },
+      ];
+
+      // Function to determine image orientation based on aspect ratio
+      function getImageOrientation(width, height) {
+        const aspectRatio = width / height;
+
+        if (aspectRatio > 1.8) {
+          return "landscape";
+        } else if (aspectRatio > 1.2) {
+          return "square";
+        } else if (aspectRatio < 0.6) {
+          return "tall-portrait";
+        } else if (aspectRatio < 0.8) {
+          return "portrait";
+        } else {
+          return "square";
+        }
+      }
+
+      // Function to create gallery item
+      function createGalleryItem(item) {
+        const wrapper = document.createElement("div");
+        wrapper.className = `gallery-item-wrapper ${item.orientation}-orientation`;
+
+        wrapper.innerHTML = `
+                <img src="${item.src}" alt="${item.title}" class="gallery-item-image">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-overlay-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                        </svg>
+                    </div>
+                    <h3 class="gallery-overlay-title">${item.title}</h3>
+                    <p class="gallery-overlay-subtitle">${item.subtitle}</p>
+                </div>
+            `;
+
+        return wrapper;
+      }
+
+      // Function to load and analyze image for orientation
+      function loadImageWithOrientation(item, callback) {
+        const img = new Image();
+        img.onload = function () {
+          const orientation = getImageOrientation(this.width, this.height);
+          item.orientation = orientation;
+          callback(item);
+        };
+        img.onerror = function () {
+          // Fallback to default orientation if image fails to load
+          item.orientation = "square";
+          callback(item);
+        };
+        img.src = item.src;
+      }
+
+      // Function to populate gallery
+      function populateGallery() {
+        const galleryGrid = document.getElementById("galleryGrid");
+
+        // Process each item to determine orientation
+        let processedItems = 0;
+        const processedGalleryItems = [];
+
+        galleryItems.forEach((item, index) => {
+          loadImageWithOrientation(item, (processedItem) => {
+            processedGalleryItems[index] = processedItem;
+            processedItems++;
+
+            if (processedItems === galleryItems.length) {
+              // All items processed, now create gallery
+              processedGalleryItems.forEach((item) => {
+                const galleryItem = createGalleryItem(item);
+                galleryGrid.appendChild(galleryItem);
+              });
+            }
+          });
+        });
+      }
+
+      // Function to add new image to gallery (for future use)
+      function addNewImage(src, title, subtitle) {
+        const newItem = { src, title, subtitle };
+
+        loadImageWithOrientation(newItem, (processedItem) => {
+          const galleryGrid = document.getElementById("galleryGrid");
+          const galleryItem = createGalleryItem(processedItem);
+          galleryGrid.appendChild(galleryItem);
+        });
+      }
+
+      // Initialize gallery when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        populateGallery();
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
