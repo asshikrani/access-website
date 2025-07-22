@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/assets/image/favicon.png">
     <title>Modern Performance Gallery</title>
     <style>
         :root {
@@ -399,84 +398,306 @@
         <div class="gallery-masonry-grid" id="galleryGrid">
             <div class="loading">Loading gallery...</div>
         </div>
-        <img src="/assets/gallery-img/collaboration-group.jpeg" alt="">
+        <img src="" alt="">
     </div>
 
     <script>
         // Gallery data structure - easily expandable
         let galleryItems = [
             {
-                src: '/assets/gallery-img/collaboration-group.jpeg',
-                title: 'Abstract Composition',
-                subtitle: 'Mixed media on canvas',
-                category: 's-c'
+                src: '/assets/gallery-img/CA.jpeg',
+                title: 'First Week of Access',
+                subtitle: 'Class Activity',
+                category: 'c-a'
             },
             {
-                src: '/assets/gallery-img/palying-game-hs.jpeg',
-                title: 'Urban Poetry',
-                subtitle: 'Contemporary verse collection',
+                src: '/assets/gallery-img/CA (2).jpeg',
+                title: 'Group Discussion',
+                subtitle: 'Speaking',
+                category: 'c-a'
+            },
+            {
+                src: '/assets/gallery-img/CA (3).jpeg',
+                title: 'Dialogue performance',
+                subtitle: 'Skit',
+                category: 'c-a'
+            },
+            {
+                src: '/assets/gallery-img/G.jpeg',
+                title: 'Game',
+                subtitle: 'Pathway',
                 category: 'g-r'
             },
             {
-                src: '/assets/gallery-img/subhan-reading.jpeg',
-                title: 'Research Analysis',
-                subtitle: 'Data visualization study',
+                src: '/assets/gallery-img/G (2).jpeg',
+                title: 'Game',
+                subtitle: 'Balloon Race',
+                category: 'g-r'
+            },
+            {
+                src: '/assets/gallery-img/ID.jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (2).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (3).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (4).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (5).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (6).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (7).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (8).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (9).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (10).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (11).jpeg',
+                title: 'International Woman Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (12).jpeg',
+                title: 'International No Tobacco Day',
+                subtitle: 'Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (13).jpeg',
+                title: 'International Cultural Day',
+                subtitle: 'Collaborative Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (16).jpeg',
+                title: 'International Cultural Day',
+                subtitle: 'Collaborative Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (17).jpeg',
+                title: 'International Cultural Day',
+                subtitle: 'Collaborative Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (18).jpeg',
+                title: 'International Cultural Day',
+                subtitle: 'Collaborative Event',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (15).jpeg',
+                title: 'American Independence Day',
+                subtitle: 'Celebrated',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/ID (19).jpeg',
+                title: 'American Independence Day',
+                subtitle: 'Celebrated',
+                category: 'i-d'
+            },
+            {
+                src: '/assets/gallery-img/P.jpeg',
+                title: 'Creative Writing',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (2).jpeg',
+                title: 'Creative Writing',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (3).jpeg',
+                title: 'Creative Writing',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (4).jpeg',
+                title: 'Creative Writing',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (5).jpeg',
+                title: 'Poster Making',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (6).jpeg',
+                title: 'Poster Making',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/P (7).jpeg',
+                title: 'Poster Making',
+                subtitle: 'Project',
+                category: 'c-p'
+            },
+            {
+                src: '/assets/gallery-img/S.jpeg',
+                title: 'About Yourself',
+                subtitle: 'Speaking',
                 category: 's-s'
             },
             {
-                src: '',
-                title: 'Mountain Serenity',
-                subtitle: 'Landscape photography',
-                category: 'photography'
-            },
-            {
-                src: '/assets/gallery-img/groupdiscussion.jpg',
+                src: '/assets/gallery-img/S (2).jpeg',
                 title: 'Group Discussion',
-                subtitle: 'AI-assisted artwork',
+                subtitle: 'Speaking',
+                category: 's-s'
+            },
+            {
+                src: '/assets/gallery-img/S (3).jpeg',
+                title: 'Group Discussion',
+                subtitle: 'Speaking',
+                category: 's-s'
+            },
+            {
+                src: '/assets/gallery-img/SC.jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
                 category: 'digital-art'
             },
             {
-                src: '',
-                title: 'Textured Reality',
-                subtitle: 'Acrylic and mixed media',
-                category: 'mixed-media'
-            },
-            {
-                src: '/assets/gallery-img/group-game.jpeg',
-                title: 'Group Game',
-                subtitle: 'Personal narratives',
-                category: 'poetry'
-            },
-            {
-                src: 'assets/gallery-img/WhatsApp Image 2025-07-06 at 3.06.02 PM (2).jpeg',
-                title: 'Statistical Modeling',
-                subtitle: 'Predictive analysis',
-                category: 'academic'
-            },
-            {
-                src: 'assets/gallery-img/WhatsApp Image 2025-07-06 at 3.06.02 PM (15).jpeg',
-                title: 'Golden Hour',
-                subtitle: 'Natural light capture',
-                category: 'photography'
-            },
-            {
-                src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=700&fit=crop',
-                title: 'Geometric Fusion',
-                subtitle: 'Procedural generation',
+                src: '/assets/gallery-img/SC (2).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
                 category: 'digital-art'
             },
             {
-                src: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=900&fit=crop',
-                title: 'Color Theory',
-                subtitle: 'Experimental palette',
-                category: 'mixed-media'
+                src: '/assets/gallery-img/SC (3).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
+                category: 'digital-art'
             },
             {
-                src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&h=500&fit=crop',
-                title: 'Behavioral Studies',
-                subtitle: 'Psychological research',
-                category: 'academic'
-            }
+                src: '/assets/gallery-img/SC (4).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
+                category: 'digital-art'
+            },
+            {
+                src: '/assets/gallery-img/SC (5).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
+                category: 'digital-art'
+            },
+            {
+                src: '/assets/gallery-img/SC (6).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
+                category: 'digital-art'
+            },
+            {
+                src: '/assets/gallery-img/SC (7).jpeg',
+                title: '23rd March & Plantation Day',
+                subtitle: 'Collaborative Celebration',
+                category: 'digital-art'
+            },
+            {
+                src: '/assets/gallery-img/SC (8).jpeg',
+                title: 'Happy Independence Day',
+                subtitle: 'Celebration',
+                category: 'digital-art'
+            },
+            {
+                src: '/assets/gallery-img/SC (9).jpeg',
+                title: 'Online Session',
+                subtitle: 'With Jenna',
+                category: 's-c'
+            },
+            {
+                src: '/assets/gallery-img/SC (10).jpeg',
+                title: 'Donation',
+                subtitle: 'Day',
+                category: 's-c'
+            },
+            {
+                src: '/assets/gallery-img/SC (11).jpeg',
+                title: 'Donation',
+                subtitle: 'Day',
+                category: 's-c'
+            },
+            {
+                src: '/assets/gallery-img/SC (12).jpeg',
+                title: 'Donation',
+                subtitle: 'Day',
+                category: 's-c'
+            },
+            {
+                src: '/assets/gallery-img/W.jpeg',
+                title: 'Story',
+                subtitle: 'Writing',
+                category: 'w-w'
+            },
+            {
+                src: '/assets/gallery-img/W (2).jpeg',
+                title: 'Dialogue',
+                subtitle: 'Writing',
+                category: 'w-w'
+            },
+            {
+                src: '/assets/gallery-img/W (3).jpeg',
+                title: 'Dialogue',
+                subtitle: 'Writing',
+                category: 'w-w'
+            },
+            {
+                src: '/assets/gallery-img/W (4).jpeg',
+                title: 'Picture Description',
+                subtitle: 'Writing',
+                category: 'w-w'
+            },
         ];
 
         // Performance optimized gallery class with true masonry layout
