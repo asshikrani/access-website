@@ -20,7 +20,7 @@
       }
 
       .hero-section {
-        min-height: 100vh;
+        min-height: 73vh;
         background: linear-gradient(
           135deg,
           #1e3a8a 0%,
@@ -222,43 +222,8 @@
         transform: translateY(-3px);
       }
 
-      .team-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(251px, 1fr));
-        gap: 2rem;
-        max-width: 754px;
-        margin: 0 auto;
-      }
 
-      .stat-item {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        transition: all 0.3s ease;
-      }
-
-      .stat-item:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: 900;
-        color: white;
-        margin-bottom: 0.5rem;
-        display: block;
-      }
-
-      .stat-label {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1rem;
-        font-weight: 500;
-      }
+     
 
       .scroll-indicator {
         position: absolute;
@@ -1227,25 +1192,6 @@
           <a href="#team" class="btn btn-primary">Meet Our Team</a>
           <a href="#projects" class="btn btn-secondary">View Our Work</a>
         </div>
-
-        <div class="team-stats">
-          <div class="stat-item">
-            <span class="stat-number" data-target="50">0</span>
-            <span class="stat-label">Team Members</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="10">0</span>
-            <span class="stat-label">Session Completed</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="15">0</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="98000">0</span>
-            <span class="stat-label">Number of Students</span>
-          </div>
-        </div>
       </div>
 
       <div class="scroll-indicator">
@@ -2155,37 +2101,6 @@
         }
       }
 
-      // Animate counter numbers
-      function animateCounters() {
-        const counters = document.querySelectorAll(".stat-number[data-target]");
-
-        counters.forEach((counter) => {
-          const target = parseInt(counter.getAttribute("data-target"));
-          let current = 0;
-          const increment = target / 100;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              counter.textContent =
-                target +
-                (counter.parentElement
-                  .querySelector(".stat-label")
-                  .textContent.includes("Satisfaction")
-                  ? "%"
-                  : "+");
-              clearInterval(timer);
-            } else {
-              counter.textContent =
-                Math.floor(current) +
-                (counter.parentElement
-                  .querySelector(".stat-label")
-                  .textContent.includes("Satisfaction")
-                  ? "%"
-                  : "+");
-            }
-          }, 50);
-        });
-      }
 
       // Intersection Observer for animations
       function initObserver() {
