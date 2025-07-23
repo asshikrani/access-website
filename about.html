@@ -25,6 +25,12 @@
         background-attachment: fixed;
       }
 
+      .goto {
+        width: 20px;
+        font-weight: 900;
+        margin-left: 9px;
+      }
+
       .hero-overlay-patriotic {
         position: absolute;
         top: 0;
@@ -95,6 +101,10 @@
         margin-top: 2rem;
         opacity: 0;
         animation: heroButtonsAppear 1.8s ease-out 0.6s forwards;
+      }
+
+      .profile-link {
+        font-weight: 800;
       }
 
       .hero-btn-primary-mission {
@@ -697,309 +707,9 @@
         }
       }
 
-      /* Mission and Vision Section */
+  
 
-      /* Main Section Container */
-      .unique-mission-vision-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 4rem 1.4rem; /* Equivalent to py-16 px-4 */
-      }
-
-      /* Section Header */
-      .unique-section-header {
-        text-align: center;
-        margin-bottom: 3rem; /* Equivalent to mb-12 */
-        max-width: 48rem; /* Equivalent to max-w-3xl (approx) */
-        width: 100%;
-      }
-
-      .unique-main-heading {
-        font-size: 2.25rem; /* Equivalent to text-4xl */
-        line-height: 1.25; /* Equivalent to leading-tight */
-        font-weight: 700; /* Equivalent to font-bold */
-        color: #1f2937; /* Equivalent to text-gray-800 */
-        margin-bottom: 1rem; /* Equivalent to mb-4 */
-      }
-
-      .unique-sub-description {
-        font-size: 1.125rem; /* Equivalent to text-lg */
-        font-weight: 500; /* Equivalent to font-medium */
-        color: #4b5563; /* Equivalent to text-gray-600 */
-      }
-
-      /* Cards Container */
-      .unique-cards-container {
-        display: flex;
-        flex-direction: column; /* Equivalent to flex-col */
-        gap: 2rem; /* Equivalent to space-y-8 */
-        max-width: 80rem; /* Equivalent to max-w-6xl */
-        width: 100%;
-      }
-
-      /* Card Base Styles (Mission and Vision) */
-      .unique-mission-card,
-      .unique-vision-card {
-        background-color: #ffffff; /* Equivalent to bg-white */
-        border-radius: 1.5rem; /* Equivalent to rounded-3xl */
-        padding: 2rem; /* Equivalent to p-8 */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%; /* Equivalent to w-full */
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
-          0 4px 6px -2px rgba(0, 0, 0, 0.025); /* Custom shadow */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Equivalent to transition-all duration-300 */
-      }
-
-      .unique-mission-card:hover,
-      .unique-vision-card:hover {
-        transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-2xl */
-      }
-
-      /* Icon Wrapper */
-      .unique-icon-wrapper {
-        background-color: #ede9fe; /* Equivalent to bg-purple-100 */
-        padding: 0.75rem; /* Equivalent to p-3 */
-        border-radius: 9999px; /* Equivalent to rounded-full */
-        margin-bottom: 1.5rem; /* Equivalent to mb-6 */
-      }
-
-      /* Icon SVG */
-      .unique-mission-icon,
-      .unique-vision-icon {
-        width: 2rem; /* Equivalent to w-8 */
-        height: 2rem; /* Equivalent to h-8 */
-        color: #7c3aed; /* Equivalent to text-purple-600 */
-        stroke: currentColor;
-        fill: none;
-      }
-
-      /* Card Title */
-      .unique-card-title {
-        font-size: 1.5rem; /* Equivalent to text-2xl */
-        font-weight: 600; /* Equivalent to font-semibold */
-        color: #1f2937; /* Equivalent to text-gray-800 */
-        margin-bottom: 1rem; /* Equivalent to mb-4 */
-      }
-
-      /* Card Description */
-      .unique-card-description {
-        color: #374151; /* Equivalent to text-gray-700 */
-        margin-bottom: 1.5rem; /* Equivalent to mb-6 */
-        line-height: 1.625; /* Equivalent to leading-relaxed */
-      }
-
-      /* List Items */
-      .unique-mission-list,
-      .unique-vision-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem; /* Equivalent to space-y-3 */
-      }
-
-      .unique-mission-list li,
-      .unique-vision-list li {
-        display: flex;
-        align-items: center;
-        color: #374151; /* Equivalent to text-gray-700 */
-      }
-
-      /* Checkmark Icon */
-      .unique-checkmark-icon {
-        width: 1.25rem; /* Equivalent to w-5 */
-        height: 1.25rem; /* Equivalent to h-5 */
-        color: #22c55e; /* Equivalent to text-green-500 */
-        margin-right: 0.5rem; /* Equivalent to mr-2 */
-        flex-shrink: 0; /* Equivalent to flex-shrink-0 */
-        stroke: currentColor;
-        fill: none;
-      }
-
-      /* Responsive adjustments */
-      @media (min-width: 768px) {
-        /* Equivalent to md breakpoint */
-        .unique-mission-vision-section {
-          padding: 4rem 2rem; /* Equivalent to md:px-8 */
-        }
-
-        .unique-cards-container {
-          flex-direction: row; /* Equivalent to md:flex-row */
-          gap: 2rem; /* Equivalent to md:space-x-8 */
-        }
-
-        .unique-mission-card,
-        .unique-vision-card {
-          width: 50%; /* Equivalent to md:w-1/2 */
-        }
-      }
-
-      @media (min-width: 1024px) {
-        /* Equivalent to lg breakpoint */
-        .unique-mission-vision-section {
-          padding: 4rem 4rem; /* Equivalent to lg:px-16 */
-        }
-      }
-
-      @media (min-width: 640px) {
-        /* Equivalent to sm breakpoint */
-        .unique-main-heading {
-          font-size: 3rem; /* Equivalent to sm:text-5xl */
-        }
-        .unique-sub-description {
-          font-size: 1.25rem; /* Equivalent to sm:text-xl */
-        }
-      }
-
-      /* Access History */
-
-      .history-section-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 4rem 1.5rem;
-        min-height: 100vh;
-      }
-
-      /* Section Header */
-      .history-section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-        max-width: 48rem;
-        width: 100%;
-      }
-
-      .history-main-heading {
-        font-size: 2.25rem;
-        line-height: 1.25;
-        font-weight: 700;
-        color: #1f2937;
-        margin-bottom: 1rem;
-      }
-
-      .history-sub-description {
-        font-size: 1.125rem;
-        font-weight: 500;
-        color: #4b5563;
-      }
-
-      /* Timeline Items Container */
-      .history-timeline-container {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        max-width: 48rem;
-        width: 100%;
-      }
-
-      /* Timeline Card */
-      .history-timeline-card {
-        background-color: #ffffff;
-        border-radius: 1.5rem;
-        padding: 2rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15),
-          0 4px 6px -2px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        position: relative; /* For the year badge positioning */
-      }
-
-      .history-timeline-card:hover {
-        transform: scale(1.01);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-
-      .history-card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-
-      .history-card-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #1f2937;
-      }
-
-      .history-year-badge {
-        background-color: #ede9fe;
-        color: #7c3aed;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-weight: 500;
-        font-size: 0.875rem;
-      }
-
-      .history-card-description {
-        color: #374151;
-        line-height: 1.625;
-        margin-bottom: 1rem;
-      }
-
-      .history-achievement-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .history-achievement-list li {
-        display: flex;
-        align-items: flex-start; /* Align icon and text at the top */
-        color: #374151;
-      }
-
-      .history-achievement-icon {
-        width: 1.25rem;
-        height: 1.25rem;
-        color: #7c3aed; /* Purple color for the icon */
-        margin-right: 0.5rem;
-        flex-shrink: 0;
-        stroke: currentColor;
-        fill: none;
-      }
-
-      /* Responsive adjustments */
-      @media (min-width: 640px) {
-        /* sm breakpoint */
-        .history-main-heading {
-          font-size: 3rem;
-        }
-        .history-sub-description {
-          font-size: 1.25rem;
-        }
-        .history-section-container {
-          padding: 4rem 2rem;
-        }
-      }
-
-      @media (min-width: 768px) {
-        /* md breakpoint */
-        .history-section-container {
-          padding: 4rem 4rem;
-        }
-        .history-timeline-container {
-          max-width: 60rem; /* Slightly wider for better readability on tablets */
-        }
-      }
-
-      @media (min-width: 1024px) {
-        /* lg breakpoint */
-        .history-section-container {
-          padding: 4rem 8rem;
-        }
-      }
+ 
     </style>
   </head>
   <body>
@@ -1018,9 +728,10 @@
 
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="our-team.html">Our Team</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="activity.html">Activities</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">Developer</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -1071,7 +782,12 @@
           <div class="profile-card">
             <div class="card-background"></div>
             <div class="profile-header">
-              <img class="profile-picture" loading="lazy" src="/assets/image/mam-amna.jpg" alt="">
+              <img
+                class="profile-picture"
+                loading="lazy"
+                src="/assets/image/mam-amna.jpg"
+                alt=""
+              />
               <div class="profile-info">
                 <h3 class="profile-name">Amna Manzoor</h3>
                 <span class="profile-profession">Teacher</span>
@@ -1126,14 +842,33 @@
           <div class="profile-card">
             <div class="card-background"></div>
             <div class="profile-header">
-              <img class="profile-picture" src="/assets/image/my-profile.jpg" alt="">
+              <img
+                class="profile-picture"
+                src="/assets/image/my-profile.jpg"
+                alt=""
+              />
               <div class="profile-info">
                 <h3 class="profile-name">Ahmad Siddique</h3>
-                <span class="profile-profession">Lead Language Instructor</span>
+                <span class="profile-profession">Coder</span>
               </div>
             </div>
             <p class="profile-description">
-             I'm a passionate and creative Developer with experience in building responsive, user-friendly websites and applications. I specialize in front-end design using HTML, CSS, JavaScript, and WordPress (Elementor), and also work with Python and Java. I love turning ideas into functional digital experiences that align with modern trends and user needs.
+              I am a dedicated and results-driven Developer with proven
+              experience in designing and developing responsive, user-centric
+              websites and applications. My core competencies include front-end
+              technologies such as HTML, CSS(tailwind), JavaScript, and
+              React.js, along with backend experience in Node.js and Django. I
+              excel at translating client requirements and innovative ideas into
+              efficient, modern digital solutions that adhere to best practices
+              and industry standards.
+              <span class="profile-link">
+                <a href="https://ahmadsiddique.vercel.app" target="_blank"
+                  >For more visit<img
+                    target
+                    class="goto"
+                    src="/assets/image/goto.svg"
+                    alt="goto-pic" /></a
+              ></span>
             </p>
             <div class="skills-section">
               <h4 class="skills-title">Skills & Expertise</h4>
@@ -1338,411 +1073,6 @@
       </div>
     </section>
 
-    <!-- Mission and Vision Section -->
-
-    <section class="unique-mission-vision-section">
-      <!-- Section Header -->
-      <div class="unique-section-header">
-        <h1 class="unique-main-heading">Our Mission & Vision</h1>
-        <p class="unique-sub-description">
-          Guiding principles that drive our educational approach and commitment
-          to student success.
-        </p>
-      </div>
-
-      <!-- Cards Container -->
-      <div class="unique-cards-container">
-        <!-- Our Mission Card -->
-        <div class="unique-mission-card">
-          <!-- Icon -->
-          <div class="unique-icon-wrapper">
-            <svg
-              class="unique-mission-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
-              ></path>
-            </svg>
-          </div>
-          <!-- Title -->
-          <h2 class="unique-card-title">Our Mission</h2>
-          <!-- Description -->
-          <p class="unique-card-description">
-            Access Class is dedicated to providing high-quality English language
-            education to talented students from underserved communities. We aim
-            to foster linguistic proficiency, cultural understanding, and
-            critical thinking skills that empower students to succeed in an
-            increasingly interconnected world.
-          </p>
-          <!-- List Items -->
-          <ul class="unique-mission-list">
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Provide accessible, high-quality English language
-                education</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Foster cross-cultural understanding and global
-                citizenship</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Develop critical thinking and creative expression skills</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Create pathways to educational and professional
-                opportunities</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Our Vision Card -->
-        <div class="unique-vision-card">
-          <!-- Icon -->
-          <div class="unique-icon-wrapper">
-            <svg
-              class="unique-vision-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-              ></path>
-            </svg>
-          </div>
-          <!-- Title -->
-          <h2 class="unique-card-title">Our Vision</h2>
-          <!-- Description -->
-          <p class="unique-card-description">
-            We envision a world where all students, regardless of socioeconomic
-            background, have access to transformative educational experiences
-            that prepare them for success in a global society. Our vision is to
-            be a catalyst for positive change through language education and
-            cultural exchange.
-          </p>
-          <!-- List Items -->
-          <ul class="unique-vision-list">
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Bridge educational opportunity gaps in underserved
-                communities</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Create a global network of engaged, multilingual citizens</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Inspire lifelong learning and cross-cultural
-                collaboration</span
-              >
-            </li>
-            <li>
-              <svg
-                class="unique-checkmark-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-              <span
-                >Become a model for innovative language education
-                worldwide</span
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Access History -->
-
-    <section class="history-section-container">
-      <!-- Section Header -->
-      <div class="history-section-header">
-        <h1 class="history-main-heading">Access History</h1>
-        <p class="history-sub-description">
-          The journey of Access Class from its founding to its current impact on
-          students worldwide.
-        </p>
-      </div>
-
-      <!-- Timeline Items Container -->
-      <div class="history-timeline-container">
-        <!-- Program Foundation Card -->
-        <div class="history-timeline-card">
-          <div class="history-card-header">
-            <h2 class="history-card-title">Program Foundation</h2>
-            <span class="history-year-badge">2010</span>
-          </div>
-          <p class="history-card-description">
-            Access Class was established with an initial cohort of 30 students
-            and 2 teachers, focusing on providing English language education to
-            talented students from economically disadvantaged backgrounds.
-          </p>
-          <ul class="history-achievement-list">
-            <li>
-              <svg
-                class="history-achievement-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"
-                ></path>
-              </svg>
-              <span
-                >Received initial grant funding to support program
-                development</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Program Expansion Card -->
-        <div class="history-timeline-card">
-          <div class="history-card-header">
-            <h2 class="history-card-title">Program Expansion</h2>
-            <span class="history-year-badge">2015</span>
-          </div>
-          <p class="history-card-description">
-            The program expanded to serve 150 students across multiple
-            locations, introducing specialized tracks in academic writing,
-            public speaking, and digital media to enhance student skills.
-          </p>
-          <ul class="history-achievement-list">
-            <li>
-              <svg
-                class="history-achievement-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"
-                ></path>
-              </svg>
-              <span
-                >Recognized for excellence in educational programming by the
-                International Education Association</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Global Partnerships Card -->
-        <div class="history-timeline-card">
-          <div class="history-card-header">
-            <h2 class="history-card-title">Global Partnerships</h2>
-            <span class="history-year-badge">2018</span>
-          </div>
-          <p class="history-card-description">
-            Access Class established partnerships with international educational
-            institutions, creating exchange opportunities and virtual
-            collaboration projects for students to gain global perspectives.
-          </p>
-          <ul class="history-achievement-list">
-            <li>
-              <svg
-                class="history-achievement-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"
-                ></path>
-              </svg>
-              <span
-                >Launched the Global Voices initiative connecting students
-                across 10 countries</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Current Impact Card -->
-        <div class="history-timeline-card">
-          <div class="history-card-header">
-            <h2 class="history-card-title">Current Impact</h2>
-            <span class="history-year-badge">2025</span>
-          </div>
-          <p class="history-card-description">
-            Today, Access Class serves over 500 students annually, with a
-            network of 2,000+ alumni who have gone on to pursue higher education
-            and impactful careers. Our comprehensive curriculum now includes
-            specialized tracks in creative expression, digital literacy, and
-            leadership development.
-          </p>
-          <ul class="history-achievement-list">
-            <li>
-              <svg
-                class="history-achievement-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.287-8.454-3.324a1 1 0 00-1.422 1.422c2.445 2.308 5.617 3.626 9.006 3.626 3.389 0 6.561-1.318 9.006-3.626a1 1 0 00-1.422-1.422z"
-                ></path>
-              </svg>
-              <span
-                >Recognized as a leader in innovative language education by
-                UNESCO</span
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
     <footer class="mfooter">
       <div class="footer-container">
         <div class="footer-content">
