@@ -31,12 +31,12 @@ function viewAllActivities() {
 }
 
 // Add click event to gallery items
-document.querySelectorAll(".gallery-item").forEach((item) => {
-  item.addEventListener("click", function () {
-    const title = this.querySelector("h3").textContent;
-    alert(`Clicked on: ${title}\nThis would open a detailed view or lightbox!`);
-  });
-});
+// document.querySelectorAll(".gallery-item").forEach((item) => {
+//   item.addEventListener("click", function () {
+//     const title = this.querySelector("h3").textContent;
+//     // alert(`Clicked on: ${title}\nThis would open a detailed view or lightbox!`);
+//   });
+// });
 
 // Add keyboard navigation
 document.addEventListener("keydown", function (e) {
