@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Image Gallery</title>
+    <link rel="stylesheet" href="utility.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables for American Flag Colors */
         :root {
-            --flag-red: #BF0A30;
+            --flag-red: #2a21cb;
             --flag-white: #FFFFFF;
-            --flag-blue: #002868;
+            --flag-blue: #680000;
             --shadow-light: rgba(0, 40, 104, 0.1);
             --shadow-medium: rgba(0, 40, 104, 0.15);
             --shadow-dark: rgba(0, 40, 104, 0.25);
@@ -72,7 +73,7 @@
             box-shadow: 0 4px 15px rgba(191, 10, 48, 0.3);
         }
 
-        .back-button svg {
+        .special-button svg {
             width: 20px;
             height: 20px;
         }
@@ -388,7 +389,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            </a><button class="back-button" onclick="window.history.back()">
+            </a><button class="special-button" class="back-button" onclick="window.history.back()">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="m12 19-7-7 7-7"/>
                     <path d="m19 12H5"/>
