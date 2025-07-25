@@ -840,49 +840,113 @@
       </div>
     </footer>
     <script>
-      document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Add loading state
-            submitBtn.classList.add('loading');
-            
-            // Simulate form submission
-            setTimeout(() => {
-                // Remove loading state
-                submitBtn.classList.remove('loading');
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.cbtn-text');
+        const loader = submitBtn.querySelector('.cloader');
+        const successMessage = document.getElementById('successMessage');
+
+        // IMPORTANT: Replace 'YOUR_WEB_APP_URL_HERE' with the actual URL
+        // you got after deploying your Google Apps Script as a web app.
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzvANRhLdT-SuK9M-3BkfCjIJ7Pwf2MgC5MFUuso9q_78vjtAR3TovtLho8fBOAbhewdw/exec'; 
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the default form submission (page reload)
+
+            // Hide previous messages and reset styles
+            successMessage.style.display = 'none';
+            successMessage.style.backgroundColor = ''; // Clear background
+            successMessage.style.color = ''; // Clear text color
+            successMessage.style.padding = '';
+            successMessage.style.borderRadius = '';
+            successMessage.style.marginTop = '';
+            successMessage.classList.remove('show'); // Remove 'show' class if it's there
+
+            // Show loading state
+            btnText.style.display = 'none';
+            loader.style.display = 'block';
+            submitBtn.disabled = true; // Disable button to prevent multiple submissions
+            submitBtn.classList.add('loading'); // Add your loading class
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(webAppUrl, {
+                    method: 'POST',
+                    body: formData,
+                    // mode: 'no-cors' // Keep this commented out unless you face specific CORS errors and understand its implications
+                });
                 
-                // Show success message
-                successMessage.classList.add('show');
+                // For 'no-cors' mode, response.ok will always be true, so you need to rely on the script executing
+                // For 'cors' mode (default), response.ok will reflect success/failure from the Apps Script
                 
-                // Reset form
-                this.reset();
-                
-                // Hide success message after 3 seconds
+                if (response.ok || response.type === 'opaque') { 
+                    // Success!
+                    successMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+                    successMessage.style.backgroundColor = '#d4edda'; // Light green for success
+                    successMessage.style.color = '#155724'; // Dark green text
+                    
+                    form.reset(); // Clear the form fields
+                } else {
+                    // Server responded with an error status (e.g., 400, 500)
+                    const errorText = await response.text(); 
+                    successMessage.textContent = `Error: ${errorText || 'Something went wrong on the server.'}`;
+                    successMessage.style.backgroundColor = '#f8d7da'; // Light red for error
+                    successMessage.style.color = '#721c24'; // Dark red text
+                    console.error('Server error:', response.status, response.statusText, errorText);
+                }
+
+            } catch (error) {
+                // Network errors or issues before the request is sent
+                successMessage.textContent = 'Network error. Please check your internet connection and try again.';
+                successMessage.style.backgroundColor = '#f8d7da'; // Light red for error
+                successMessage.style.color = '#721c24'; // Dark red text
+                console.error('Fetch error:', error);
+
+            } finally {
+                // Always reset button and message state after attempt
+                btnText.style.display = 'inline'; // Adjust based on your CSS, could be 'block'
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading'); // Remove your loading class
+
+                // Show the success/error message
+                successMessage.style.padding = '10px';
+                successMessage.style.borderRadius = '5px';
+                successMessage.style.marginTop = '15px';
+                successMessage.style.display = 'block'; // Ensure it's visible
+                successMessage.classList.add('show'); // Add 'show' class for animation
+
+                // Hide success/error message after 5 seconds
                 setTimeout(() => {
                     successMessage.classList.remove('show');
-                }, 3000);
-                
-            }, 2000); // 2 second loading simulation
+                    successMessage.style.display = 'none'; // Hide completely after animation
+                }, 5000); // 5 seconds to read the message
+            }
         });
 
         // Add floating animation to form elements on focus
         const inputs = document.querySelectorAll('input, textarea');
         inputs.forEach(input => {
             input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'translateY(-2px)';
-                this.parentElement.style.transition = 'transform 0.3s ease';
+                // Ensure parentElement exists before trying to access style
+                if (this.parentElement) {
+                    this.parentElement.style.transform = 'translateY(-2px)';
+                    this.parentElement.style.transition = 'transform 0.3s ease';
+                }
             });
             
             input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'translateY(0)';
+                if (this.parentElement) {
+                    this.parentElement.style.transform = 'translateY(0)';
+                }
             });
         });
 
         // Add click animations to social icons
-        const socialIcons = document.querySelectorAll('.social-icon');
+        // Assuming .social-icon is the parent div containing the SVG
+        const socialIcons = document.querySelectorAll('.csocial-icon'); // Changed to .csocial-icon based on your HTML
         socialIcons.forEach(icon => {
             icon.addEventListener('click', function() {
                 this.style.transform = 'translateY(-3px) scale(0.95)';
@@ -891,6 +955,7 @@
                 }, 150);
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
