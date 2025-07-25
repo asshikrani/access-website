@@ -2,5 +2,5 @@
 
 - remove the words from footer.
 - This website has been publlished on internet.
-- And domain name is https://access-group-1.vercel.app
-- [Access website](https://facebook.com)
+- And domain name is https://access-g1.vercel.app
+- 
