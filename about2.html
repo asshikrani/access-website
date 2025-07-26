@@ -1,241 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Customers</title>
     <!-- Google Font: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* Basic Reset & Body Styling */
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc; /* Light background as seen in the image */
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Center content vertically */
-            min-height: 100vh; /* Full viewport height */
-            padding: 40px 16px; /* Padding for small screens */
-            box-sizing: border-box;
-        }
+      /* Basic Reset & Body Styling */
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #f7f9fc; /* Light background as seen in the image */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center content vertically */
+        min-height: 100vh; /* Full viewport height */
+        padding: 40px 16px; /* Padding for small screens */
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1280px; /* Max width for the content */
-            width: 100%;
-            padding: 0 16px; /* Horizontal padding */
-            box-sizing: border-box;
-        }
+      .pcontainer {
+        max-width: 1280px; /* Max width for the content */
+        width: 90%;
+        padding: 0 16px; /* Horizontal padding */
+        box-sizing: border-box;
+      }
 
-        /* Header Section */
-        .header-section {
-            text-align: center;
-            margin-bottom: 48px; /* Equivalent to mb-12 lg:mb-16 */
-        }
+      /* Header Section */
+      .pheader-section {
+        text-align: center;
+        margin-bottom: 48px; /* Equivalent to mb-12 lg:mb-16 */
+      }
 
-        .header-section h1 {
-            font-size: 2.5rem; /* Equivalent to text-4xl sm:text-5xl */
-            font-weight: 600; /* Equivalent to font-semibold */
-            color: #1f2937; /* Equivalent to text-gray-800 */
-            margin-bottom: 16px; /* Equivalent to mb-4 */
-        }
+      .pheader-section h1 {
+        font-size: 2.5rem; /* Equivalent to text-4xl sm:text-5xl */
+        font-weight: 600; /* Equivalent to font-semibold */
+        color: #1f2937; /* Equivalent to text-gray-800 */
+        margin-bottom: 16px; /* Equivalent to mb-4 */
+      }
 
-        .header-section p {
-            font-size: 1.125rem; /* Equivalent to text-lg */
-            color: #4b5563; /* Equivalent to text-gray-600 */
-            max-width: 672px; /* Equivalent to max-w-2xl */
-            margin: 0 auto;
-            line-height: 1.625; /* Equivalent to leading-relaxed */
-        }
+      .pheader-section p {
+        font-size: 1.125rem; /* Equivalent to text-lg */
+        color: #4b5563; /* Equivalent to text-gray-600 */
+        max-width: 672px; /* Equivalent to max-w-2xl */
+        margin: 0 auto;
+        line-height: 1.625; /* Equivalent to leading-relaxed */
+      }
 
-        /* Customer Cards Grid */
+      /* Customer Cards Grid */
+      .customer-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 32px; /* Equivalent to gap-8 lg:gap-10 */
+        justify-items: center; /* Center cards in the grid */
+      }
+
+      /* Customer Card */
+      .customer-card {
+        background-color: #ffffff;
+        border-radius: 12px; /* Equivalent to rounded-xl */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+        padding: 32px; /* Equivalent to p-6 sm:p-8 */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 512px; /* Equivalent to max-w-md */
+        box-sizing: border-box;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
+      }
+
+      .customer-card:hover {
+        transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-xl */
+      }
+
+      .logo-pcontainer {
+        margin-bottom: 20px; /* Equivalent to mb-5 */
+        flex-shrink: 0;
+      }
+
+      .logo-pcontainer img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+
+      .pcard-content {
+        flex-grow: 1;
+      }
+
+      .pcard-content h3 {
+        font-size: 1.5rem; /* Equivalent to text-2xl */
+        font-weight: 600; /* Equivalent to font-semibold */
+        color: #1f2937; /* Equivalent to text-gray-800 */
+        margin-top: 0;
+        margin-bottom: 12px; /* Equivalent to mb-3 */
+      }
+
+      .pcard-content p {
+        font-size: 1rem; /* Equivalent to text-base */
+        color: #4b5563; /* Equivalent to text-gray-600 */
+        line-height: 1.625; /* Equivalent to leading-relaxed */
+        margin-bottom: 20px; /* Equivalent to mb-5 */
+      }
+
+      .view-page {
+        color: #2563eb; /* Equivalent to text-blue-600 */
+        text-decoration: none;
+        font-weight: 500; /* Equivalent to font-medium */
+        display: flex;
+        align-items: center;
+      }
+
+      .view-page:hover {
+        color: #1d4ed8; /* Equivalent to hover:text-blue-800 */
+      }
+
+      .view-page svg {
+        margin-left: 8px; /* Equivalent to ml-2 */
+        width: 16px; /* Equivalent to w-4 */
+        height: 16px; /* Equivalent to h-4 */
+        transform: translateX(0);
+        transition: transform 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
+      }
+
+      .view-page:hover svg {
+        transform: translateX(
+          4px
+        ); /* Equivalent to group-hover:translate-x-1 */
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (min-width: 768px) {
+        /* Equivalent to md breakpoint */
         .customer-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Single column for mobile */
-            gap: 32px; /* Equivalent to gap-8 lg:gap-10 */
-            justify-items: center; /* Center cards in the grid */
+          grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
         }
+        body {
+          padding: 64px 24px; /* Adjust padding for medium screens */
+        }
+      }
 
-        /* Customer Card */
-        .customer-card {
-            background-color: #ffffff;
-            border-radius: 12px; /* Equivalent to rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
-            padding: 32px; /* Equivalent to p-6 sm:p-8 */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 512px; /* Equivalent to max-w-md */
-            box-sizing: border-box;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
+      @media (min-width: 1024px) {
+        /* Equivalent to lg breakpoint */
+        body {
+          padding: 80px 32px; /* Adjust padding for large screens */
         }
-
-        .customer-card:hover {
-            transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-xl */
-        }
-
-        .logo-container {
-            margin-bottom: 20px; /* Equivalent to mb-5 */
-            flex-shrink: 0;
-        }
-
-        .logo-container img {
-            width: 56px; /* Equivalent to w-14 */
-            height: 56px; /* Equivalent to h-14 */
-            object-fit: contain;
-            border-radius: 6px; /* Equivalent to rounded-md */
-        }
-
-        .card-content {
-            flex-grow: 1;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem; /* Equivalent to text-2xl */
-            font-weight: 600; /* Equivalent to font-semibold */
-            color: #1f2937; /* Equivalent to text-gray-800 */
-            margin-top: 0;
-            margin-bottom: 12px; /* Equivalent to mb-3 */
-        }
-
-        .card-content p {
-            font-size: 1rem; /* Equivalent to text-base */
-            color: #4b5563; /* Equivalent to text-gray-600 */
-            line-height: 1.625; /* Equivalent to leading-relaxed */
-            margin-bottom: 20px; /* Equivalent to mb-5 */
-        }
-
-        .view-page {
-            color: #2563eb; /* Equivalent to text-blue-600 */
-            text-decoration: none;
-            font-weight: 500; /* Equivalent to font-medium */
-            display: flex;
-            align-items: center;
-        }
-
-        .view-page:hover {
-            color: #1d4ed8; /* Equivalent to hover:text-blue-800 */
-        }
-
-        .view-page svg {
-            margin-left: 8px; /* Equivalent to ml-2 */
-            width: 16px; /* Equivalent to w-4 */
-            height: 16px; /* Equivalent to h-4 */
-            transform: translateX(0);
-            transition: transform 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
-        }
-
-        .view-page:hover svg {
-            transform: translateX(4px); /* Equivalent to group-hover:translate-x-1 */
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (min-width: 768px) { /* Equivalent to md breakpoint */
-            .customer-grid {
-                grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
-            }
-            body {
-                padding: 64px 24px; /* Adjust padding for medium screens */
-            }
-        }
-
-        @media (min-width: 1024px) { /* Equivalent to lg breakpoint */
-            body {
-                padding: 80px 32px; /* Adjust padding for large screens */
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header-section">
-            <h1>Our Customers</h1>
+  </head>
+  <body>
+    <div class="pcontainer">
+      <!-- Header Section -->
+      <header class="pheader-section">
+        <h1>Our Customers</h1>
+        <p>
+          As a user, it is important to have a positive experience when using a
+          website or app.
+        </p>
+      </header>
+
+      <!-- Customer Cards Grid -->
+      <main class="customer-grid">
+        <!-- Netflix Card -->
+        <div class="customer-card">
+          <div class="logo-pcontainer">
+            <img src="/assets/image/us-embassy.jpg" alt="US - Embassy logo" />
+          </div>
+          <div class="pcard-content">
+            <h3>US Embassy & Consulates in Pakistan</h3>
             <p>
-                As a user, it is important to have a positive experience when using a website or app.
+              They support the English Access Program by providing funding and
+              strategic direction to promote English language learning and
+              cultural exchange.
             </p>
-        </header>
+            <a href="#" class="view-page">
+              View Page
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-        <!-- Customer Cards Grid -->
-        <main class="customer-grid">
-            <!-- Netflix Card -->
-            <div class="customer-card">
-                <div class="logo-container">
-                    <img src="https://placehold.co/60x60/FF0000/FFFFFF?text=N" alt="Netflix Logo">
-                </div>
-                <div class="card-content">
-                    <h3>Netflix</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
-                    </p>
-                    <a href="#" class="view-page">
-                        View Page
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <!-- Zapier Card -->
+        <div class="customer-card">
+          <div class="logo-pcontainer">
+            <img src="/assets/image/relo.jpg" alt="Relo-logo" />
+          </div>
+          <div class="pcard-content">
+            <h3>RELO (Regional English Language Office)</h3>
+            <p>
+              RELO offers academic and technical support, teacher training, and
+              resources to enhance English language education across Pakistan.
+            </p>
+            <a href="#" class="view-page">
+              View Page
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-            <!-- Zapier Card -->
-            <div class="customer-card">
-                <div class="logo-container">
-                    <img src="https://placehold.co/60x60/FF8C00/FFFFFF?text=Z" alt="Zapier Logo">
-                </div>
-                <div class="card-content">
-                    <h3>Zapier</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
-                    </p>
-                    <a href="#" class="view-page">
-                        View Page
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <!-- Figma Card -->
+        <div class="customer-card">
+          <div class="logo-pcontainer">
+            <img src="/assets/image/ue multan.jpg" alt="ue-logo" />
+          </div>
+          <div class="pcard-content">
+            <h3>UE Multan (University of Education Multan Campus)</h3>
+            <p>
+              UE Multan contributes by providing academic expertise, training
+              venues, and facilitation for program activities and events.
+            </p>
+            <a href="#" class="view-page">
+              View Page
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-            <!-- Figma Card -->
-            <div class="customer-card">
-                <div class="logo-container">
-                    <img src="https://placehold.co/60x60/A259FF/FFFFFF?text=F" alt="Figma Logo">
-                </div>
-                <div class="card-content">
-                    <h3>Figma</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
-                    </p>
-                    <a href="#" class="view-page">
-                        View Page
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Adobe Card -->
-            <div class="customer-card">
-                <div class="logo-container">
-                    <img src="https://placehold.co/60x60/FF0000/FFFFFF?text=A" alt="Adobe Logo">
-                </div>
-                <div class="card-content">
-                    <h3>Adobe</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
-                    </p>
-                    <a href="#" class="view-page">
-                        View Page
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </main>
+        <!-- Adobe Card -->
+        <div class="customer-card">
+          <div class="logo-pcontainer">
+            <img src="/assets/image/fhi.jpg" alt="Adobe Logo" />
+          </div>
+          <div class="pcard-content">
+            <h3>fhi360</h3>
+            <p>
+              In Pakistan, FHI 360 partners with entities like the U.S. Embassy
+              to deliver educational and health-related programs such as the
+              Access Microscholarship English language initiative and public
+              health projects in collaboration with government and civil society
+            </p>
+            <a href="#" class="view-page">
+              View Page
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>
