@@ -3,396 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Access Microscholarship Program</title>
+    <title>Our Customers</title>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
-        
-        * {
+        /* Basic Reset & Body Styling */
+        body {
             margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light background as seen in the image */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Full viewport height */
+            padding: 40px 16px; /* Padding for small screens */
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .hero-section {
-            min-height: 73vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #d53e3e 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
-            overflow: hidden;
-        }
-
-        /* American Flag Background */
-        .flag-background {
-          background: url(/backpic.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
+        .container {
+            max-width: 1280px; /* Max width for the content */
             width: 100%;
-            height: 100%;
-            opacity: 0.75;
-            z-index: 1;
+            padding: 0 16px; /* Horizontal padding */
+            box-sizing: border-box;
         }
 
-        .flag-stripes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .stripe {
-            width: 100%;
-            height: 7.69%;
-            position: absolute;
-            animation: waveStripe 8s ease-in-out infinite;
-        }
-
-        .stripe:nth-child(odd) {
-            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
-        }
-
-        .stripe:nth-child(even) {
-            background: linear-gradient(90deg, #f8fafc, #ffffff, #f8fafc);
-        }
-
-        
-        @keyframes waveStripe {
-            0%, 100% { transform: translateX(0) scaleX(1); }
-            50% { transform: translateX(10px) scaleX(1.02); }
-        }
-
-        .flag-canton {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 38.5%;
-            height: 53.8%;
-            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .star {
-            color: white;
-            font-size: clamp(8px, 1.2vw, 16px);
-            margin: 2px;
-            animation: starTwinkle 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
-        }
-
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        /* Overlay for better text readability */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.7) 70%, rgba(15, 23, 42, 0.9) 100%);
-            z-index: 2;
-        }
-
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 20%; animation-delay: 1s; }
-        .particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 80%; animation-delay: 2s; }
-        .particle:nth-child(4) { width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 3s; }
-        .particle:nth-child(5) { width: 4px; height: 4px; top: 30%; left: 90%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Main Content */
-        .hero-content {
-            position: relative;
-            z-index: 3;
+        /* Header Section */
+        .header-section {
             text-align: center;
-            max-width: 1200px;
-            padding: 2rem;
-            animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-bottom: 48px; /* Equivalent to mb-12 lg:mb-16 */
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .header-section h1 {
+            font-size: 2.5rem; /* Equivalent to text-4xl sm:text-5xl */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #1f2937; /* Equivalent to text-gray-800 */
+            margin-bottom: 16px; /* Equivalent to mb-4 */
         }
 
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 25%, #f1f5f9 50%, #ffffff 75%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-            line-height: 1.1;
-            letter-spacing: -2px;
-            position: relative;
+        .header-section p {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            color: #4b5563; /* Equivalent to text-gray-600 */
+            max-width: 672px; /* Equivalent to max-w-2xl */
+            margin: 0 auto;
+            line-height: 1.625; /* Equivalent to leading-relaxed */
         }
 
-        .hero-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #dc2626, #ffffff, #1e3a8a);
-            border-radius: 2px;
-            animation: shimmer 2s ease-in-out infinite;
+        /* Customer Cards Grid */
+        .customer-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for mobile */
+            gap: 32px; /* Equivalent to gap-8 lg:gap-10 */
+            justify-items: center; /* Center cards in the grid */
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.7; transform: translateX(-50%) scaleX(1); }
-            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
-        }
-
-        .hero-paragraph {
-            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
-            margin-bottom: 3.5rem;
-            color: #e2e8f0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            line-height: 1.8;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            animation: fadeInText 1.8s ease-out 0.5s forwards;
-        }
-
-        @keyframes fadeInText {
-            to { opacity: 1; }
-        }
-
-        .hero-buttons {
+        /* Customer Card */
+        .customer-card {
+            background-color: #ffffff;
+            border-radius: 12px; /* Equivalent to rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+            padding: 32px; /* Equivalent to p-6 sm:p-8 */
             display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInButtons 2s ease-out 1s forwards;
-        }
-
-        @keyframes fadeInButtons {
-            to { opacity: 1; }
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1.3rem 3rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 60px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            backdrop-filter: blur(10px);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+            flex-direction: column;
+            align-items: flex-start;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
+            max-width: 512px; /* Equivalent to max-w-md */
+            box-sizing: border-box;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
         }
 
-        .btn:hover::before {
-            left: 100%;
+        .customer-card:hover {
+            transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-xl */
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
-            color: white;
-            border-color: rgba(220, 38, 38, 0.3);
-            box-shadow: 
-                0 10px 30px rgba(220, 38, 38, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        .logo-container {
+            margin-bottom: 20px; /* Equivalent to mb-5 */
+            flex-shrink: 0;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(220, 38, 38, 0.4),
-                0 0 20px rgba(220, 38, 38, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        .logo-container img {
+            width: 56px; /* Equivalent to w-14 */
+            height: 56px; /* Equivalent to h-14 */
+            object-fit: contain;
+            border-radius: 6px; /* Equivalent to rounded-md */
         }
 
-        .btn-primary:active {
-            transform: translateY(-2px) scale(1.02);
+        .card-content {
+            flex-grow: 1;
         }
 
-        .btn-secondary {
-            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
-            color: white;
-            border-color: rgba(30, 58, 138, 0.3);
-            box-shadow: 
-                0 10px 30px rgba(30, 58, 138, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        .card-content h3 {
+            font-size: 1.5rem; /* Equivalent to text-2xl */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #1f2937; /* Equivalent to text-gray-800 */
+            margin-top: 0;
+            margin-bottom: 12px; /* Equivalent to mb-3 */
         }
 
-        .btn-secondary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(30, 58, 138, 0.4),
-                0 0 20px rgba(30, 58, 138, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        .card-content p {
+            font-size: 1rem; /* Equivalent to text-base */
+            color: #4b5563; /* Equivalent to text-gray-600 */
+            line-height: 1.625; /* Equivalent to leading-relaxed */
+            margin-bottom: 20px; /* Equivalent to mb-5 */
         }
 
-        .btn-secondary:active {
-            transform: translateY(-2px) scale(1.02);
+        .view-page {
+            color: #2563eb; /* Equivalent to text-blue-600 */
+            text-decoration: none;
+            font-weight: 500; /* Equivalent to font-medium */
+            display: flex;
+            align-items: center;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                padding: 1.5rem;
+        .view-page:hover {
+            color: #1d4ed8; /* Equivalent to hover:text-blue-800 */
+        }
+
+        .view-page svg {
+            margin-left: 8px; /* Equivalent to ml-2 */
+            width: 16px; /* Equivalent to w-4 */
+            height: 16px; /* Equivalent to h-4 */
+            transform: translateX(0);
+            transition: transform 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
+        }
+
+        .view-page:hover svg {
+            transform: translateX(4px); /* Equivalent to group-hover:translate-x-1 */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) { /* Equivalent to md breakpoint */
+            .customer-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
             }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 320px;
-                padding: 1.4rem 2.5rem;
-            }
-            
-            .flag-canton {
-                width: 50%;
-                height: 50%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content {
-                padding: 1rem;
-            }
-            
-            .hero-paragraph {
-                margin-bottom: 2.5rem;
-            }
-            
-            .hero-title {
-                letter-spacing: -1px;
+            body {
+                padding: 64px 24px; /* Adjust padding for medium screens */
             }
         }
 
-        /* High contrast mode */
-        @media (prefers-contrast: high) {
-            .hero-overlay {
-                background: rgba(0, 0, 0, 0.8);
-            }
-            
-            .hero-title {
-                -webkit-text-fill-color: white;
-                color: white;
-            }
-            
-            .hero-paragraph {
-                color: white;
-            }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            .hero-content,
-            .hero-paragraph,
-            .hero-buttons,
-            .star,
-            .particle,
-            .stripe {
-                animation: none;
-            }
-            
-            .btn {
-                transition: none;
+        @media (min-width: 1024px) { /* Equivalent to lg breakpoint */
+            body {
+                padding: 80px 32px; /* Adjust padding for large screens */
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero-section">
-        <!-- American Flag Background -->
-        <div class="flag-background">
-        </div>
-        
-        <div class="hero-overlay"></div>
-        
-        <!-- Floating particles -->
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">English Access Microscholarship Program</h1>
-            <p class="hero-paragraph">
-                A community of talented students shaping the future through creativity, knowledge, and skill. We are a passionate and driven team, learning, growing, and succeeding together.
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <h1>Our Customers</h1>
+            <p>
+                As a user, it is important to have a positive experience when using a website or app.
             </p>
-            <div class="hero-buttons">
-                <a href="#activities" class="btn btn-primary">Explore Activities</a>
-                <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+        </header>
+
+        <!-- Customer Cards Grid -->
+        <main class="customer-grid">
+            <!-- Netflix Card -->
+            <div class="customer-card">
+                <div class="logo-container">
+                    <img src="https://placehold.co/60x60/FF0000/FFFFFF?text=N" alt="Netflix Logo">
+                </div>
+                <div class="card-content">
+                    <h3>Netflix</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
+                    </p>
+                    <a href="#" class="view-page">
+                        View Page
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+
+            <!-- Zapier Card -->
+            <div class="customer-card">
+                <div class="logo-container">
+                    <img src="https://placehold.co/60x60/FF8C00/FFFFFF?text=Z" alt="Zapier Logo">
+                </div>
+                <div class="card-content">
+                    <h3>Zapier</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
+                    </p>
+                    <a href="#" class="view-page">
+                        View Page
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Figma Card -->
+            <div class="customer-card">
+                <div class="logo-container">
+                    <img src="https://placehold.co/60x60/A259FF/FFFFFF?text=F" alt="Figma Logo">
+                </div>
+                <div class="card-content">
+                    <h3>Figma</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
+                    </p>
+                    <a href="#" class="view-page">
+                        View Page
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Adobe Card -->
+            <div class="customer-card">
+                <div class="logo-container">
+                    <img src="https://placehold.co/60x60/FF0000/FFFFFF?text=A" alt="Adobe Logo">
+                </div>
+                <div class="card-content">
+                    <h3>Adobe</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Arcu felis arcu magna scelerisque. Interdum feugiat elementum risus id sodales leo sed amet.
+                    </p>
+                    <a href="#" class="view-page">
+                        View Page
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
