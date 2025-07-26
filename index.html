@@ -21,73 +21,352 @@
       }
 
       /* Hero Section */
-      .hero {
-        background: linear-gradient(
-          135deg,
-          var(--basic-color) 0%,
-          #e5e7eb 50%,
-          var(--basic-color) 100%
-        );
-        /* padding: 4rem 0 6rem 0; */
-        background-color: var(--basic-color);
-        text-align: center;
-        /* position: relative; */
-        overflow: hidden;
-        height: 474px;
-        background-image: url(/backpic.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* opacity: 0.2; */
-      }
+      .hero-section {
+            min-height: 73vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d53e3e 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+            overflow: hidden;
+        }
 
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(
-            circle at 30% 20%,
-            rgba(220, 38, 38, 0.05) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 70% 80%,
-            rgba(30, 58, 138, 0.05) 0%,
-            transparent 50%
-          );
-        pointer-events: none;
-      }
+        /* American Flag Background */
+        .flag-background {
+          background: url(/backpic.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.75;
+            z-index: 1;
+        }
 
-      .hero-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 45px;
-        /* padding: 0 2rem; */
-        position: absolute;
-        /*  z-index: 1; */
-        width: 100vw;
-      }
+        .flag-stripes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-      .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: #000000;
-        /* margin-bottom: 1.5rem; */
-        letter-spacing: -0.02em;
-      }
+        .stripe {
+            width: 100%;
+            height: 7.69%;
+            position: absolute;
+            animation: waveStripe 8s ease-in-out infinite;
+        }
 
-      .hero p {
-        font-size: 1.25rem;
-        color: var(--p-color);
-        max-width: 600px;
-        margin: 0 auto 2rem auto;
-        line-height: 1.7;
-      }
+        .stripe:nth-child(odd) {
+            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+        }
+
+        .stripe:nth-child(even) {
+            background: linear-gradient(90deg, #f8fafc, #ffffff, #f8fafc);
+        }
+
+        
+        @keyframes waveStripe {
+            0%, 100% { transform: translateX(0) scaleX(1); }
+            50% { transform: translateX(10px) scaleX(1.02); }
+        }
+
+        .flag-canton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 38.5%;
+            height: 53.8%;
+            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .star {
+            color: white;
+            font-size: clamp(8px, 1.2vw, 16px);
+            margin: 2px;
+            animation: starTwinkle 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Overlay for better text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.7) 70%, rgba(15, 23, 42, 0.9) 100%);
+            z-index: 2;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; top: 30%; left: 90%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Main Content */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 1200px;
+            padding: 2rem;
+            animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 25%, #f1f5f9 50%, #ffffff 75%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #ffffff, #1e3a8a);
+            border-radius: 2px;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scaleX(1); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+        }
+
+        .hero-paragraph {
+            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            margin-bottom: 3.5rem;
+            color: #e2e8f0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeInText 1.8s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeInText {
+            to { opacity: 1; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInButtons 2s ease-out 1s forwards;
+        }
+
+        @keyframes fadeInButtons {
+            to { opacity: 1; }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.3rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 60px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
+            color: white;
+            border-color: rgba(220, 38, 38, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(220, 38, 38, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(220, 38, 38, 0.4),
+                0 0 20px rgba(220, 38, 38, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
+            color: white;
+            border-color: rgba(30, 58, 138, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(30, 58, 138, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(30, 58, 138, 0.4),
+                0 0 20px rgba(30, 58, 138, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 1.4rem 2.5rem;
+            }
+            
+            .flag-canton {
+                width: 50%;
+                height: 50%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1rem;
+            }
+            
+            .hero-paragraph {
+                margin-bottom: 2.5rem;
+            }
+            
+            .hero-title {
+                letter-spacing: -1px;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.8);
+            }
+            
+            .hero-title {
+                -webkit-text-fill-color: white;
+                color: white;
+            }
+            
+            .hero-paragraph {
+                color: white;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content,
+            .hero-paragraph,
+            .hero-buttons,
+            .star,
+            .particle,
+            .stripe {
+                animation: none;
+            }
+            
+            .btn {
+                transition: none;
+            }
+        }
 
       .cta-button {
         display: inline-block;
@@ -155,13 +434,7 @@
           margin-top: 0;
         }
 
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
+       
 
         .cards-grid {
           grid-template-columns: 1fr;
@@ -174,14 +447,7 @@
       }
 
       @media (max-width: 480px) {
-        .hero-container,
-        .updates-container {
-          padding: 0 1rem;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
+       
         .welcome-sec h1 {
           padding: 12px;
           font-size: 16px;
@@ -1322,24 +1588,34 @@
         </ul>
       </div>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="herop"></div>
-      <div class="hero-container">
-        <h1>English Access Microscholarship Program</h1>
-        <!-- <h3>Group-01</h3> -->
-        <p>
-          A community of talented students shaping the future through
-          creativity, knowledge, and skill. We are a passionate and driven team,
-          learning, growing , and succeeding together.
-        </p>
-        <div class="h-b">
-          <a href="/activity.html" class="cta-button ee-b">Explore Activities</a>
-          <a href="/portfolio.html" class="cta-button vp-b">View Portfolio</a>
-        </div>
-      </div>
-    </section>
 
+    <section class="hero-section">
+        <!-- American Flag Background -->
+        <div class="flag-background">
+        </div>
+        
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating particles -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">English Access Microscholarship Program</h1>
+            <p class="hero-paragraph">
+                A community of talented students shaping the future through creativity, knowledge, and skill. We are a passionate and driven team, learning, growing, and succeeding together.
+            </p>
+            <div class="hero-buttons">
+                <a href="/activity.html" class="btn btn-primary">Explore Activities</a>
+                <a href="/portfolio.html" class="btn btn-secondary">View Portfolio</a>
+            </div>
+        </div>
+    </section>
     <!-- Welcome Section -->
     <section>
       <div class="header">
