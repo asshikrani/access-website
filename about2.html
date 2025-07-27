@@ -1,298 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Customers</title>
-    <!-- Google Font: Inter -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Books Library</title>
     <style>
-      /* Basic Reset & Body Styling */
-      body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background-color: #f7f9fc; /* Light background as seen in the image */
-        display: flex;
-        justify-content: center;
-        align-items: center; /* Center content vertically */
-        min-height: 100vh; /* Full viewport height */
-        padding: 40px 16px; /* Padding for small screens */
-        box-sizing: border-box;
-      }
-
-      .pcontainer {
-        max-width: 1280px; /* Max width for the content */
-        width: 90%;
-        padding: 0 16px; /* Horizontal padding */
-        box-sizing: border-box;
-      }
-
-      /* Header Section */
-      .pheader-section {
-        text-align: center;
-        margin-bottom: 48px; /* Equivalent to mb-12 lg:mb-16 */
-      }
-
-      .pheader-section h1 {
-        font-size: 2.5rem; /* Equivalent to text-4xl sm:text-5xl */
-        font-weight: 600; /* Equivalent to font-semibold */
-        color: #1f2937; /* Equivalent to text-gray-800 */
-        margin-bottom: 16px; /* Equivalent to mb-4 */
-      }
-
-      .pheader-section p {
-        font-size: 1.125rem; /* Equivalent to text-lg */
-        color: #4b5563; /* Equivalent to text-gray-600 */
-        max-width: 672px; /* Equivalent to max-w-2xl */
-        margin: 0 auto;
-        line-height: 1.625; /* Equivalent to leading-relaxed */
-      }
-
-      /* Customer Cards Grid */
-      .customer-grid {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for mobile */
-        gap: 32px; /* Equivalent to gap-8 lg:gap-10 */
-        justify-items: center; /* Center cards in the grid */
-      }
-
-      /* Customer Card */
-      .customer-card {
-        background-color: #ffffff;
-        border-radius: 12px; /* Equivalent to rounded-xl */
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
-        padding: 32px; /* Equivalent to p-6 sm:p-8 */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        max-width: 512px; /* Equivalent to max-w-md */
-        box-sizing: border-box;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
-      }
-
-      .customer-card:hover {
-        transform: scale(1.01); /* Equivalent to hover:scale-[1.01] */
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-xl */
-      }
-
-      .logo-pcontainer {
-        margin-bottom: 20px; /* Equivalent to mb-5 */
-        flex-shrink: 0;
-      }
-
-      .logo-pcontainer img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        border-radius: 6px;
-      }
-
-      .pcard-content {
-        flex-grow: 1;
-      }
-
-      .pcard-content h3 {
-        font-size: 1.5rem; /* Equivalent to text-2xl */
-        font-weight: 600; /* Equivalent to font-semibold */
-        color: #1f2937; /* Equivalent to text-gray-800 */
-        margin-top: 0;
-        margin-bottom: 12px; /* Equivalent to mb-3 */
-      }
-
-      .pcard-content p {
-        font-size: 1rem; /* Equivalent to text-base */
-        color: #4b5563; /* Equivalent to text-gray-600 */
-        line-height: 1.625; /* Equivalent to leading-relaxed */
-        margin-bottom: 20px; /* Equivalent to mb-5 */
-      }
-
-      .view-page {
-        color: #2563eb; /* Equivalent to text-blue-600 */
-        text-decoration: none;
-        font-weight: 500; /* Equivalent to font-medium */
-        display: flex;
-        align-items: center;
-      }
-
-      .view-page:hover {
-        color: #1d4ed8; /* Equivalent to hover:text-blue-800 */
-      }
-
-      .view-page svg {
-        margin-left: 8px; /* Equivalent to ml-2 */
-        width: 16px; /* Equivalent to w-4 */
-        height: 16px; /* Equivalent to h-4 */
-        transform: translateX(0);
-        transition: transform 0.2s ease-in-out; /* Equivalent to transform transition-transform duration-200 */
-      }
-
-      .view-page:hover svg {
-        transform: translateX(
-          4px
-        ); /* Equivalent to group-hover:translate-x-1 */
-      }
-
-      /* Media Queries for Responsiveness */
-      @media (min-width: 768px) {
-        /* Equivalent to md breakpoint */
-        .customer-grid {
-          grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --american-red: #DC143C;
+            --american-blue: #002868;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --border-gray: #E9ECEF;
+            --text-dark: #212529;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
         body {
-          padding: 64px 24px; /* Adjust padding for medium screens */
+            font-family: 'Arial', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-      }
 
-      @media (min-width: 1024px) {
-        /* Equivalent to lg breakpoint */
-        body {
-          padding: 80px 32px; /* Adjust padding for large screens */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-      }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--american-blue), var(--american-red));
+            color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .book-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--border-gray);
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--light-gray), var(--border-gray));
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--american-blue);
+            font-weight: bold;
+            border: 2px dashed var(--american-blue);
+        }
+
+        .book-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--american-blue);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .btn-read {
+            background-color: var(--american-blue);
+            color: var(--white);
+        }
+
+        .btn-read:hover {
+            background-color: #001a4d;
+            transform: scale(1.05);
+        }
+
+        .btn-download {
+            background-color: var(--american-red);
+            color: var(--white);
+        }
+
+        .btn-download:hover {
+            background-color: #b8102f;
+            transform: scale(1.05);
+        }
+
+        .description-section {
+            margin-top: 20px;
+        }
+
+        .description-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--american-blue);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .main-point {
+            margin-bottom: 10px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .main-point-header {
+            background-color: var(--light-gray);
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .main-point-header:hover {
+            background-color: var(--border-gray);
+        }
+
+        .main-point-header.active {
+            background-color: var(--american-blue);
+            color: var(--white);
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .subpoints {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--white);
+        }
+
+        .subpoints.active {
+            max-height: 500px;
+        }
+
+        .subpoint {
+            padding: 8px 15px;
+            border-top: 1px solid var(--border-gray);
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .subpoint:before {
+            content: "→";
+            color: var(--american-red);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .add-book-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--american-red), var(--american-blue));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .add-book-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .book-card {
+                padding: 20px;
+            }
+
+            .book-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .book-card {
+                padding: 15px;
+            }
+
+            .add-book-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="pcontainer">
-      <!-- Header Section -->
-      <header class="pheader-section">
-        <h1>Our Customers</h1>
-        <p>
-          As a user, it is important to have a positive experience when using a
-          website or app.
-        </p>
-      </header>
-
-      <!-- Customer Cards Grid -->
-      <main class="customer-grid">
-        <!-- Netflix Card -->
-        <div class="customer-card">
-          <div class="logo-pcontainer">
-            <img src="/assets/image/us-embassy.jpg" alt="US - Embassy logo" />
-          </div>
-          <div class="pcard-content">
-            <h3>US Embassy & Consulates in Pakistan</h3>
-            <p>
-              They support the English Access Program by providing funding and
-              strategic direction to promote English language learning and
-              cultural exchange.
-            </p>
-            <a href="#" class="view-page">
-              View Page
-              <svg
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </a>
-          </div>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Digital Books Library</h1>
+            <p>Explore our collection of professional books with detailed descriptions</p>
         </div>
 
-        <!-- Zapier Card -->
-        <div class="customer-card">
-          <div class="logo-pcontainer">
-            <img src="/assets/image/relo.jpg" alt="Relo-logo" />
-          </div>
-          <div class="pcard-content">
-            <h3>RELO (Regional English Language Office)</h3>
-            <p>
-              RELO offers academic and technical support, teacher training, and
-              resources to enhance English language education across Pakistan.
-            </p>
-            <a href="#" class="view-page">
-              View Page
-              <svg
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </a>
-          </div>
+        <div class="books-grid" id="booksGrid">
+            <!-- Books will be dynamically generated here -->
         </div>
 
-        <!-- Figma Card -->
-        <div class="customer-card">
-          <div class="logo-pcontainer">
-            <img src="/assets/image/ue multan.jpg" alt="ue-logo" />
-          </div>
-          <div class="pcard-content">
-            <h3>UE Multan (University of Education Multan Campus)</h3>
-            <p>
-              UE Multan contributes by providing academic expertise, training
-              venues, and facilitation for program activities and events.
-            </p>
-            <a href="#" class="view-page">
-              View Page
-              <svg
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Adobe Card -->
-        <div class="customer-card">
-          <div class="logo-pcontainer">
-            <img src="/assets/image/fhi.jpg" alt="Adobe Logo" />
-          </div>
-          <div class="pcard-content">
-            <h3>fhi360</h3>
-            <p>
-              In Pakistan, FHI 360 partners with entities like the U.S. Embassy
-              to deliver educational and health-related programs such as the
-              Access Microscholarship English language initiative and public
-              health projects in collaboration with government and civil society
-            </p>
-            <a href="#" class="view-page">
-              View Page
-              <svg
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </main>
+        <!-- <button class="add-book-btn" onclick="addNewBook()" title="Add New Book">+</button> -->
     </div>
-  </body>
+
+    <script>
+        // Sample book data structure
+        const booksData = [
+            {
+                id: 1,
+                title: "Advanced JavaScript Programming",
+                image: "JavaScript Guide",
+                mainPoints: [
+                    {
+                        title: "Modern ES6+ Features",
+                        subpoints: [
+                            "Arrow functions and lexical scoping",
+                            "Template literals and string interpolation",
+                            "Destructuring assignments and spread operator",
+                            "Promises and async/await patterns"
+                        ]
+                    },
+                    {
+                        title: "DOM Manipulation Techniques",
+                        subpoints: [
+                            "Event handling and delegation",
+                            "Dynamic content creation and modification",
+                            "Performance optimization strategies",
+                            "Cross-browser compatibility solutions"
+                        ]
+                    },
+                    {
+                        title: "Asynchronous Programming",
+                        subpoints: [
+                            "Understanding the event loop",
+                            "Callback patterns and error handling",
+                            "Promise chaining and composition",
+                            "Async/await best practices"
+                        ]
+                    },
+                    {
+                        title: "Object-Oriented Programming",
+                        subpoints: [
+                            "Classes and inheritance patterns",
+                            "Prototypal inheritance concepts",
+                            "Encapsulation and data privacy",
+                            "Polymorphism and method overriding"
+                        ]
+                    },
+                    {
+                        title: "Functional Programming Concepts",
+                        subpoints: [
+                            "Higher-order functions and closures",
+                            "Pure functions and immutability",
+                            "Array methods and data transformation",
+                            "Functional composition patterns"
+                        ]
+                    },
+                    {
+                        title: "Error Handling and Debugging",
+                        subpoints: [
+                            "Try-catch blocks and error propagation",
+                            "Console debugging techniques",
+                            "Browser developer tools usage",
+                            "Testing and validation strategies"
+                        ]
+                    },
+                    {
+                        title: "Performance Optimization",
+                        subpoints: [
+                            "Memory management and garbage collection",
+                            "Code splitting and lazy loading",
+                            "Caching strategies and optimization",
+                            "Bundle size reduction techniques"
+                        ]
+                    },
+                    {
+                        title: "Module Systems and Architecture",
+                        subpoints: [
+                            "CommonJS and ES6 modules",
+                            "Module bundling with Webpack",
+                            "Code organization patterns",
+                            "Dependency management strategies"
+                        ]
+                    },
+                    {
+                        title: "Web APIs and Browser Features",
+                        subpoints: [
+                            "Fetch API and HTTP requests",
+                            "Local storage and session management",
+                            "Geolocation and device APIs",
+                            "Service workers and PWA features"
+                        ]
+                    },
+                    {
+                        title: "Security Best Practices",
+                        subpoints: [
+                            "XSS and CSRF prevention",
+                            "Input validation and sanitization",
+                            "Secure authentication patterns",
+                            "Content Security Policy implementation"
+                        ]
+                    },
+                    {
+                        title: "Testing and Quality Assurance",
+                        subpoints: [
+                            "Unit testing with Jest framework",
+                            "Integration testing strategies",
+                            "Code coverage and quality metrics",
+                            "Continuous integration practices"
+                        ]
+                    },
+                    {
+                        title: "Modern Development Workflow",
+                        subpoints: [
+                            "Version control with Git",
+                            "Package management with npm/yarn",
+                            "Build tools and automation",
+                            "Code formatting and linting"
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Data Science Fundamentals",
+                image: "Data Science Guide",
+                mainPoints: [
+                    {
+                        title: "Statistical Analysis Methods",
+                        subpoints: [
+                            "Descriptive statistics and data summarization",
+                            "Inferential statistics and hypothesis testing",
+                            "Regression analysis and correlation",
+                            "Statistical significance and p-values"
+                        ]
+                    },
+                    {
+                        title: "Data Collection and Preprocessing",
+                        subpoints: [
+                            "Data gathering techniques and sources",
+                            "Data cleaning and quality assessment",
+                            "Missing data handling strategies",
+                            "Feature engineering and transformation"
+                        ]
+                    },
+                    {
+                        title: "Machine Learning Algorithms",
+                        subpoints: [
+                            "Supervised learning classification methods",
+                            "Unsupervised learning clustering techniques",
+                            "Model selection and validation",
+                            "Overfitting prevention and regularization"
+                        ]
+                    },
+                    {
+                        title: "Data Visualization Techniques",
+                        subpoints: [
+                            "Chart types and appropriate usage",
+                            "Interactive visualization tools",
+                            "Dashboard design principles",
+                            "Storytelling with data visualization"
+                        ]
+                    },
+                    {
+                        title: "Programming for Data Science",
+                        subpoints: [
+                            "Python libraries (pandas, numpy, scipy)",
+                            "R programming for statistical analysis",
+                            "SQL for database queries",
+                            "Jupyter notebooks and workflow"
+                        ]
+                    },
+                    {
+                        title: "Big Data Technologies",
+                        subpoints: [
+                            "Hadoop ecosystem and MapReduce",
+                            "Spark for distributed computing",
+                            "NoSQL databases and data lakes",
+                            "Cloud computing platforms"
+                        ]
+                    },
+                    {
+                        title: "Experimental Design",
+                        subpoints: [
+                            "A/B testing methodologies",
+                            "Sample size determination",
+                            "Control group selection",
+                            "Bias reduction techniques"
+                        ]
+                    },
+                    {
+                        title: "Business Intelligence",
+                        subpoints: [
+                            "KPI identification and tracking",
+                            "Business metrics interpretation",
+                            "ROI analysis and optimization",
+                            "Stakeholder communication strategies"
+                        ]
+                    },
+                    {
+                        title: "Ethics in Data Science",
+                        subpoints: [
+                            "Privacy protection and GDPR compliance",
+                            "Algorithmic bias detection",
+                            "Transparent reporting practices",
+                            "Responsible AI development"
+                        ]
+                    },
+                    {
+                        title: "Time Series Analysis",
+                        subpoints: [
+                            "Trend and seasonality detection",
+                            "Forecasting models and techniques",
+                            "ARIMA and exponential smoothing",
+                            "Anomaly detection methods"
+                        ]
+                    },
+                    {
+                        title: "Deep Learning Fundamentals",
+                        subpoints: [
+                            "Neural network architectures",
+                            "Backpropagation and optimization",
+                            "Convolutional and recurrent networks",
+                            "Transfer learning applications"
+                        ]
+                    },
+                    {
+                        title: "Model Deployment and Production",
+                        subpoints: [
+                            "Model versioning and lifecycle management",
+                            "API development for model serving",
+                            "Performance monitoring and maintenance",
+                            "Scalability and infrastructure considerations"
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Digital Marketing Mastery",
+                image: "Marketing Guide",
+                mainPoints: [
+                    {
+                        title: "Search Engine Optimization",
+                        subpoints: [
+                            "Keyword research and analysis",
+                            "On-page optimization techniques",
+                            "Link building strategies",
+                            "Technical SEO and site structure"
+                        ]
+                    },
+                    {
+                        title: "Social Media Marketing",
+                        subpoints: [
+                            "Platform-specific strategies",
+                            "Content creation and curation",
+                            "Community management practices",
+                            "Social media advertising campaigns"
+                        ]
+                    },
+                    {
+                        title: "Content Marketing Strategy",
+                        subpoints: [
+                            "Content planning and editorial calendars",
+                            "Storytelling and brand narrative",
+                            "Content distribution channels",
+                            "Performance measurement and optimization"
+                        ]
+                    },
+                    {
+                        title: "Email Marketing Automation",
+                        subpoints: [
+                            "List building and segmentation",
+                            "Drip campaigns and nurture sequences",
+                            "Personalization and dynamic content",
+                            "A/B testing and optimization"
+                        ]
+                    },
+                    {
+                        title: "Pay-Per-Click Advertising",
+                        subpoints: [
+                            "Google Ads campaign setup",
+                            "Keyword bidding strategies",
+                            "Ad copy optimization",
+                            "Landing page conversion optimization"
+                        ]
+                    },
+                    {
+                        title: "Analytics and Data Tracking",
+                        subpoints: [
+                            "Google Analytics setup and configuration",
+                            "Conversion tracking and goal setting",
+                            "Attribution modeling",
+                            "Custom reporting and dashboards"
+                        ]
+                    },
+                    {
+                        title: "Customer Journey Mapping",
+                        subpoints: [
+                            "Touchpoint identification and analysis",
+                            "Persona development and targeting",
+                            "Funnel optimization strategies",
+                            "Cross-channel experience design"
+                        ]
+                    },
+                    {
+                        title: "Influencer Marketing",
+                        subpoints: [
+                            "Influencer identification and vetting",
+                            "Campaign planning and execution",
+                            "Contract negotiation and management",
+                            "ROI measurement and reporting"
+                        ]
+                    },
+                    {
+                        title: "Marketing Automation Tools",
+                        subpoints: [
+                            "CRM integration and management",
+                            "Lead scoring and qualification",
+                            "Workflow automation setup",
+                            "Multi-channel campaign orchestration"
+                        ]
+                    },
+                    {
+                        title: "Video Marketing Production",
+                        subpoints: [
+                            "Video content planning and scripting",
+                            "Production techniques and equipment",
+                            "Post-production and editing",
+                            "Distribution and promotion strategies"
+                        ]
+                    },
+                    {
+                        title: "Mobile Marketing Strategies",
+                        subpoints: [
+                            "App store optimization (ASO)",
+                            "Mobile advertising formats",
+                            "Location-based marketing",
+                            "Mobile user experience optimization"
+                        ]
+                    },
+                    {
+                        title: "Brand Development and Positioning",
+                        subpoints: [
+                            "Brand identity and visual design",
+                            "Brand voice and messaging",
+                            "Competitive positioning analysis",
+                            "Brand reputation management"
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Project Management Excellence",
+                image: "Project Management Guide",
+                mainPoints: [
+                    {
+                        title: "Project Planning and Initiation",
+                        subpoints: [
+                            "Project charter development",
+                            "Stakeholder identification and analysis",
+                            "Scope definition and requirements gathering",
+                            "Project timeline and milestone planning"
+                        ]
+                    },
+                    {
+                        title: "Agile and Scrum Methodologies",
+                        subpoints: [
+                            "Sprint planning and execution",
+                            "Daily standups and retrospectives",
+                            "User story writing and estimation",
+                            "Backlog grooming and prioritization"
+                        ]
+                    },
+                    {
+                        title: "Risk Management Strategies",
+                        subpoints: [
+                            "Risk identification and assessment",
+                            "Risk mitigation planning",
+                            "Contingency planning and response",
+                            "Risk monitoring and reporting"
+                        ]
+                    },
+                    {
+                        title: "Team Leadership and Communication",
+                        subpoints: [
+                            "Team formation and dynamics",
+                            "Effective communication strategies",
+                            "Conflict resolution techniques",
+                            "Motivation and performance management"
+                        ]
+                    },
+                    {
+                        title: "Budget and Resource Management",
+                        subpoints: [
+                            "Cost estimation and budgeting",
+                            "Resource allocation and optimization",
+                            "Budget tracking and control",
+                            "Vendor and contractor management"
+                        ]
+                    },
+                    {
+                        title: "Quality Assurance and Control",
+                        subpoints: [
+                            "Quality planning and standards",
+                            "Testing and validation processes",
+                            "Quality metrics and measurement",
+                            "Continuous improvement practices"
+                        ]
+                    },
+                    {
+                        title: "Project Monitoring and Control",
+                        subpoints: [
+                            "Progress tracking and reporting",
+                            "Performance measurement (KPIs)",
+                            "Change management processes",
+                            "Issue tracking and resolution"
+                        ]
+                    },
+                    {
+                        title: "Stakeholder Management",
+                        subpoints: [
+                            "Stakeholder engagement strategies",
+                            "Communication planning and execution",
+                            "Expectation management",
+                            "Feedback collection and incorporation"
+                        ]
+                    },
+                    {
+                        title: "Project Management Tools",
+                        subpoints: [
+                            "Project management software selection",
+                            "Gantt charts and scheduling tools",
+                            "Collaboration platforms",
+                            "Reporting and dashboard creation"
+                        ]
+                    },
+                    {
+                        title: "Project Closure and Evaluation",
+                        subpoints: [
+                            "Project deliverable verification",
+                            "Lessons learned documentation",
+                            "Team performance evaluation",
+                            "Knowledge transfer processes"
+                        ]
+                    },
+                    {
+                        title: "Change Management",
+                        subpoints: [
+                            "Change request processes",
+                            "Impact assessment methodologies",
+                            "Approval workflows and governance",
+                            "Change communication strategies"
+                        ]
+                    },
+                    {
+                        title: "International Project Management",
+                        subpoints: [
+                            "Cross-cultural team management",
+                            "Time zone coordination strategies",
+                            "International compliance requirements",
+                            "Global communication protocols"
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // Function to create a book card
+        function createBookCard(book) {
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card';
+            bookCard.innerHTML = `
+                <div class="book-image">${book.image}</div>
+                <h2 class="book-title">${book.title}</h2>
+                <div class="book-actions">
+                    <button class="btn btn-read" onclick="readBook(${book.id})">📖 Read</button>
+                    <button class="btn btn-download" onclick="downloadBook(${book.id})">⬇️ Download</button>
+                </div>
+                <div class="description-section">
+                    <h3 class="description-title">Book Description</h3>
+                    <div class="main-points">
+                        ${book.mainPoints.map((point, index) => `
+                            <div class="main-point">
+                                <div class="main-point-header" onclick="toggleSubpoints(${book.id}, ${index})">
+                                    <span>${index + 1}. ${point.title}</span>
+                                    <span class="toggle-icon">▼</span>
+                                </div>
+                                <div class="subpoints" id="subpoints-${book.id}-${index}">
+                                    ${point.subpoints.map(subpoint => `
+                                        <div class="subpoint">${subpoint}</div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            return bookCard;
+        }
+
+        // Function to toggle subpoints
+        function toggleSubpoints(bookId, pointIndex) {
+            const subpoints = document.getElementById(`subpoints-${bookId}-${pointIndex}`);
+            const header = subpoints.previousElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (subpoints.classList.contains('active')) {
+                subpoints.classList.remove('active');
+                header.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                subpoints.classList.add('active');
+                header.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+
+        // Function to read a book
+        function readBook(bookId) {
+            const book = booksData.find(b => b.id === bookId);
+            alert(`Opening "${book.title}" for reading...\n\nThis would typically open the book in a reader interface or redirect to the reading page.`);
+        }
+
+        // Function to download a book
+        function downloadBook(bookId) {
+            const book = booksData.find(b => b.id === bookId);
+            alert(`Downloading "${book.title}"...\n\nThis would typically trigger a file download or redirect to the download page.`);
+        }
+
+        // Function to add a new book (for future expansion)
+        function addNewBook() {
+            const newBook = {
+                id: booksData.length + 1,
+                title: `New Book ${booksData.length + 1}`,
+                image: "New Book Cover",
+                mainPoints: [
+                    {
+                        title: "Sample Main Point 1",
+                        subpoints: [
+                            "Sample subpoint 1",
+                            "Sample subpoint 2",
+                            "Sample subpoint 3",
+                            "Sample subpoint 4"
+                        ]
+                    },
+                    {
+                        title: "Sample Main Point 2",
+                        subpoints: [
+                            "Sample subpoint 1",
+                            "Sample subpoint 2",
+                            "Sample subpoint 3",
+                            "Sample subpoint 4"
+                        ]
+                    }
+                    // Add more main points as needed
+                ]
+            };
+            
+            booksData.push(newBook);
+            renderBooks();
+            alert(`New book "${newBook.title}" has been added to the library!`);
+        }
+
+        // Function to render all books
+        function renderBooks() {
+            const booksGrid = document.getElementById('booksGrid');
+            booksGrid.innerHTML = '';
+            
+            booksData.forEach(book => {
+                const bookCard = createBookCard(book);
+                booksGrid.appendChild(bookCard);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBooks();
+        });
+    </script>
+</body>
 </html>
