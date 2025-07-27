@@ -82,7 +82,7 @@
 
       .book-image {
         width: 100%;
-        height: 200px;
+        object-fit: cover;
         background: linear-gradient(
           45deg,
           var(--light-gray),
@@ -96,7 +96,7 @@
         font-size: 1.2rem;
         color: var(--american-blue);
         font-weight: bold;
-        border: 2px dashed var(--american-blue);
+        /* border: 2px dashed var(--american-blue); */
       }
 
       .book-title {
@@ -319,9 +319,9 @@
         {
           id: 1,
           title: "Advanced JavaScript Programming",
-          image: "JavaScript Guide",
+          image: "books/headway1-sb.jpeg",
           // Add filePath if you have a PDF for this book
-          // filePath: "books/advanced_javascript.pdf",
+          filePath: "books/headway1-sb.pdf",
           mainPoints: [
             {
               title: "Modern ES6+ Features",
@@ -436,9 +436,9 @@
         {
           id: 2,
           title: "Data Science Fundamentals",
-          image: "Data Science Guide",
+          image: "/books/headway1-wb.jpeg",
           // Add filePath if you have a PDF for this book
-          // filePath: "books/data_science_fundamentals.pdf",
+          filePath: "books/headway1-wb.pdf",
           mainPoints: [
             {
               title: "Statistical Analysis Methods",
@@ -553,8 +553,8 @@
         {
           id: 3,
           title: "Digital Marketing Mastery",
-          image: "Marketing Guide",
-          filePath: "books/american_headway_1_pdf_free.pdf", // Ensure this path is correct relative to HTML file
+          image: "/books/headway2-sb.jpg",
+          filePath: "books/headway2-sb.pdf", // Ensure this path is correct relative to HTML file
           mainPoints: [
             {
               title: "Search Engine Optimization",
@@ -669,8 +669,8 @@
         {
           id: 4,
           title: "Project Management Excellence",
-          image: "Project Management Guide",
-          filePath: "books/AMERICAN-HEADWAY-1-WORKBOOK-3rd-Edition.pdf", // Ensure this path is correct relative to HTML file
+          image: "/books/headway2-wb.jpeg",
+          filePath: "/books/headway2-wb.pdf", // Ensure this path is correct relative to HTML file
           mainPoints: [
             {
               title: "Project Planning and Initiation",
@@ -789,7 +789,7 @@
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
         bookCard.innerHTML = `
-                <div class="book-image">${book.image}</div>
+                <div class="book-image"><img src="${book.image}" alt=""></div>
                 <h2 class="book-title">${book.title}</h2>
                 <div class="book-actions">
                     <button class="btn btn-read" onclick="readBook(${
