@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Access - Group-01 - Home</title>
-    <link rel="icon" type="image/x-icon" href="/assets/image/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/image/favicon.png" />
     <link rel="stylesheet" href="utility.css" />
     <style>
       * {
@@ -14,7 +14,6 @@
       }
 
       body {
-        font-family: Arial, Helvetica, sans-serif;
         line-height: 1.6;
         color: #000000;
         background-color: var(--basic-color);
@@ -22,353 +21,431 @@
 
       /* Hero Section */
       .hero-section {
-            min-height: 73vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #d53e3e 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
-            overflow: hidden;
+        min-height: 73vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          #d53e3e 0%,
+          #1e293b 25%,
+          #334155 50%,
+          #475569 75%,
+          #64748b 100%
+        );
+        overflow: hidden;
+      }
+
+      /* American Flag Background */
+      .flag-background {
+        background: url(/backpic.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.75;
+        z-index: 1;
+      }
+
+      .flag-stripes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .stripe {
+        width: 100%;
+        height: 7.69%;
+        position: absolute;
+        animation: waveStripe 8s ease-in-out infinite;
+      }
+
+      .stripe:nth-child(odd) {
+        background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+      }
+
+      .stripe:nth-child(even) {
+        background: linear-gradient(90deg, #f8fafc, #ffffff, #f8fafc);
+      }
+
+      @keyframes waveStripe {
+        0%,
+        100% {
+          transform: translateX(0) scaleX(1);
         }
-
-        /* American Flag Background */
-        .flag-background {
-          background: url(/backpic.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.75;
-            z-index: 1;
+        50% {
+          transform: translateX(10px) scaleX(1.02);
         }
+      }
 
-        .flag-stripes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+      .flag-canton {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 38.5%;
+        height: 53.8%;
+        background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .star {
+        color: white;
+        font-size: clamp(8px, 1.2vw, 16px);
+        margin: 2px;
+        animation: starTwinkle 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+      }
+
+      @keyframes starTwinkle {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: scale(1);
         }
-
-        .stripe {
-            width: 100%;
-            height: 7.69%;
-            position: absolute;
-            animation: waveStripe 8s ease-in-out infinite;
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
         }
+      }
 
-        .stripe:nth-child(odd) {
-            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+      /* Overlay for better text readability */
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(15, 23, 42, 0.3) 0%,
+          rgba(15, 23, 42, 0.7) 70%,
+          rgba(15, 23, 42, 0.9) 100%
+        );
+        z-index: 2;
+      }
+
+      /* Floating particles */
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .particle:nth-child(1) {
+        width: 4px;
+        height: 4px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        top: 60%;
+        left: 20%;
+        animation-delay: 1s;
+      }
+      .particle:nth-child(3) {
+        width: 3px;
+        height: 3px;
+        top: 40%;
+        left: 80%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(4) {
+        width: 5px;
+        height: 5px;
+        top: 80%;
+        left: 70%;
+        animation-delay: 3s;
+      }
+      .particle:nth-child(5) {
+        width: 4px;
+        height: 4px;
+        top: 30%;
+        left: 90%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0.6;
         }
-
-        .stripe:nth-child(even) {
-            background: linear-gradient(90deg, #f8fafc, #ffffff, #f8fafc);
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+          opacity: 1;
         }
+      }
 
-        
-        @keyframes waveStripe {
-            0%, 100% { transform: translateX(0) scaleX(1); }
-            50% { transform: translateX(10px) scaleX(1.02); }
-        }
-
-        .flag-canton {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 38.5%;
-            height: 53.8%;
-            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .star {
-            color: white;
-            font-size: clamp(8px, 1.2vw, 16px);
-            margin: 2px;
-            animation: starTwinkle 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
-        }
-
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        /* Overlay for better text readability */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.7) 70%, rgba(15, 23, 42, 0.9) 100%);
-            z-index: 2;
-        }
-
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 20%; animation-delay: 1s; }
-        .particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 80%; animation-delay: 2s; }
-        .particle:nth-child(4) { width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 3s; }
-        .particle:nth-child(5) { width: 4px; height: 4px; top: 30%; left: 90%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Main Content */
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            max-width: 90vw;
-            /* padding: 2rem;
+      /* Main Content */
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        max-width: 90vw;
+        /* padding: 2rem;
             margin: 10px; */
-            animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px) scale(0.95);
         }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 25%, #f1f5f9 50%, #ffffff 75%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-            line-height: 1.1;
-            letter-spacing: -2px;
-            position: relative;
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
         }
+      }
 
-        .hero-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #dc2626, #ffffff, #1e3a8a);
-            border-radius: 2px;
-            animation: shimmer 2s ease-in-out infinite;
+      .hero-title {
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-weight: 900;
+        margin-bottom: 2rem;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #e2e8f0 25%,
+          #f1f5f9 50%,
+          #ffffff 75%,
+          #cbd5e1 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        line-height: 1.1;
+        letter-spacing: -2px;
+        position: relative;
+      }
+
+      .hero-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #dc2626, #ffffff, #1e3a8a);
+        border-radius: 2px;
+        animation: shimmer 2s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: translateX(-50%) scaleX(1);
         }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.7; transform: translateX(-50%) scaleX(1); }
-            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+        50% {
+          opacity: 1;
+          transform: translateX(-50%) scaleX(1.2);
         }
+      }
 
-        .hero-paragraph {
-            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
-            margin-bottom: 3.5rem;
-            color: #e2e8f0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            line-height: 1.8;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            animation: fadeInText 1.8s ease-out 0.5s forwards;
+      .hero-paragraph {
+        font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+        margin-bottom: 3.5rem;
+        color: #e2e8f0;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 400;
+        line-height: 1.8;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        animation: fadeInText 1.8s ease-out 0.5s forwards;
+      }
+
+      @keyframes fadeInText {
+        to {
+          opacity: 1;
         }
+      }
 
-        @keyframes fadeInText {
-            to { opacity: 1; }
+      .hero-buttons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        opacity: 0;
+        animation: fadeInButtons 2s ease-out 1s forwards;
+      }
+
+      @keyframes fadeInButtons {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 60px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
+        color: white;
+        border-color: rgba(220, 38, 38, 0.3);
+        box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.4),
+          0 0 20px rgba(220, 38, 38, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-primary:active {
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      .btn-secondary {
+        background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
+        color: white;
+        border-color: rgba(30, 58, 138, 0.3);
+        box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(30, 58, 138, 0.4),
+          0 0 20px rgba(30, 58, 138, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-secondary:active {
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 1.5rem;
+          margin: 10px;
         }
 
         .hero-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInButtons 2s ease-out 1s forwards;
-        }
-
-        @keyframes fadeInButtons {
-            to { opacity: 1; }
+          flex-direction: column;
+          gap: 1.5rem;
         }
 
         .btn {
-               display: inline-block;
-    padding: 1rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 60px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    backdrop-filter: blur(10px);
+          width: 62%;
+          /* max-width: 274px; */
+          padding: 1.3rem 1rem;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
+        .flag-canton {
+          width: 50%;
+          height: 50%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          padding: 1rem;
+          margin: 10px;
         }
 
-        .btn:hover::before {
-            left: 100%;
+        .hero-paragraph {
+          margin-bottom: 2.5rem;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
-            color: white;
-            border-color: rgba(220, 38, 38, 0.3);
-            box-shadow: 
-                0 10px 30px rgba(220, 38, 38, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        .hero-title {
+          letter-spacing: -1px;
+        }
+      }
+
+      /* High contrast mode */
+      @media (prefers-contrast: high) {
+        .hero-overlay {
+          background: rgba(0, 0, 0, 0.8);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(220, 38, 38, 0.4),
-                0 0 20px rgba(220, 38, 38, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        .hero-title {
+          -webkit-text-fill-color: white;
+          color: white;
         }
 
-        .btn-primary:active {
-            transform: translateY(-2px) scale(1.02);
+        .hero-paragraph {
+          color: white;
+        }
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-content,
+        .hero-paragraph,
+        .hero-buttons,
+        .star,
+        .particle,
+        .stripe {
+          animation: none;
         }
 
-        .btn-secondary {
-            background: linear-gradient(135deg, #1e3a8a, #1e40af, #2563eb);
-            color: white;
-            border-color: rgba(30, 58, 138, 0.3);
-            box-shadow: 
-                0 10px 30px rgba(30, 58, 138, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        .btn {
+          transition: none;
         }
-
-        .btn-secondary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(30, 58, 138, 0.4),
-                0 0 20px rgba(30, 58, 138, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:active {
-            transform: translateY(-2px) scale(1.02);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                padding: 1.5rem;
-                margin: 10px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .btn {
-        width: 71%;
-        /* max-width: 274px; */
-        padding: 1.5rem 1rem;
-            }
-            
-            .flag-canton {
-                width: 50%;
-                height: 50%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content {
-                padding: 1rem;
-                margin: 10px;
-            }
-            
-            .hero-paragraph {
-                margin-bottom: 2.5rem;
-            }
-            
-            .hero-title {
-                letter-spacing: -1px;
-            }
-        }
-
-        /* High contrast mode */
-        @media (prefers-contrast: high) {
-            .hero-overlay {
-                background: rgba(0, 0, 0, 0.8);
-            }
-            
-            .hero-title {
-                -webkit-text-fill-color: white;
-                color: white;
-            }
-            
-            .hero-paragraph {
-                color: white;
-            }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            .hero-content,
-            .hero-paragraph,
-            .hero-buttons,
-            .star,
-            .particle,
-            .stripe {
-                animation: none;
-            }
-            
-            .btn {
-                transition: none;
-            }
-        }
+      }
 
       .cta-button {
         display: inline-block;
@@ -436,8 +513,6 @@
           margin-top: 0;
         }
 
-       
-
         .cards-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
@@ -449,7 +524,6 @@
       }
 
       @media (max-width: 480px) {
-       
         .welcome-sec h1 {
           padding: 12px;
           font-size: 16px;
@@ -596,7 +670,7 @@
         border-radius: 16px;
         box-shadow: 0 0px 40px rgb(0 0 0 / 25%);
         padding: 24px;
-            width: 352px;
+        width: 352px;
         max-width: 95vw;
         position: relative;
         overflow: hidden;
@@ -651,15 +725,13 @@
         font-weight: 500;
       }
 
-
-
       .e-category2 {
-                background: #ff8b8b;
+        background: #ff8b8b;
         color: #711515;
       }
 
       .e-category3 {
-                background: #8b93ff;
+        background: #8b93ff;
         color: #151a71;
       }
 
@@ -670,7 +742,7 @@
       }
 
       .e-title {
-            font-size: 26px;
+        font-size: 26px;
         font-weight: 700;
         /* color: var(--font-color); */
         margin-bottom: 4px;
@@ -1327,27 +1399,30 @@
 
       /* Specific background images for each card */
       .speaking-activities {
+
         background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23e0e7ff"/><circle cx="100" cy="100" r="30" fill="%236366f1" opacity="0.3"/><circle cx="300" cy="180" r="25" fill="%23a855f7" opacity="0.3"/><rect x="50" y="200" width="300" height="4" fill="%236366f1" opacity="0.2"/><text x="200" y="140" text-anchor="middle" fill="%234f46e5" font-family="Arial" font-size="16" font-weight="bold">Loading Image...</text></svg>');
+
+
       }
 
       .writing-workshops {
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fef3c7"/><rect x="80" y="60" width="240" height="160" fill="%23f59e0b" opacity="0.3" rx="8"/><rect x="100" y="80" width="200" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="100" width="180" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="120" width="160" height="4" fill="%23f59e0b" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%23d97706" font-family="Arial" font-size="16" font-weight="bold">Writing Workshops</text></svg>');
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fef3c7"/><rect x="80" y="60" width="240" height="160" fill="%23f59e0b" opacity="0.3" rx="8"/><rect x="100" y="80" width="200" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="100" width="180" height="4" fill="%23f59e0b" opacity="0.5"/><rect x="100" y="120" width="160" height="4" fill="%23f59e0b" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%23d97706" font-size="16" font-weight="bold">Writing Workshops</text></svg>');
       }
 
       .interactive-games {
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23dcfce7"/><circle cx="150" cy="80" r="20" fill="%2322c55e" opacity="0.4"/><circle cx="250" cy="120" r="25" fill="%2322c55e" opacity="0.4"/><circle cx="200" cy="180" r="18" fill="%2322c55e" opacity="0.4"/><polygon points="200,60 220,100 180,100" fill="%2316a34a" opacity="0.3"/><text x="200" y="140" text-anchor="middle" fill="%2315803d" font-family="Arial" font-size="16" font-weight="bold">Interactive Games</text></svg>');
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23dcfce7"/><circle cx="150" cy="80" r="20" fill="%2322c55e" opacity="0.4"/><circle cx="250" cy="120" r="25" fill="%2322c55e" opacity="0.4"/><circle cx="200" cy="180" r="18" fill="%2322c55e" opacity="0.4"/><polygon points="200,60 220,100 180,100" fill="%2316a34a" opacity="0.3"/><text x="200" y="140" text-anchor="middle" fill="%2315803d" font-size="16" font-weight="bold">Interactive Games</text></svg>');
       }
 
       .cultural-activities {
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fce7f3"/><rect x="100" y="80" width="200" height="120" fill="%23ec4899" opacity="0.3" rx="10"/><circle cx="150" cy="120" r="8" fill="%23ec4899" opacity="0.6"/><circle cx="250" cy="160" r="10" fill="%23ec4899" opacity="0.6"/><rect x="180" y="100" width="40" height="80" fill="%23ec4899" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23be185d" font-family="Arial" font-size="16" font-weight="bold">Cultural Activities</text></svg>');
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fce7f3"/><rect x="100" y="80" width="200" height="120" fill="%23ec4899" opacity="0.3" rx="10"/><circle cx="150" cy="120" r="8" fill="%23ec4899" opacity="0.6"/><circle cx="250" cy="160" r="10" fill="%23ec4899" opacity="0.6"/><rect x="180" y="100" width="40" height="80" fill="%23ec4899" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23be185d" font-size="16" font-weight="bold">Cultural Activities</text></svg>');
       }
 
       .enhancement-activities {
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fff7ed"/><rect x="120" y="80" width="160" height="120" fill="%23f97316" opacity="0.3" rx="12"/><circle cx="160" cy="120" r="15" fill="%23f97316" opacity="0.5"/><circle cx="240" cy="160" r="12" fill="%23f97316" opacity="0.5"/><rect x="180" y="100" width="40" height="60" fill="%23f97316" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23c2410c" font-family="Arial" font-size="16" font-weight="bold">Enhancement Activities</text></svg>');
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23fff7ed"/><rect x="120" y="80" width="160" height="120" fill="%23f97316" opacity="0.3" rx="12"/><circle cx="160" cy="120" r="15" fill="%23f97316" opacity="0.5"/><circle cx="240" cy="160" r="12" fill="%23f97316" opacity="0.5"/><rect x="180" y="100" width="40" height="60" fill="%23f97316" opacity="0.4"/><text x="200" y="140" text-anchor="middle" fill="%23c2410c" font-size="16" font-weight="bold">Enhancement Activities</text></svg>');
       }
 
       .creative-work {
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23f3e8ff"/><rect x="100" y="60" width="200" height="160" fill="%23a855f7" opacity="0.3" rx="15"/><circle cx="150" cy="100" r="12" fill="%23a855f7" opacity="0.6"/><circle cx="250" cy="140" r="15" fill="%23a855f7" opacity="0.6"/><rect x="180" y="180" width="40" height="20" fill="%23a855f7" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%237c3aed" font-family="Arial" font-size="16" font-weight="bold">Creative Work</text></svg>');
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23f3e8ff"/><rect x="100" y="60" width="200" height="160" fill="%23a855f7" opacity="0.3" rx="15"/><circle cx="150" cy="100" r="12" fill="%23a855f7" opacity="0.6"/><circle cx="250" cy="140" r="15" fill="%23a855f7" opacity="0.6"/><rect x="180" y="180" width="40" height="20" fill="%23a855f7" opacity="0.5"/><text x="200" y="140" text-anchor="middle" fill="%237c3aed" font-size="16" font-weight="bold">Creative Work</text></svg>');
       }
 
       @media (max-width: 768px) {
@@ -1502,11 +1577,11 @@
         }
 
         .achievements-grid {
-                  max-width: 82vw;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        /* margin: 45px; */
-        margin: auto;;
+          max-width: 82vw;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          /* margin: 45px; */
+          margin: auto;
         }
 
         .achievement-card {
@@ -1595,31 +1670,34 @@
     </nav>
 
     <section class="hero-section">
-        <!-- American Flag Background -->
-        <div class="flag-background">
+      <!-- American Flag Background -->
+      <div class="flag-background"></div>
+
+      <div class="hero-overlay"></div>
+
+      <!-- Floating particles -->
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">English Access Scholarship Program</h1>
+        <p class="hero-paragraph">
+          A community of talented students shaping the future through
+          creativity, knowledge, and skill. We are a passionate and driven team,
+          learning, growing, and succeeding together.
+        </p>
+        <div class="hero-buttons">
+          <a href="/activity.html" class="btn btn-primary"
+            >Explore Activities</a
+          >
+          <a href="/portfolio.html" class="btn btn-secondary">View Portfolio</a>
         </div>
-        
-        <div class="hero-overlay"></div>
-        
-        <!-- Floating particles -->
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">English Access Microscholarship Program</h1>
-            <p class="hero-paragraph">
-                A community of talented students shaping the future through creativity, knowledge, and skill. We are a passionate and driven team, learning, growing, and succeeding together.
-            </p>
-            <div class="hero-buttons">
-                <a href="/activity.html" class="btn btn-primary">Explore Activities</a>
-                <a href="/portfolio.html" class="btn btn-secondary">View Portfolio</a>
-            </div>
-        </div>
+      </div>
     </section>
     <!-- Welcome Section -->
     <section>
@@ -1638,7 +1716,12 @@
 
       <div class="container">
         <div class="card">
-          <img loading="lazy" class="card-image speaking-activities" src="/assets/image/speaking-with-impact.jpg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/speaking-with-impact.jpg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Speak with Impact</h2>
             <p class="card-description">
@@ -1646,14 +1729,21 @@
               students sharpen their communication skills and learn to express
               themselves with confidence.
             </p>
-           <a href="/activity.html"> <button class="view-more-btn" onclick="showMore('speaking')">
-               View More
-            </button></a>
+            <a href="/activity.html">
+              <button class="view-more-btn" onclick="showMore('speaking')">
+                View More
+              </button></a
+            >
           </div>
         </div>
 
         <div class="card">
-          <img loading="lazy" class="card-image speaking-activities" src="/assets/image/writeto2.jpg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/writeto2.jpg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Write to Inspire</h2>
             <p class="card-description">
@@ -1661,28 +1751,42 @@
               help students discover the power of words and the art of effective
               writing.
             </p>
-            <a href="/activity.html"><button class="view-more-btn" onclick="showMore('writing')">
-              View More
-            </button></a>
+            <a href="/activity.html"
+              ><button class="view-more-btn" onclick="showMore('writing')">
+                View More
+              </button></a
+            >
           </div>
         </div>
 
         <div class="card">
-          <img loading="lazy" class="card-image speaking-activities" src="/assets/image/read-write.jpeg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/read-write.jpeg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Read, Reflect, Grow</h2>
             <p class="card-description">
               With a range of fiction and nonfiction texts, reading becomes a
               habit that strengthens vocabulary, comprehension, and imagination.
             </p>
-            <a href="/activity.html"><button class="view-more-btn" onclick="showMore('games')">
-              View More
-            </button></a>
+            <a href="/activity.html"
+              ><button class="view-more-btn" onclick="showMore('games')">
+                View More
+              </button></a
+            >
           </div>
         </div>
 
         <div class="card">
-          <img loading="lazy" class="card-image speaking-activities" src="/assets/image/listen-and-learn.jpeg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/listen-and-learn.jpeg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Listen and Learn</h2>
             <p class="card-description">
@@ -1690,14 +1794,21 @@
               improve their listeninq and pronunciation in a natural and
               engaging way.
             </p>
-            <a href="/activity.html"><button class="view-more-btn" onclick="showMore('cultural')">
-              View More
-            </button></a>
+            <a href="/activity.html"
+              ><button class="view-more-btn" onclick="showMore('cultural')">
+                View More
+              </button></a
+            >
           </div>
         </div>
 
         <div class="card">
-         <img loading="lazy" class="card-image speaking-activities" src="/assets/image/celebrate-cultures.jpeg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/celebrate-cultures.jpeg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Celebrate cultures</h2>
             <p class="card-description">
@@ -1705,23 +1816,32 @@
               American and Pakistani—throuah festivals. food fairs, and cultural
               exchange events.
             </p>
-            <a href="/activity.html"><button class="view-more-btn" onclick="showMore('cultural')">
-              View More
-            </button></a>
+            <a href="/activity.html"
+              ><button class="view-more-btn" onclick="showMore('cultural')">
+                View More
+              </button></a
+            >
           </div>
         </div>
 
         <div class="card">
-          <img loading="lazy" class="card-image speaking-activities" src="/assets/image/learn-through-play.jpeg" alt="">
+          <img
+            loading="lazy"
+            class="card-image speaking-activities"
+            src="/assets/image/learn-through-play.jpeg"
+            alt=""
+          />
           <div class="card-content">
             <h2 class="card-title">Learn Through Play</h2>
             <p class="card-description">
               Interactive games and educational challenges turn lessons into fun
               experiences that boost focus, teamwork, and critical thinking.
             </p>
-            <a href="/activity.html"><button class="view-more-btn" onclick="showMore('creative')">
-              View More
-            </button></a>
+            <a href="/activity.html"
+              ><button class="view-more-btn" onclick="showMore('creative')">
+                View More
+              </button></a
+            >
           </div>
         </div>
       </div>
@@ -1938,8 +2058,8 @@
                 alt="International Day"
               />
               <div class="overlay">
-                <h3>International Day</h3>
-                <p>Global cultures celebration</p>
+                <h3>Merry Christmas</h3>
+                <p>Christmas day celebration</p>
               </div>
             </div>
             <div class="gallery-item">
@@ -1979,14 +2099,13 @@
         </div>
 
         <div class="view-all">
-          <a href="/gallery.html"
-            >View All Class & Event Activities</a>
+          <a href="/gallery.html">View All Class & Event Activities</a>
         </div>
       </div>
     </section>
     <!-- Upcoming Events -->
 
-    <section class="events">
+    <section id="home-events" class="events">
       <div class="nav">
         <div class="hp">
           <h1>Upcoming Events</h1>
@@ -2002,13 +2121,11 @@
             <span class="e-date">July 04, 2025</span>
           </div>
 
-          <h2 class="e-title">American Independence
-Day</h2>
+          <h2 class="e-title">American Independence Day</h2>
 
           <p class="e-description">
-            Celebrating American Independence Day with
-flag-themed decorations, speech
-competition, skit and quiz
+            Celebrating American Independence Day with flag-themed decorations,
+            speech competition, skit and quiz
           </p>
 
           <div class="e-details">
@@ -2022,7 +2139,9 @@ competition, skit and quiz
             </div>
           </div>
 
-         <a href="/contact.html"> <button class="e-stay-tuned-btn">Stay Tuned</button></a>
+          <a href="/contact.html">
+            <button class="e-stay-tuned-btn">Stay Tuned</button></a
+          >
         </div>
 
         <!-- Second Card -->
@@ -2035,10 +2154,9 @@ competition, skit and quiz
           <h2 class="e-title">Visit to Lincoln Corner</h2>
 
           <p class="e-description">
-           Students will explore Lincoln Corner to
-engage in educational sessions, improve
-English language skills, and experience
-American learning resources.
+            Students will explore Lincoln Corner to engage in educational
+            sessions, improve English language skills, and experience American
+            learning resources.
           </p>
 
           <div class="e-details">
@@ -2052,7 +2170,9 @@ American learning resources.
             </div>
           </div>
 
-          <a href="/contact.html"> <button class="e-stay-tuned-btn">Stay Tuned</button></a>
+          <a href="/contact.html">
+            <button class="e-stay-tuned-btn">Stay Tuned</button></a
+          >
         </div>
 
         <!-- Third Card -->
@@ -2065,10 +2185,9 @@ American learning resources.
           <h2 class="e-title">Summer Summit</h2>
 
           <p class="e-description">
-           A four-days leadership and creativity summit
-in Islamabad where Access students join
-workshops, cultural exchanges, and
-collaborative projects.
+            A four-days leadership and creativity summit in Islamabad where
+            Access students join workshops, cultural exchanges, and
+            collaborative projects.
           </p>
 
           <div class="e-details">
@@ -2081,7 +2200,9 @@ collaborative projects.
               <span>Islamabad</span>
             </div>
           </div>
-         <a href="/contact.html"> <button class="e-stay-tuned-btn">Stay Tuned</button></a>
+          <a href="/contact.html">
+            <button class="e-stay-tuned-btn">Stay Tuned</button></a
+          >
         </div>
       </div>
     </section>
@@ -2091,58 +2212,78 @@ collaborative projects.
       <center><h1>Program Highlights</h1></center>
       <center>
         <p>
-          The English Access Program isn't just about learning a language — it's about discovering potential and building a
-path to success. Here's what makes the experience truly special:
+          The English Access Program isn't just about learning a language — it's
+          about discovering potential and building a path to success. Here's
+          what makes the experience truly special:
         </p>
       </center>
       <div class="pic-hl">
         <div class="pic">
-          <img loading="lazy" src="/assets/image/picofhl.jpeg" alt="class room picture" />
+          <img
+            loading="lazy"
+            src="/assets/image/picofhl.jpeg"
+            alt="class room picture"
+          />
         </div>
         <div class="hl">
           <h2>Comprehensive Skill Development</h2>
           <div class="h1-point-1">
             <div class="hl-point">
-              <img loading="lazy" src="/assets/image/translation.svg" alt="svg of language" />
+              <img
+                loading="lazy"
+                src="/assets/image/translation.svg"
+                alt="svg of language"
+              />
               <h3>Language Proficiency</h3>
             </div>
             <p class="hl-para">
-             Language is taught through real-world topics and practical
-use, helping students speak, read, write, and understand with
-confidence.
+              Language is taught through real-world topics and practical use,
+              helping students speak, read, write, and understand with
+              confidence.
             </p>
           </div>
           <div class="h1-point-2">
             <div class="hl-point">
-              <img loading="lazy" src="/assets/image/world.svg" alt="svg of language" />
+              <img
+                loading="lazy"
+                src="/assets/image/world.svg"
+                alt="svg of language"
+              />
               <h3>Cultural Awareness</h3>
             </div>
             <p class="hl-para">
               By exploring international cultures and participating in global
-discussions, students gain respect for diversity and become
-world-ready citizens.
+              discussions, students gain respect for diversity and become
+              world-ready citizens.
             </p>
           </div>
           <div class="h1-point-3">
             <div class="hl-point">
-              <img loading="lazy" src="/assets/image/leadership.svg" alt="svg of language" />
+              <img
+                loading="lazy"
+                src="/assets/image/leadership.svg"
+                alt="svg of language"
+              />
               <h3>Leadership Development</h3>
             </div>
             <p class="hl-para">
-              Whether it's hosting events, leading group activities, or
-speaking on stage, students develop the courage and skills
-to lead.
+              Whether it's hosting events, leading group activities, or speaking
+              on stage, students develop the courage and skills to lead.
             </p>
           </div>
           <div class="h1-point-4">
             <div class="hl-point">
-              <img loading="lazy" src="/assets/image/academic.svg" alt="svg of language" />
+              <img
+                loading="lazy"
+                src="/assets/image/academic.svg"
+                alt="svg of language"
+              />
               <h3>Academic Advancement</h3>
             </div>
             <p class="hl-para">
-             Access supports students not only in learning English but
-also in becoming better learners, thinkers, and
-changemakers in their communities.
+              Access supports students not only in learning English but also in
+              becoming better learners, thinkers, and changemakers in their
+              communities.
             </p>
           </div>
           <h3></h3>
@@ -2311,9 +2452,7 @@ changemakers in their communities.
       </div>
     </section>
 
-    <section class="partners">
-      
-    </section>
+    <section class="partners"></section>
     <!-- Footer -->
     <footer class="mfooter">
       <div class="footer-container">
@@ -2326,7 +2465,11 @@ changemakers in their communities.
               exchange.
             </p>
             <div class="social-links">
-              <a href=" https://www.facebook.com/ACCESS.UE.Multan" class="social-link" title="Facebook">
+              <a
+                href=" https://www.facebook.com/ACCESS.UE.Multan"
+                class="social-link"
+                title="Facebook"
+              >
                 <svg
                   width="20"
                   height="20"
@@ -2350,7 +2493,7 @@ changemakers in their communities.
                   />
                 </svg>
               </a>
-              <a href="#" class="social-link" title="YouTube">
+              <!-- <a href="#" class="social-link" title="YouTube">
                 <svg
                   width="20"
                   height="20"
@@ -2361,8 +2504,12 @@ changemakers in their communities.
                     d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                   />
                 </svg>
-              </a>
-              <a href="https://www.instagram.com/relopakistan?igsh=MXdoanQ1ZWZ0c2lweA==" class="social-link" title="Instagram">
+              </a> -->
+              <a
+                href="https://www.instagram.com/relopakistan?igsh=MXdoanQ1ZWZ0c2lweA=="
+                class="social-link"
+                title="Instagram"
+              >
                 <svg
                   width="20"
                   height="20"
@@ -2395,10 +2542,12 @@ changemakers in their communities.
             <h3>Resources</h3>
             <ul>
               <li><a href="books_webpage.html">Learning Material</a></li>
+
               <li><a href="#">Event Calendar</a></li>
               <li><a href="#">Photo Gallery</a></li>
               <li><a href="#">Student Handbook</a></li>
               <li><a href="#">FAQ</a></li>
+
             </ul>
           </div>
 
@@ -2407,7 +2556,7 @@ changemakers in their communities.
             <h3>Contact Us</h3>
             <div class="contact-info">
               <div class="address">
-                 University Of Education, Bosan Rd, Multan, Pakistan
+                University Of Education, Bosan Rd, Multan, Pakistan
               </div>
               <div class="phone">Service Not Available</div>
               <div class="email">Not Assigned</div>
@@ -2429,6 +2578,7 @@ changemakers in their communities.
           </div>
         </div>
       </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
