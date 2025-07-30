@@ -21,7 +21,7 @@
 
       /* Hero Section */
       .hero-section {
-        min-height: 73vh;
+        min-height: 63vh;
         position: relative;
         display: flex;
         align-items: center;
@@ -386,6 +386,10 @@
         .hero-buttons {
           flex-direction: column;
           gap: 1.5rem;
+        }
+
+        .hero-section {
+          min-height: 43vh;
         }
 
         .btn {
@@ -1399,10 +1403,7 @@
 
       /* Specific background images for each card */
       .speaking-activities {
-
         background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23e0e7ff"/><circle cx="100" cy="100" r="30" fill="%236366f1" opacity="0.3"/><circle cx="300" cy="180" r="25" fill="%23a855f7" opacity="0.3"/><rect x="50" y="200" width="300" height="4" fill="%236366f1" opacity="0.2"/><text x="200" y="140" text-anchor="middle" fill="%234f46e5" font-family="Arial" font-size="16" font-weight="bold">Loading Image...</text></svg>');
-
-
       }
 
       .writing-workshops {
@@ -1566,10 +1567,20 @@
         content: "📚";
       }
 
+      .class {
+        color: white;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .section-title {
           font-size: 2em;
+        }
+
+        .class {
+          font-size: 1.75em;
         }
 
         .section-subtitle {
@@ -1596,6 +1607,10 @@
       @media (max-width: 480px) {
         .section-title {
           font-size: 1.8em;
+        }
+
+        .class {
+          font-size: 1.5em;
         }
 
         .achievement-card {
@@ -1686,13 +1701,17 @@
 
       <div class="hero-content">
         <h1 class="hero-title">English Access Scholarship Program</h1>
-        <h2 style="color: white; font-size: 2.5em; margin-bottom: 40px;">UEM- Group 1</h2>
-        <div class="hero-buttons">
+        <h2
+          class="class"
+        >
+          UEM- Group 1
+        </h2>
+        <!-- <div class="hero-buttons">
           <a href="/activity.html" class="btn btn-primary"
             >Explore Activities</a
           >
           <a href="/portfolio.html" class="btn btn-secondary">View Portfolio</a>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- Welcome Section -->
@@ -1744,8 +1763,8 @@
             <h2 class="card-title">Write to Inspire</h2>
             <p class="card-description">
               Creative writing, academic essays, and journal-style reflections
-              help students to discover the power of words and the art of effective
-              writing in real life.
+              help students to discover the power of words and the art of
+              effective writing in real life.
             </p>
             <a href="/activity.html"
               ><button class="view-more-btn" onclick="showMore('writing')">
@@ -1766,7 +1785,8 @@
             <h2 class="card-title">Read, Reflect, Grow</h2>
             <p class="card-description">
               With a range of fiction and nonfiction texts, reading becomes a
-              habit that strengthens vocabulary, comprehension, and imagination of student.
+              habit that strengthens vocabulary, comprehension, and imagination
+              of student.
             </p>
             <a href="/activity.html"
               ><button class="view-more-btn" onclick="showMore('games')">
@@ -1831,7 +1851,8 @@
             <h2 class="card-title">Learn Through Play</h2>
             <p class="card-description">
               Interactive games and educational challenges turn lessons into fun
-              experiences that boost focus, teamwork, and critical thinking of the students.
+              experiences that boost focus, teamwork, and critical thinking of
+              the students.
             </p>
             <a href="/activity.html"
               ><button class="view-more-btn" onclick="showMore('creative')">
