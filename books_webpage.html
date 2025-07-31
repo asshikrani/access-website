@@ -46,6 +46,7 @@
         color: var(--white);
         border-radius: 10px;
         box-shadow: var(--shadow);
+        position: relative;
       }
 
       .header h1 {
@@ -57,6 +58,27 @@
       .header p {
         font-size: 1.1rem;
         opacity: 0.9;
+      }
+
+      .go-back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        border: 2px solid var(--white);
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .go-back-btn:hover {
+        background: var(--white);
+        color: var(--american-blue);
+        transform: scale(1.05);
       }
 
       .books-grid {
@@ -82,6 +104,7 @@
 
       .book-image {
         width: 100%;
+        height: 395px;
         object-fit: cover;
         background: linear-gradient(
           45deg,
@@ -96,26 +119,31 @@
         font-size: 1.2rem;
         color: var(--american-blue);
         font-weight: bold;
-        /* border: 2px dashed var(--american-blue); */
+      }
+
+      .book-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
       }
 
       .book-title {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--american-blue);
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         text-align: center;
       }
 
       .book-actions {
         display: flex;
         gap: 10px;
-        margin-bottom: 20px;
         justify-content: center;
       }
 
       .btn {
-        padding: 10px 20px;
+        padding: 12px 25px;
         border: none;
         border-radius: 25px;
         font-weight: 600;
@@ -125,6 +153,7 @@
         display: inline-block;
         text-align: center;
         font-size: 0.9rem;
+        flex: 1;
       }
 
       .btn-read {
@@ -147,107 +176,19 @@
         transform: scale(1.05);
       }
 
-      .description-section {
-        margin-top: 20px;
-      }
-
-      .description-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--american-blue);
-        margin-bottom: 15px;
-        text-align: center;
-      }
-
-      .main-point {
-        margin-bottom: 10px;
-        border: 1px solid var(--border-gray);
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      .main-point-header {
-        background-color: var(--light-gray);
-        padding: 12px 15px;
-        cursor: pointer;
-        display: flex;
-        justify-content: between;
-        align-items: center;
-        transition: background-color 0.3s ease;
-        font-weight: 500;
-      }
-
-      .main-point-header:hover {
-        background-color: var(--border-gray);
-      }
-
-      .main-point-header.active {
-        background-color: var(--american-blue);
-        color: var(--white);
-      }
-
-      .toggle-icon {
-        margin-left: auto;
-        transition: transform 0.3s ease;
-        font-weight: bold;
-      }
-
-      .toggle-icon.active {
-        transform: rotate(180deg);
-      }
-
-      .subpoints {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        background-color: var(--white);
-      }
-
-      .subpoints.active {
-        max-height: 500px;
-      }
-
-      .subpoint {
-        padding: 8px 15px;
-        border-top: 1px solid var(--border-gray);
-        color: var(--text-dark);
-        font-size: 0.9rem;
-      }
-
-      .subpoint:before {
-        content: "→";
-        color: var(--american-red);
-        font-weight: bold;
-        margin-right: 8px;
-      }
-
-      /* .add-book-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(
-          45deg,
-          var(--american-red),
-          var(--american-blue)
-        );
-        color: var(--white);
-        border: none;
-        border-radius: 50%;
-        font-size: 2rem;
-        cursor: pointer;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease;
-      }
-
-      .add-book-btn:hover {
-        transform: scale(1.1);
-      } */
-
       @media (max-width: 768px) {
         .container {
           padding: 15px;
+        }
+
+        .header {
+          padding: 40px 20px 30px 20px;
+        }
+
+        .go-back-btn {
+          position: static;
+          margin-bottom: 20px;
+          display: inline-block;
         }
 
         .header h1 {
@@ -269,12 +210,13 @@
 
         .btn {
           width: 100%;
+          margin-bottom: 10px;
         }
       }
 
       @media (max-width: 480px) {
         .header {
-          padding: 20px 15px;
+          padding: 30px 15px 20px 15px;
         }
 
         .header h1 {
@@ -284,572 +226,85 @@
         .book-card {
           padding: 15px;
         }
-
-        /* .add-book-btn {
-          width: 50px;
-          height: 50px;
-          font-size: 1.5rem;
-          bottom: 20px;
-          right: 20px;
-        }*/
-      } 
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
+        <button class="go-back-btn" onclick="goBack()">← Go Back</button>
         <h1>Digital Books Library</h1>
-        <p>
-          Explore our collection of professional books with detailed
-          descriptions
-        </p>
+        <p>Explore our collection of professional books</p>
       </div>
 
       <div class="books-grid" id="booksGrid">
         <!-- Books will be dynamically generated here -->
       </div>
-      <!-- <button class="add-book-btn" onclick="addNewBook()" title="Add New Book">
-        +
-      </button> -->
     </div>
 
     <script>
-      // Sample book data structure
+      // Sample book data structure (simplified without main points)
       const booksData = [
         {
           id: 1,
           title: "Advanced JavaScript Programming",
           image: "books/headway1-sb.jpeg",
-          // Add filePath if you have a PDF for this book
           filePath: "books/headway1-sb.pdf",
-          mainPoints: [
-            {
-              title: "Modern ES6+ Features",
-              subpoints: [
-                "Arrow functions and lexical scoping",
-                "Template literals and string interpolation",
-                "Destructuring assignments and spread operator",
-                "Promises and async/await patterns",
-              ],
-            },
-            {
-              title: "DOM Manipulation Techniques",
-              subpoints: [
-                "Event handling and delegation",
-                "Dynamic content creation and modification",
-                "Performance optimization strategies",
-                "Cross-browser compatibility solutions",
-              ],
-            },
-            {
-              title: "Asynchronous Programming",
-              subpoints: [
-                "Understanding the event loop",
-                "Callback patterns and error handling",
-                "Promise chaining and composition",
-                "Async/await best practices",
-              ],
-            },
-            {
-              title: "Object-Oriented Programming",
-              subpoints: [
-                "Classes and inheritance patterns",
-                "Prototypal inheritance concepts",
-                "Encapsulation and data privacy",
-                "Polymorphism and method overriding",
-              ],
-            },
-            {
-              title: "Functional Programming Concepts",
-              subpoints: [
-                "Higher-order functions and closures",
-                "Pure functions and immutability",
-                "Array methods and data transformation",
-                "Functional composition patterns",
-              ],
-            },
-            {
-              title: "Error Handling and Debugging",
-              subpoints: [
-                "Try-catch blocks and error propagation",
-                "Console debugging techniques",
-                "Browser developer tools usage",
-                "Testing and validation strategies",
-              ],
-            },
-            {
-              title: "Performance Optimization",
-              subpoints: [
-                "Memory management and garbage collection",
-                "Code splitting and lazy loading",
-                "Caching strategies and optimization",
-                "Bundle size reduction techniques",
-              ],
-            },
-            {
-              title: "Module Systems and Architecture",
-              subpoints: [
-                "CommonJS and ES6 modules",
-                "Module bundling with Webpack",
-                "Code organization patterns",
-                "Dependency management strategies",
-              ],
-            },
-            {
-              title: "Web APIs and Browser Features",
-              subpoints: [
-                "Fetch API and HTTP requests",
-                "Local storage and session management",
-                "Geolocation and device APIs",
-                "Service workers and PWA features",
-              ],
-            },
-            {
-              title: "Security Best Practices",
-              subpoints: [
-                "XSS and CSRF prevention",
-                "Input validation and sanitization",
-                "Secure authentication patterns",
-                "Content Security Policy implementation",
-              ],
-            },
-            {
-              title: "Testing and Quality Assurance",
-              subpoints: [
-                "Unit testing with Jest framework",
-                "Integration testing strategies",
-                "Code coverage and quality metrics",
-                "Continuous integration practices",
-              ],
-            },
-            {
-              title: "Modern Development Workflow",
-              subpoints: [
-                "Version control with Git",
-                "Package management with npm/yarn",
-                "Build tools and automation",
-                "Code formatting and linting",
-              ],
-            },
-          ],
         },
         {
           id: 2,
           title: "Data Science Fundamentals",
           image: "/books/headway1-wb.jpeg",
-          // Add filePath if you have a PDF for this book
           filePath: "books/headway1-wb.pdf",
-          mainPoints: [
-            {
-              title: "Statistical Analysis Methods",
-              subpoints: [
-                "Descriptive statistics and data summarization",
-                "Inferential statistics and hypothesis testing",
-                "Regression analysis and correlation",
-                "Statistical significance and p-values",
-              ],
-            },
-            {
-              title: "Data Collection and Preprocessing",
-              subpoints: [
-                "Data gathering techniques and sources",
-                "Data cleaning and quality assessment",
-                "Missing data handling strategies",
-                "Feature engineering and transformation",
-              ],
-            },
-            {
-              title: "Machine Learning Algorithms",
-              subpoints: [
-                "Supervised learning classification methods",
-                "Unsupervised learning clustering techniques",
-                "Model selection and validation",
-                "Overfitting prevention and regularization",
-              ],
-            },
-            {
-              title: "Data Visualization Techniques",
-              subpoints: [
-                "Chart types and appropriate usage",
-                "Interactive visualization tools",
-                "Dashboard design principles",
-                "Storytelling with data visualization",
-              ],
-            },
-            {
-              title: "Programming for Data Science",
-              subpoints: [
-                "Python libraries (pandas, numpy, scipy)",
-                "R programming for statistical analysis",
-                "SQL for database queries",
-                "Jupyter notebooks and workflow",
-              ],
-            },
-            {
-              title: "Big Data Technologies",
-              subpoints: [
-                "Hadoop ecosystem and MapReduce",
-                "Spark for distributed computing",
-                "NoSQL databases and data lakes",
-                "Cloud computing platforms",
-              ],
-            },
-            {
-              title: "Experimental Design",
-              subpoints: [
-                "A/B testing methodologies",
-                "Sample size determination",
-                "Control group selection",
-                "Bias reduction techniques",
-              ],
-            },
-            {
-              title: "Business Intelligence",
-              subpoints: [
-                "KPI identification and tracking",
-                "Business metrics interpretation",
-                "ROI analysis and optimization",
-                "Stakeholder communication strategies",
-              ],
-            },
-            {
-              title: "Ethics in Data Science",
-              subpoints: [
-                "Privacy protection and GDPR compliance",
-                "Algorithmic bias detection",
-                "Transparent reporting practices",
-                "Responsible AI development",
-              ],
-            },
-            {
-              title: "Time Series Analysis",
-              subpoints: [
-                "Trend and seasonality detection",
-                "Forecasting models and techniques",
-                "ARIMA and exponential smoothing",
-                "Anomaly detection methods",
-              ],
-            },
-            {
-              title: "Deep Learning Fundamentals",
-              subpoints: [
-                "Neural network architectures",
-                "Backpropagation and optimization",
-                "Convolutional and recurrent networks",
-                "Transfer learning applications",
-              ],
-            },
-            {
-              title: "Model Deployment and Production",
-              subpoints: [
-                "Model versioning and lifecycle management",
-                "API development for model serving",
-                "Performance monitoring and maintenance",
-                "Scalability and infrastructure considerations",
-              ],
-            },
-          ],
         },
         {
           id: 3,
           title: "Digital Marketing Mastery",
           image: "/books/headway2-sb.jpg",
-          filePath: "books/headway2-sb.pdf", // Ensure this path is correct relative to HTML file
-          mainPoints: [
-            {
-              title: "Search Engine Optimization",
-              subpoints: [
-                "Keyword research and analysis",
-                "On-page optimization techniques",
-                "Link building strategies",
-                "Technical SEO and site structure",
-              ],
-            },
-            {
-              title: "Social Media Marketing",
-              subpoints: [
-                "Platform-specific strategies",
-                "Content creation and curation",
-                "Community management practices",
-                "Social media advertising campaigns",
-              ],
-            },
-            {
-              title: "Content Marketing Strategy",
-              subpoints: [
-                "Content planning and editorial calendars",
-                "Storytelling and brand narrative",
-                "Content distribution channels",
-                "Performance measurement and optimization",
-              ],
-            },
-            {
-              title: "Email Marketing Automation",
-              subpoints: [
-                "List building and segmentation",
-                "Drip campaigns and nurture sequences",
-                "Personalization and dynamic content",
-                "A/B testing and optimization",
-              ],
-            },
-            {
-              title: "Pay-Per-Click Advertising",
-              subpoints: [
-                "Google Ads campaign setup",
-                "Keyword bidding strategies",
-                "Ad copy optimization",
-                "Landing page conversion optimization",
-              ],
-            },
-            {
-              title: "Analytics and Data Tracking",
-              subpoints: [
-                "Google Analytics setup and configuration",
-                "Conversion tracking and goal setting",
-                "Attribution modeling",
-                "Custom reporting and dashboards",
-              ],
-            },
-            {
-              title: "Customer Journey Mapping",
-              subpoints: [
-                "Touchpoint identification and analysis",
-                "Persona development and targeting",
-                "Funnel optimization strategies",
-                "Cross-channel experience design",
-              ],
-            },
-            {
-              title: "Influencer Marketing",
-              subpoints: [
-                "Influencer identification and vetting",
-                "Campaign planning and execution",
-                "Contract negotiation and management",
-                "ROI measurement and reporting",
-              ],
-            },
-            {
-              title: "Marketing Automation Tools",
-              subpoints: [
-                "CRM integration and management",
-                "Lead scoring and qualification",
-                "Workflow automation setup",
-                "Multi-channel campaign orchestration",
-              ],
-            },
-            {
-              title: "Video Marketing Production",
-              subpoints: [
-                "Video content planning and scripting",
-                "Production techniques and equipment",
-                "Post-production and editing",
-                "Distribution and promotion strategies",
-              ],
-            },
-            {
-              title: "Mobile Marketing Strategies",
-              subpoints: [
-                "App store optimization (ASO)",
-                "Mobile advertising formats",
-                "Location-based marketing",
-                "Mobile user experience optimization",
-              ],
-            },
-            {
-              title: "Brand Development and Positioning",
-              subpoints: [
-                "Brand identity and visual design",
-                "Brand voice and messaging",
-                "Competitive positioning analysis",
-                "Brand reputation management",
-              ],
-            },
-          ],
+          filePath: "books/headway2-sb.pdf",
         },
         {
           id: 4,
           title: "Project Management Excellence",
           image: "/books/headway2-wb.jpeg",
-          filePath: "/books/headway2-wb.pdf", // Ensure this path is correct relative to HTML file
-          mainPoints: [
-            {
-              title: "Project Planning and Initiation",
-              subpoints: [
-                "Project charter development",
-                "Stakeholder identification and analysis",
-                "Scope definition and requirements gathering",
-                "Project timeline and milestone planning",
-              ],
-            },
-            {
-              title: "Agile and Scrum Methodologies",
-              subpoints: [
-                "Sprint planning and execution",
-                "Daily standups and retrospectives",
-                "User story writing and estimation",
-                "Backlog grooming and prioritization",
-              ],
-            },
-            {
-              title: "Risk Management Strategies",
-              subpoints: [
-                "Risk identification and assessment",
-                "Risk mitigation planning",
-                "Contingency planning and response",
-                "Risk monitoring and reporting",
-              ],
-            },
-            {
-              title: "Team Leadership and Communication",
-              subpoints: [
-                "Team formation and dynamics",
-                "Effective communication strategies",
-                "Conflict resolution techniques",
-                "Motivation and performance management",
-              ],
-            },
-            {
-              title: "Budget and Resource Management",
-              subpoints: [
-                "Cost estimation and budgeting",
-                "Resource allocation and optimization",
-                "Budget tracking and control",
-                "Vendor and contractor management",
-              ],
-            },
-            {
-              title: "Quality Assurance and Control",
-              subpoints: [
-                "Quality planning and standards",
-                "Testing and validation processes",
-                "Quality metrics and measurement",
-                "Continuous improvement practices",
-              ],
-            },
-            {
-              title: "Project Monitoring and Control",
-              subpoints: [
-                "Progress tracking and reporting",
-                "Performance measurement (KPIs)",
-                "Change management processes",
-                "Issue tracking and resolution",
-              ],
-            },
-            {
-              title: "Stakeholder Management",
-              subpoints: [
-                "Stakeholder engagement strategies",
-                "Communication planning and execution",
-                "Expectation management",
-                "Feedback collection and incorporation",
-              ],
-            },
-            {
-              title: "Project Management Tools",
-              subpoints: [
-                "Project management software selection",
-                "Gantt charts and scheduling tools",
-                "Collaboration platforms",
-                "Reporting and dashboard creation",
-              ],
-            },
-            {
-              title: "Project Closure and Evaluation",
-              subpoints: [
-                "Project deliverable verification",
-                "Lessons learned documentation",
-                "Team performance evaluation",
-                "Knowledge transfer processes",
-              ],
-            },
-            {
-              title: "Change Management",
-              subpoints: [
-                "Change request processes",
-                "Impact assessment methodologies",
-                "Approval workflows and governance",
-                "Change communication strategies",
-              ],
-            },
-            {
-              title: "International Project Management",
-              subpoints: [
-                "Cross-cultural team management",
-                "Time zone coordination strategies",
-                "International compliance requirements",
-                "Global communication protocols",
-              ],
-            },
-          ],
+          filePath: "/books/headway2-wb.pdf",
         },
       ];
 
-      // Function to create a book card
+      // Function to create a book card (simplified)
       function createBookCard(book) {
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
         bookCard.innerHTML = `
-                <div class="book-image"><img src="${book.image}" alt=""></div>
-                <h2 class="book-title">${book.title}</h2>
-                <div class="book-actions">
-                    <button class="btn btn-read" onclick="readBook(${
-                      book.id
-                    })">📖 Read</button>
-                    <button class="btn btn-download" onclick="downloadBook(${
-                      book.id
-                    })">⬇️ Download</button>
-                </div>
-                <div class="description-section">
-                    <h3 class="description-title">Book Description</h3>
-                    <div class="main-points">
-                        ${book.mainPoints
-                          .map(
-                            (point, index) => `
-                            <div class="main-point">
-                                <div class="main-point-header" onclick="toggleSubpoints(${
-                                  book.id
-                                }, ${index})">
-                                    <span>${index + 1}. ${point.title}</span>
-                                    <span class="toggle-icon">▼</span>
-                                </div>
-                                <div class="subpoints" id="subpoints-${
-                                  book.id
-                                }-${index}">
-                                    ${point.subpoints
-                                      .map(
-                                        (subpoint) => `
-                                        <div class="subpoint">${subpoint}</div>
-                                    `
-                                      )
-                                      .join("")}
-                                </div>
-                            </div>
-                        `
-                          )
-                          .join("")}
-                    </div>
-                </div>
-            `;
+          <div class="book-image">
+            <img src="${book.image}" alt="${book.title}" onerror="this.style.display='none'; this.parentNode.innerHTML='📚 Book Cover';">
+          </div>
+          <h2 class="book-title">${book.title}</h2>
+          <div class="book-actions">
+            <button class="btn btn-read" onclick="readBook(${book.id})">📖 Read</button>
+            <button class="btn btn-download" onclick="downloadBook(${book.id})">⬇️ Download</button>
+          </div>
+        `;
         return bookCard;
       }
 
-      // Function to read a book - This is the correct implementation
+      // Function to read a book
       function readBook(bookId) {
         const book = booksData.find((b) => b.id === bookId);
         if (book && book.filePath) {
-          window.open(book.filePath, "_blank"); // Opens PDF in a new tab
+          window.open(book.filePath, "_blank");
         } else {
           alert(`Book file not found or path not specified for "${book.title}".`);
         }
       }
 
-      // Function to download a book - This is the correct implementation
+      // Function to download a book
       function downloadBook(bookId) {
         const book = booksData.find((b) => b.id === bookId);
         if (book && book.filePath) {
           const link = document.createElement("a");
           link.href = book.filePath;
-          link.download = book.title.replace(/\s/g, "_") + ".pdf"; // Suggest a filename for download
+          link.download = book.title.replace(/\s/g, "_") + ".pdf";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -858,61 +313,19 @@
         }
       }
 
-      // Function to toggle subpoints
-      function toggleSubpoints(bookId, pointIndex) {
-        const subpoints = document.getElementById(
-          `subpoints-${bookId}-${pointIndex}`
-        );
-        const header = subpoints.previousElementSibling;
-        const icon = header.querySelector(".toggle-icon");
-
-        if (subpoints.classList.contains("active")) {
-          subpoints.classList.remove("active");
-          header.classList.remove("active");
-          icon.classList.remove("active");
+      // Function to go back to previous window
+      function goBack() {
+        // Try to go back in browser history
+        if (window.history.length > 1) {
+          window.history.back();
         } else {
-          subpoints.classList.add("active");
-          header.classList.add("active");
-          icon.classList.add("active");
+          // If no history, try to close the window (works if opened by script)
+          window.close();
+          // If window.close() doesn't work, show a message
+          setTimeout(() => {
+            alert("Please use your browser's back button or close this tab manually.");
+          }, 100);
         }
-      }
-
-      // Function to add a new book (for future expansion)
-      function addNewBook() {
-        const newBook = {
-          id: booksData.length + 1,
-          title: `New Book ${booksData.length + 1}`,
-          image: "New Book Cover",
-          // When adding a new book via this function, you'd need to
-          // add a filePath property here as well if it's a physical file.
-          // For now, it won't be readable/downloadable if not set.
-          filePath: "", // You might prompt for this in a real scenario
-          mainPoints: [
-            {
-              title: "Sample Main Point 1",
-              subpoints: [
-                "Sample subpoint 1",
-                "Sample subpoint 2",
-                "Sample subpoint 3",
-                "Sample subpoint 4",
-              ],
-            },
-            {
-              title: "Sample Main Point 2",
-              subpoints: [
-                "Sample subpoint 1",
-                "Sample subpoint 2",
-                "Sample subpoint 3",
-                "Sample subpoint 4",
-              ],
-            },
-            // Add more main points as needed
-          ],
-        };
-
-        booksData.push(newBook);
-        renderBooks();
-        alert(`New book "${newBook.title}" has been added to the library!`);
       }
 
       // Function to render all books
@@ -930,6 +343,13 @@
       document.addEventListener("DOMContentLoaded", function () {
         renderBooks();
       });
-</script>
+
+      // Add keyboard shortcut for going back (Escape key)
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          goBack();
+        }
+      });
+    </script>
   </body>
 </html>
